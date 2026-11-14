@@ -116,3 +116,4 @@
 2026-11-14 · images · Hero slot is 1600×1600 (was 2000) · source was 1080px; larger output only added bytes
 2026-11-14 · images · Alt text rewritten to describe the supplied photos (door key, shingle close-up, calculator with coffee, laptop + notebook, keys + model house) · alt must match what's shown
 2026-11-14 · rev · Home file-panel images cropped square (ImageFrame `square`) with corner marks in the panel accent (`text-primary`: signal on ink, ink on signal) · user: square images, colored + marks to support the design
+2026-11-14 · rev · File panels redesign (e66a264) reverted at user request; panels back to square photos with accent corner marks
