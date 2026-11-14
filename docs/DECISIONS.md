@@ -112,3 +112,6 @@
 2026-11-14 · rev/perf · Home PinnedStory, DeskLog and CalculatorCompact load via next/dynamic (still server-rendered) · TBT 210 → 130–160 ms, Lighthouse 91 → 91–93 (compressed); smaller gain than the earlier uncompressed estimate
 2026-11-14 · rev/motion · Hover-triggered ScrambleText also runs on scroll-in and on tap where the device can't hover · user: file numerals didn't scramble on phone
 2026-11-14 · rev/motion · CursorLabel takes the panel theme and uses primary colors: signal/ink on the ink panel, ink/white on the signal panel · user: label stayed orange on the orange panel
+2026-11-14 · images · Object photos are pre-processed once into B/W halftones (scripts/halftone.py, Pillow, dev-only): crop to slot ratio, autocontrast + 25% equalize, unsharp, shadows lifted to 28%, 45° dot screen (9–10px cells), 8-gray lossless WebP (200–450 KB) · user asked for halftone B/W; baked files are faster and identical in every browser vs. a CSS/SVG filter
+2026-11-14 · images · Hero slot is 1600×1600 (was 2000) · source was 1080px; larger output only added bytes
+2026-11-14 · images · Alt text rewritten to describe the supplied photos (door key, shingle close-up, calculator with coffee, laptop + notebook, keys + model house) · alt must match what's shown

@@ -44,11 +44,11 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
 | Slot | Path | Size (px) | Subject | Status |
 |---|---|---|---|---|
-| hero-object | public/images/objects/hero-key.webp | 2000×2000 | House key on a plain ring | placeholder |
-| file01-object | public/images/objects/lockbox.webp | 1600×2000 | Realtor key lockbox | placeholder |
-| file02-object | public/images/objects/shingles.webp | 1600×2000 | Small stack of asphalt roof shingles | placeholder |
-| calculator-object | public/images/objects/calculator.webp | 1600×1600 | Vintage desk calculator | placeholder |
-| process-object | public/images/objects/notebook.webp | 1600×1200 | Closed laptop with a notebook | placeholder |
+| hero-object | public/images/objects/hero-key.webp | 2000×2000 | House key on a plain ring | ✓ live (halftone, 1600×1600) — keys + model house flat lay |
+| file01-object | public/images/objects/lockbox.webp | 1600×2000 | Realtor key lockbox | ✓ live (halftone) — key in an open door |
+| file02-object | public/images/objects/shingles.webp | 1600×2000 | Small stack of asphalt roof shingles | ✓ live (halftone) — shingle close-up |
+| calculator-object | public/images/objects/calculator.webp | 1600×1600 | Vintage desk calculator | ✓ live (halftone) — source was only 236px; send a larger version if you can |
+| process-object | public/images/objects/notebook.webp | 1600×1200 | Closed laptop with a notebook | ✓ live (halftone) — laptop + notebook |
 | resources-object | public/images/objects/clipboard.webp | 1600×2000 | Clipboard with a blank checklist | placeholder |
 | notfound-object | public/images/objects/yard-sign.webp | 1600×2000 | Blank real-estate yard sign | placeholder |
 | founder-portrait | public/images/founder/portrait.webp | 1600×2000 | Founder portrait | placeholder |
