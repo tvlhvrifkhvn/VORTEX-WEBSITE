@@ -6,7 +6,7 @@ import { ImageFrame } from "@/components/ui/image-frame";
 import { CursorLabel } from "@/components/motion/cursor-label";
 import { ScrambleText } from "@/components/motion/scramble-text";
 
-/* 04 — THE FILES: two full-panel links (stretched-link, one tab stop each). Hover re-scrambles the numeral. */
+/* 04 — THE FILES (images square; corner marks in the panel accent: signal on ink, ink on signal): two full-panel links (stretched-link, one tab stop each). Hover re-scrambles the numeral. */
 export function FilePanels() {
   return (
     <section aria-labelledby="files-title" className="grid lg:grid-cols-2">
@@ -40,7 +40,7 @@ export function FilePanels() {
                   </li>
                 ))}
               </ol>
-              <ImageFrame slot={p.image} marks={false} className="w-32 shrink-0 sm:w-36" />
+              <ImageFrame slot={p.image} square marksClassName="text-primary" sizes="160px" className="mr-3.5 mb-3.5 w-32 shrink-0 sm:w-40" />
             </div>
             <span
               aria-hidden="true"

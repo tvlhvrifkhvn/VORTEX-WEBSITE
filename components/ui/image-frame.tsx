@@ -12,16 +12,20 @@ interface ImageFrameProps {
   marks?: boolean;
   className?: string;
   sizes?: string;
+  /** Crop to 1:1 (object-cover) regardless of the source ratio. */
+  square?: boolean;
+  /** Extra classes for the corner marks, e.g. a theme color. */
+  marksClassName?: string;
 }
 
 /** Grayscale object + multiply signal block + corner marks. Placeholder slots render a hatched box
     with the same aspect ratio, so swapping in the real image changes nothing else (§7.3). */
-export function ImageFrame({ slot, block = "none", screenshot, priority, marks = true, className, sizes }: ImageFrameProps) {
+export function ImageFrame({ slot, block = "none", screenshot, priority, marks = true, className, sizes, square, marksClassName }: ImageFrameProps) {
   const img = images[slot];
   return (
     <figure className={cn("relative", className)}>
-      {marks && <CornerMarks />}
-      <div className="relative overflow-hidden bg-card" style={{ aspectRatio: `${img.width} / ${img.height}` }}>
+      {marks && <CornerMarks className={marksClassName} />}
+      <div className="relative overflow-hidden bg-card" style={{ aspectRatio: square ? "1 / 1" : `${img.width} / ${img.height}` }}>
         {img.placeholder ? (
           <div role="img" aria-label={img.alt} data-placeholder="" className="hatch flex size-full items-end p-3">
             <span className="label-mono text-muted-foreground">
