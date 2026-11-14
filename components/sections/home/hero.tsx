@@ -6,9 +6,15 @@ import { SpecStrip } from "@/components/ui/spec";
 import { Button } from "@/components/ui/button";
 import { ImageFrame } from "@/components/ui/image-frame";
 import { Bar } from "@/components/ui/rule";
+import { DeskStatus } from "@/components/motion/desk-status";
+import { stripText } from "@/lib/pricing";
 
 /* 01 — THE DESK (§11.1). Mobile order: meta line → H1 → image → lead → CTAs. */
 export function Hero() {
+  const prices = (["01", "02"] as const).flatMap((f) => {
+    const t = stripText(f);
+    return t ? [{ text: t, claim: true as const }] : [];
+  });
   return (
     <Section aria-labelledby="hero-title" className="relative pt-8 pb-10 md:pb-(--spacing-section) lg:pt-14">
       <div className="grid-vx gap-y-8 lg:gap-y-10">
@@ -33,6 +39,12 @@ export function Hero() {
             <Button href={hero.ctas.agent.href} size="lg">{hero.ctas.agent.label}</Button>
             <Button href={hero.ctas.contractor.href} size="lg" variant="secondary">{hero.ctas.contractor.label}</Button>
             <Button href={hero.ctas.call.href} variant="text" className="sm:ml-2">{hero.ctas.call.label}</Button>
+          </div>
+          <div className="flex flex-col gap-3">
+            <div data-claim="" className="w-fit">
+              <DeskStatus labels={hero.desk} />
+            </div>
+            {prices.length > 0 && <SpecStrip items={prices} />}
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import type { FaqItem, FaqTag, PageMeta } from "./types";
+import { fromText } from "@/lib/pricing";
 
 export const meta: PageMeta = {
   title: "FAQ",
@@ -45,10 +46,10 @@ export const faq: FaqItem[] = [
   { q: "How fast is turnaround?", a: "[[PLACEHOLDER: supplement turnaround time]]", tags: ["file02"], claim: true },
   { q: "Which trades do you supplement for?", a: "Roofing contractors and water-damage restoration companies in the US.", tags: ["file02"] },
   // Billing
-  { q: "How much does it cost?", a: "It depends on your hours and the work involved. Book a call and we’ll quote a monthly price for your workload.", tags: ["home", "billing"] },
-  { q: "Why isn’t there a price on the site?", a: "Every desk is different: hours, tools and the mix of tasks change the work. After a 15-minute call we quote a monthly price for your workload.", tags: ["billing"] },
+  { q: "How much does it cost?", a: `File 01: ${fromText("01").toLowerCase()}. File 02: ${fromText("02").toLowerCase()}. Book a call and we confirm the price for your workload.`, tags: ["home", "billing"], claim: true },
+  { q: "Why do you confirm prices on a call?", a: "Listed prices are starting points. Hours, tools and the mix of tasks change the work, so we confirm a monthly price after a 15-minute call.", tags: ["billing"] },
   { q: "Is there a contract?", a: "[[PLACEHOLDER: contract and notice terms]]", tags: ["billing"], claim: true },
-  { q: "Can I start part-time?", a: "Yes. The Part-time plan covers 20 hours a week, and you can talk to us about moving to full-time later.", tags: ["billing"] },
+  { q: "Can I start part-time?", a: "Yes. The Studio plan covers 20 hours a week, and you can move to Townhouse (40 hours) later.", tags: ["billing"] },
   { q: "How do I pay?", a: "By Wise or Payoneer.", tags: ["home", "billing"] },
   { q: "What if it isn’t working?", a: "Tell us. We fix the checklist or the scope first. If it still isn’t right, you can stop: [[PLACEHOLDER: notice period]].", tags: ["billing"], claim: true },
   // Security

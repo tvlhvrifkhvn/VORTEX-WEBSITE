@@ -1,4 +1,5 @@
 import type { PageMeta } from "./types";
+import { fromText } from "@/lib/pricing";
 
 export const meta: PageMeta = {
   title: "Real Estate Virtual Assistant",
@@ -20,7 +21,7 @@ export const header = {
     { key: "Start", value: "About 1 week", claim: true as const },
     { key: "Contract", value: "Monthly", claim: true as const },
     { key: "Works in", value: "MLS, Zillow, Follow Up Boss, HubSpot" },
-    { key: "Price", value: "Contact for pricing" },
+    { key: "Price", value: fromText("01"), claim: true as const },
   ],
   primary: { label: "Schedule a showing", href: "/book-a-call?file=01" },
   secondary: { label: "See pricing", href: "/pricing?file=01" },
@@ -28,6 +29,7 @@ export const header = {
 
 export const sections = {
   services: { label: "01.1 — Property details", title: "What your VA takes off your plate" },
+  addons: { label: "01.1b — Add-ons (on request)", title: "Extras for File 01 clients", lead: "Available to existing File 01 clients. Not sold on their own.", tag: "Add-on" },
   audience: {
     label: "01.2 — Who it’s for",
     title: "Built for three kinds of operators",

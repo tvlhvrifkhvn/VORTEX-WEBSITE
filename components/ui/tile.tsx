@@ -32,16 +32,17 @@ export function Tile({ theme, marks, claim, className, children, ...props }: Til
 }
 
 /** Big number + mono unit + tiny label (+ note). Numbers scramble on enter (§6.2.3). */
-export function StatTile({ stat, index, theme, className }: { stat: Stat; index?: string; theme?: Theme; className?: string }) {
+/** `wide`: on desktop the number sits left and the label right, so wide tiles have no empty half. */
+export function StatTile({ stat, index, theme, className, wide }: { stat: Stat; index?: string; theme?: Theme; className?: string; wide?: boolean }) {
   return (
     <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-10", className)}>
       {index && <span className="label-mono tabular text-muted-foreground">{index}</span>}
-      <div>
+      <div className={cn(wide && "lg:flex lg:items-end lg:justify-between lg:gap-10")}>
         <p className="flex flex-wrap items-baseline gap-x-3">
-          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="text-display font-semibold" />
+          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="text-stat font-semibold" />
           {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
         </p>
-        <Text as="p" className="label-mono mt-3">{stat.label}</Text>
+        <Text as="p" className={cn("label-mono mt-3", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>
         {stat.note && <Text as="p" className="mt-2 text-small text-muted-foreground">{stat.note}</Text>}
       </div>
     </Tile>

@@ -2,7 +2,7 @@ import { meta, header, sections as s, cta } from "@/content/real-estate";
 import { faqFor } from "@/content/faq";
 import { jsonLdHtml, pageMetadata, serviceJsonLd } from "@/lib/seo";
 import { FileHeader } from "@/components/sections/file/file-header";
-import { ServiceList } from "@/components/sections/file/service-list";
+import { AddonList, ServiceList } from "@/components/sections/file/service-list";
 import { Audience } from "@/components/sections/file/audience";
 import { SampleWeek } from "@/components/sections/file/sample-week";
 import { FilePricing } from "@/components/sections/file/file-pricing";
@@ -20,6 +20,7 @@ export default function RealEstatePage() {
     <>
       <FileHeader {...header} image="file01-object" />
       <ServiceList file="01" {...s.services} onRequest={servicesSection.onRequest} theme="paper-2" />
+      <AddonList file="01" {...s.addons} theme="paper-2" />
       <Audience {...s.audience} />
       <HowItStarts {...s.timeline} theme="paper-2" />
       <SampleWeek {...s.week} />

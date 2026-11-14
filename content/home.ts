@@ -28,6 +28,8 @@ export const hero = {
     call: { label: "or book a 15-min call", href: "/book-a-call" },
   },
   rotated: "VortexOne — Back office desk — No. 001",
+  /* Under the CTAs: live desk line (claim: reply promise) + price strip derived from content/pricing.ts. */
+  desk: { open: "Desk open — replies today", closedPrefix: "Desk closed — " },
 };
 
 /* 02 — WORKS INSIDE */
@@ -40,12 +42,15 @@ export const statsSection = {
   title: "Small desk. Clear numbers.",
   stats: {
     capacity: { value: 40, suffix: " hrs/wk", label: "Full-time capacity, one specialist.", claim: true },
-    reply: { value: "Same", suffix: " day", label: "Replies on business days, during desk hours.", claim: true },
+    reply: { value: "<24", suffix: " hrs", label: "Reply time on business days, during desk hours.", claim: true },
     files: { value: 2, suffix: " files", label: "Two specialist lines. Nothing else." },
     founder: { value: 1, suffix: " founder", label: "The person you talk to does the work.", claim: true },
     hours: { value: "9–6", suffix: " ET", label: "Desk hours, Monday to Friday, US Eastern." },
   } satisfies Record<string, Stat>,
-  /* Tile C: no public prices → "Run the numbers" tile instead of a computed savings % (SPEC §11.1). */
+  /* Tile A hours grid: 5 days × 8 hours. */
+  week: { days: ["Mon", "Tue", "Wed", "Thu", "Fri"], hoursPerDay: 8, caption: "40 hours · one specialist" },
+  /* Tile C: savings % computed from calculator defaults + content/pricing.ts; falls back to `run` if prices are null. */
+  savings: { label: "Savings", text: "Lower monthly cost than an in-house assistant*", footnote: "*Calculator defaults.", link: "Run your own numbers →", href: "/savings-calculator" },
   run: { label: "Savings", title: "What would an in-house assistant cost you?", cta: "Run the numbers", href: "/savings-calculator" },
 };
 
@@ -54,7 +59,8 @@ export const filesSection = {
   srTitle: "The two files",
   cursor: "Open file →",
   cta: "Open file",
-  count: (n: number) => `${n} services in this file`,
+  /* Counts come from content/services.ts. */
+  count: (core: number, addons: number) => (addons ? `${core} core + ${addons} add-ons` : `${core} core services`),
   panels: [
     {
       file: "01" as const,
@@ -87,11 +93,19 @@ export const filesSection = {
 };
 
 /* 05 — EVERYTHING ON THE DESK */
+const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen"];
+export const numberWord = (n: number) => WORDS[n] ?? String(n);
+
 export const servicesSection = {
   label: "05 — Everything on the desk",
-  title: "Fourteen jobs. Two files. One desk.",
+  /* Count comes from content/services.ts (core tier). */
+  title: (core: number) => `${numberWord(core)} core jobs. Two files. One desk.`,
   lead: "Each job links to the full scope on its file page.",
   onRequest: "On request",
+  coreLabel: "Core — File 01 + File 02",
+  addonLabel: "Add-ons — On request, for File 01 clients",
+  addonNote: "Available to existing File 01 clients. Not sold on their own.",
+  addonTag: "Add-on",
 };
 
 /* 06 — YOUR DAY, OUR NIGHT SHIFT */

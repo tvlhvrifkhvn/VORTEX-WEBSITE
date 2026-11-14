@@ -1,10 +1,13 @@
 import { cn } from "@/lib/utils";
 import type { PricingPlan } from "@/content/types";
-import { cardLabels, priceLabel } from "@/content/pricing";
+import { cardLabels } from "@/content/pricing";
+import { planPriceText } from "@/lib/pricing";
+import { ScrambleNumber } from "@/components/motion/scramble-number";
 import { Tag } from "@/components/ui/labels";
 import { Button } from "@/components/ui/button";
 
-/* Plan cards. No public prices: every card shows priceLabel. Recommended plan gets an 8px signal bar. */
+/* Plan cards. Prices come from content/pricing.ts (scramble in); "Custom" / "Contact for pricing" when not numeric.
+   Recommended plan gets an 8px signal bar. */
 export function PricingCards({ plans, className }: { plans: PricingPlan[]; className?: string }) {
   const cols = plans.length >= 3 ? "lg:grid-cols-3" : plans.length === 2 ? "md:grid-cols-2" : "max-w-xl";
   return (
@@ -29,7 +32,18 @@ export function PricingCards({ plans, className }: { plans: PricingPlan[]; class
             </div>
             <div className="border-y border-border py-4">
               {plan.hours && <p className={cn("font-semibold tabular", /^\d/.test(plan.hours) ? "text-h2" : "text-h3")}>{plan.hours}</p>}
-              <p className="label-mono mt-2">{plan.price === null ? priceLabel : plan.price}</p>
+              {plan.price !== null && !plan.custom ? (
+                <p className="mt-3">
+                  <span aria-hidden="true" className="flex flex-wrap items-baseline gap-x-2">
+                    {plan.from && <span className="label-mono">{cardLabels.from}</span>}
+                    <ScrambleNumber value={plan.price} prefix="$" className="text-h3 font-semibold" />
+                    <span className="label-mono">{cardLabels.unit[plan.unit ?? "month"]}</span>
+                  </span>
+                  <span className="sr-only">{plan.from ? `${cardLabels.from} ` : ""}{planPriceText(plan)}</span>
+                </p>
+              ) : (
+                <p className="label-mono mt-2">{planPriceText(plan)}</p>
+              )}
             </div>
             <ul className="flex flex-col gap-2">
               {plan.features.map((f) => (

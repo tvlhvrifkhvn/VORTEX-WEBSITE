@@ -23,7 +23,8 @@ function Range({ id, label, unit, value, onChange, cfg }: { id: string; label: s
 }
 
 /* Full savings calculator (§11.5): inputs sticky on desktop; outputs debounced 250ms with an aria-live summary.
-   VortexOne price is not public → "Contact for pricing"; savings rows appear only if prices are added later. */
+   With public prices: savings per month (giant), in-house, VortexOne, savings %, per year.
+   If the price is null: in-house cost + breakdown, VortexOne "Contact for pricing". */
 export function Calculator() {
   const [hours, setHours] = useState(defaults.hours.value);
   const [overhead, setOverhead] = useState(defaults.overhead.value);
@@ -41,6 +42,20 @@ export function Calculator() {
   const r = calculate(input, prices);
   const wages = r.inHouse / (1 + input.overhead / 100);
   const href = `${page.cta.href}?file=01&hours=${input.hours}&wage=${input.wage}`;
+  const priced = r.savings !== null && r.vortex !== null;
+  const rows: [string, string][] = priced
+    ? [
+        [labels.inHouse, usd(r.inHouse)],
+        [labels.vortex, usd(r.vortex!)],
+        [labels.savingsPct, `${Math.round(r.savingsPct!)}%`],
+        [labels.savingsYear, usd(r.annual!)],
+      ]
+    : [
+        [labels.wages, usd(wages)],
+        [labels.extras, usd(r.inHouse - wages)],
+        [labels.perYear, usd(r.inHouse * 12)],
+        [labels.vortex, labels.vortexNull],
+      ];
 
   return (
     <div className="grid-vx gap-y-16">
@@ -62,23 +77,20 @@ export function Calculator() {
       <div className="col-span-4 flex flex-col gap-8 border-t border-border pt-4 md:col-span-8 lg:col-span-6 lg:col-start-7">
         <p className="label-mono text-muted-foreground">{page.outputsLabel}</p>
         <div>
-          <p className="label-mono">{labels.inHouse}</p>
-          <ScrambleNumber value={Math.round(r.inHouse)} prefix="$" className="text-display font-semibold" />
+          <p className="label-mono">{priced ? labels.savings : labels.inHouse}</p>
+          <ScrambleNumber value={Math.round(priced ? r.savings! : r.inHouse)} format={{ style: "currency", currency: "USD", maximumFractionDigits: 0 }} className="text-display font-semibold" />
         </div>
-        <dl className="border-t border-border">
-          {[
-            [labels.wages, usd(wages)],
-            [labels.extras, usd(r.inHouse - wages)],
-            [labels.perYear, usd(r.inHouse * 12)],
-            [labels.vortex, r.vortex === null ? labels.vortexNull : usd(r.vortex)],
-          ].map(([k, v]) => (
+        <dl className="border-t border-border" data-claim={priced ? "" : undefined}>
+          {rows.map(([k, v]) => (
             <div key={k} className="flex justify-between gap-4 border-b border-border py-3">
               <dt className="label-mono text-muted-foreground">{k}</dt>
               <dd className="tabular font-medium">{v}</dd>
             </div>
           ))}
         </dl>
-        <p aria-live="polite" className="sr-only">{labels.summary(input.hours, input.wage, usd(r.inHouse))}</p>
+        <p aria-live="polite" className="sr-only">
+          {priced ? labels.savingsSummary(input.hours, usd(r.inHouse), usd(r.vortex!), usd(r.savings!)) : labels.summary(input.hours, input.wage, usd(r.inHouse))}
+        </p>
         <Button href={href} size="lg" className="self-start">{page.cta.label}</Button>
       </div>
     </div>

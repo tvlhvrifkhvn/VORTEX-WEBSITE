@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { calculate } from "@/lib/calculator";
+import { usd } from "@/lib/pricing";
 import { defaults, labels, prices } from "@/content/calculator";
 import { Slider } from "@/components/ui/slider";
 import { Field, Input } from "@/components/ui/field";
 import { ScrambleNumber } from "@/components/motion/scramble-number";
 
-const usd = (n: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+const MONEY = { style: "currency", currency: "USD", maximumFractionDigits: 0 } as const;
 
-/* Home 08 compact calculator: hours + wage → in-house monthly cost. VortexOne price shown only if public. */
+/* Home 08 compact calculator: hours + wage → savings per month (giant) when VortexOne prices are public;
+   otherwise the in-house cost only. Prices: Studio ≤ 20 hrs, Townhouse above (content/pricing.ts). */
 export function CalculatorCompact() {
   const [hours, setHours] = useState(defaults.hours.value);
   const [wageText, setWageText] = useState(String(defaults.wage.value));
@@ -23,6 +25,7 @@ export function CalculatorCompact() {
     return () => window.clearTimeout(t);
   }, [hours, wage, valid]);
 
+  const priced = result.savings !== null && result.vortex !== null;
   return (
     <div className="flex flex-col gap-10">
       <div className="grid gap-8 md:grid-cols-2">
@@ -61,17 +64,27 @@ export function CalculatorCompact() {
       </div>
 
       <div className="border-t border-border pt-6">
-        <p className="label-mono text-muted-foreground">{labels.inHouse}</p>
-        <ScrambleNumber value={Math.round(result.inHouse)} prefix="$" className="text-display font-semibold" />
-        <p className="label-mono mt-2">{labels.perMonth}</p>
+        <p className="label-mono text-muted-foreground">{priced ? labels.savings : labels.inHouse}</p>
+        <ScrambleNumber value={Math.round(priced ? result.savings! : result.inHouse)} format={MONEY} className="text-display font-semibold" />
+        {!priced && <p className="label-mono mt-2">{labels.perMonth}</p>}
       </div>
 
-      <dl className="flex justify-between gap-4 border-y border-border py-3">
-        <dt className="label-mono text-muted-foreground">{labels.vortex}</dt>
-        <dd className="font-medium">{result.vortex === null ? labels.vortexNull : usd(result.vortex)}</dd>
+      <dl className="border-y border-border">
+        {priced && (
+          <div className="flex justify-between gap-4 border-b border-border py-3">
+            <dt className="label-mono text-muted-foreground">{labels.inHouse}</dt>
+            <dd className="tabular font-medium">{usd(result.inHouse)}</dd>
+          </div>
+        )}
+        <div className="flex justify-between gap-4 py-3" data-claim={priced ? "" : undefined}>
+          <dt className="label-mono text-muted-foreground">{labels.vortex}</dt>
+          <dd className="tabular font-medium">{result.vortex === null ? labels.vortexNull : usd(result.vortex)}</dd>
+        </div>
       </dl>
 
-      <p aria-live="polite" className="sr-only">{labels.summary(hours, wage, usd(result.inHouse))}</p>
+      <p aria-live="polite" className="sr-only">
+        {priced ? labels.savingsSummary(hours, usd(result.inHouse), usd(result.vortex!), usd(result.savings!)) : labels.summary(hours, wage, usd(result.inHouse))}
+      </p>
       <p className="text-small text-muted-foreground">{labels.footnote}</p>
     </div>
   );

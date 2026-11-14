@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { tzOffset } from "@/lib/time";
 import { useMinute } from "./use-minute";
 
 function visitorZone() {
@@ -39,12 +40,22 @@ function Clock({ label, now, timeZone, large }: { label: string; now: Date | nul
 }
 
 /* §6.2.6 — visitor's clock + Islamabad. Fixed-width placeholder on first paint (no CLS). */
+/** True when the visitor's current UTC offset equals Islamabad's — the two clocks would show the same time. */
+function sameAsIslamabad(now: Date) {
+  try {
+    return tzOffset(now, Intl.DateTimeFormat().resolvedOptions().timeZone) === tzOffset(now, "Asia/Karachi");
+  } catch {
+    return false;
+  }
+}
+
 export function LiveClock({ variant = "compact", className }: { variant?: "compact" | "large"; className?: string }) {
   const now = useMinute();
   const large = variant === "large";
+  const showVisitor = !now || !sameAsIslamabad(now);
   return (
     <div className={cn("flex gap-8", className)}>
-      <Clock label={now ? visitorZone() : "YOUR TIME"} now={now} large={large} />
+      {showVisitor && <Clock label={now ? visitorZone() : "YOUR TIME"} now={now} large={large} />}
       <Clock label="ISLAMABAD" now={now} timeZone="Asia/Karachi" large={large} />
     </div>
   );

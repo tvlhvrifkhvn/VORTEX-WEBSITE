@@ -2,7 +2,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { filesSection } from "@/content/home";
 import { images } from "@/content/images";
-import { servicesFor } from "@/content/services";
+import { addonsFor, coreFor } from "@/content/services";
+import { fromText } from "@/lib/pricing";
 import { buttonClass } from "@/components/ui/button";
 import { CornerMarks } from "@/components/ui/corner-marks";
 import { SpecStrip } from "@/components/ui/spec";
@@ -20,7 +21,8 @@ export function FilePanels() {
       <h2 id="files-title" className="sr-only">{filesSection.srTitle}</h2>
       {filesSection.panels.map((p) => {
         const img = images[p.image];
-        const count = servicesFor(p.file).length;
+        const core = coreFor(p.file).length;
+        const addons = addonsFor(p.file).length;
         return (
           <CursorLabel key={p.file} label={filesSection.cursor} theme={p.theme} className="h-full">
             <PanelShell theme={p.theme} className="relative flex h-full min-h-[80vh] flex-col overflow-hidden px-(--spacing-margin) pt-[calc(var(--text-giant)*0.78)] pb-10">
@@ -80,7 +82,10 @@ export function FilePanels() {
                       </li>
                     ))}
                   </ol>
-                  <p className="label-mono border-t border-border pt-3 text-muted-foreground">{filesSection.count(count)}</p>
+                  <p className="label-mono flex flex-wrap justify-between gap-x-4 gap-y-1 border-t border-border pt-3">
+                    <span className="text-muted-foreground">{filesSection.count(core, addons)}</span>
+                    <span data-claim="">{fromText(p.file)}</span>
+                  </p>
                   <span aria-hidden="true" className={cn(buttonClass({ variant: "primary" }), "relative mt-10 group-hover/panel:text-background group-hover/panel:before:scale-x-100")}>
                     {filesSection.cta}
                     <span className="font-sans text-body">→</span>

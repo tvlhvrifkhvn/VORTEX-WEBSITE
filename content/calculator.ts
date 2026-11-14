@@ -1,6 +1,7 @@
 import type { PageMeta } from "./types";
 import { plans, priceLabel } from "./pricing";
 
+
 export const meta: PageMeta = {
   title: "Savings Calculator",
   description:
@@ -15,10 +16,10 @@ export const defaults = {
   overhead: { min: 0, max: 40, step: 5, value: 25, claim: true as const },
 };
 
-/** Prices from content/pricing.ts (null = "Contact for pricing"). */
+/** Prices from content/pricing.ts: Studio when hours ≤ 20, Townhouse above (null = "Contact for pricing"). */
 export const prices = {
-  partTime: plans.find((p) => p.id === "part-time")?.price ?? null,
-  fullTime: plans.find((p) => p.id === "full-time")?.price ?? null,
+  partTime: plans.find((p) => p.id === "studio")?.price ?? null,
+  fullTime: plans.find((p) => p.id === "townhouse")?.price ?? null,
 };
 
 export const labels = {
@@ -34,6 +35,11 @@ export const labels = {
   perYear: "In-house cost per year",
   wages: "Wages",
   extras: "Payroll taxes & benefits",
+  savings: "Saved per month",
+  savingsPct: "Savings",
+  savingsYear: "Saved per year",
+  savingsSummary: (hours: number, cost: string, vortex: string, saved: string) =>
+    `${hours} hours a week costs about ${cost} a month in-house and ${vortex} with VortexOne, a saving of ${saved} a month.`,
   summary: (hours: number, wage: number, cost: string) =>
     `${hours} hours a week at $${wage} an hour costs about ${cost} a month in-house, including payroll taxes and benefits.`,
   footnote: "Estimate. Includes 25% for payroll taxes and benefits. Your real costs vary.",

@@ -1,4 +1,5 @@
 import type { PageMeta } from "./types";
+import { fromText } from "@/lib/pricing";
 
 export const meta: PageMeta = {
   title: "Insurance Supplementing for Contractors",
@@ -22,7 +23,7 @@ export const header = {
     { key: "Trades", value: "Roofing, water-damage restoration" },
     { key: "Software", value: "Xactimate" },
     { key: "Turnaround", value: "[[PLACEHOLDER: supplement turnaround time]]", claim: true as const },
-    { key: "Pricing", value: "Contact for pricing" },
+    { key: "Pricing", value: fromText("02"), claim: true as const },
     { key: "You send", value: "Photos, measurements, carrier scope" },
   ],
   primary: { label: "Send a claim", href: "/book-a-call?file=02" },

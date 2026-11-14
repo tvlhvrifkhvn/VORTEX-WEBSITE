@@ -33,6 +33,9 @@
   --text-hero: clamp(3.5rem, 11vw, 12rem);
   --text-hero--line-height: 0.86;
   --text-hero--letter-spacing: -0.045em;
+  --text-stat: clamp(3.5rem, 8vw, 9.5rem);
+  --text-stat--line-height: 0.9;
+  --text-stat--letter-spacing: -0.04em;
   --text-display: clamp(3rem, 7.2vw, 8.5rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.04em;

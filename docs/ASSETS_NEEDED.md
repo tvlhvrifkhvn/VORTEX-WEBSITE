@@ -1,6 +1,7 @@
 # Assets & facts needed
 
 ## Launch checklist (do these before pointing a real domain at the site)
+0. Replace sample prices in content/pricing.ts
 1. Set Cloudflare build variables: `NEXT_PUBLIC_SITE_URL` (your domain — canonicals, sitemap, OG URLs), `NEXT_PUBLIC_CALENDLY_URL` (when ready).
 2. Legal review of /privacy, /terms and the SMS consent text (§C), then remove the DRAFT tags.
 3. Confirm or rewrite every item marked `claim: true` — open any page with `?review=1` to see them outlined.
@@ -20,8 +21,8 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A6 | Desk hours (US time zone) | 09:00–18:00 ET Mon–Fri | content/site.ts | ✓ confirmed |
 | A7 | File 01 services | + web dev, SEO, Meta ads, lead gen (on request) | content/services.ts | ✓ confirmed |
 | A8 | File 02 services + scope line | starter list + `scopeNote` | content/services.ts, supplementing.ts | ✓ confirmed |
-| A9 | File 01 prices | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
-| A10 | File 02 pricing | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
+| A9 | File 01 prices | SAMPLE: Studio $650/mo, Townhouse $1,200/mo, Estate custom (claim) | content/pricing.ts | replace sample prices |
+| A10 | File 02 pricing | SAMPLE: from $150 per supplement, Volume from $1,200/mo, Custom (claim) | content/pricing.ts | replace sample prices |
 | A11 | Payment methods | Wise, Payoneer | content/pricing.ts | ✓ supplied |
 | A12 | Reply time | "Replies during desk hours" + home stat "Same day" (claim) | content/site.ts, home.ts | confirm "same day" |
 | A13 | Contract / notice terms | `contract and notice terms`, `notice period` | content/pricing.ts | later |

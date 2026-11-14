@@ -27,6 +27,15 @@ export function useScramble(final: string, kind: "digits" | "alnum") {
       const chars = Array.from(final);
       const idx = chars.map((c, i) => (test.test(c) ? i : -1)).filter((i) => i >= 0);
       if (!idx.length) return setDisplay(final);
+      // Times ("7:30 PM", "10:05"): scramble only through valid digits — hour 1–12, minute tens 0–5 — so no "9:79".
+      const time = kind === "digits" ? /^(\d{1,2}):\d\d/.exec(final) : null;
+      const h = time ? time[1].length : 0;
+      const poolAt = (i: number) => {
+        if (!time) return pool;
+        if (i < h) return h === 1 ? "123456789" : i === 0 ? "1" : "012";
+        if (i === h + 1) return "012345";
+        return DIGITS;
+      };
       const gap = Math.min(60, totalMs / (idx.length + 1));
       const start = performance.now();
       timer.current = window.setInterval(() => {
@@ -36,7 +45,8 @@ export function useScramble(final: string, kind: "digits" | "alnum") {
           const order = idx.indexOf(i);
           if (order < 0 || t >= totalMs - gap * (idx.length - 1 - order) - gap) return c;
           done = false;
-          return pool[Math.floor(Math.random() * pool.length)];
+          const p = poolAt(i);
+          return p[Math.floor(Math.random() * p.length)];
         });
         setDisplay(out.join(""));
         if (done || t >= totalMs) {

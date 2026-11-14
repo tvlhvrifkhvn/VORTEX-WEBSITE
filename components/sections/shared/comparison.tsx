@@ -6,13 +6,15 @@ import { Section, type Theme } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Text } from "@/components/ui/text";
 import { Reveal } from "@/components/motion/reveal";
+import { Button } from "@/components/ui/button";
+import { fullTimeMonthlyText } from "@/lib/pricing";
 
 const GLYPH = { yes: "✓", no: "✗", partly: "~" } as const;
 const inHouse = Math.round(calculate({ hours: 40, wage: defaults.wage.value, overhead: defaults.overhead.value }, prices).inHouse);
 const usd = (n: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
 function Cell({ cell }: { cell: CompCell }) {
-  const text = cell.computed === "inHouse" ? `~${usd(inHouse)}` : cell.text;
+  const text = cell.computed === "inHouse" ? `~${usd(inHouse)}` : cell.computed === "vortex" ? fullTimeMonthlyText() : cell.text;
   return (
     <span data-claim={cell.claim ? "" : undefined} className="inline-flex items-baseline gap-2">
       {cell.mark && (
@@ -58,6 +60,10 @@ export function Comparison({ label = c.label, title = c.title, theme }: { label?
             ))}
           </Reveal>
         </table>
+      </div>
+      <div className="grid-vx mt-[calc(var(--spacing-section)/2)] items-center gap-y-6 border-t border-border pt-6">
+        <Text as="p" claim={c.summary.claim} className="col-span-4 text-lead font-medium md:col-span-5 lg:col-span-8">{c.summary.text}</Text>
+        <Button href={c.summary.cta.href} variant="secondary" className="col-span-4 justify-self-start md:col-span-3 md:justify-self-end lg:col-span-4">{c.summary.cta.label}</Button>
       </div>
     </Section>
   );

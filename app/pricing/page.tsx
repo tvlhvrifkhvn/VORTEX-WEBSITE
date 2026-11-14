@@ -3,6 +3,7 @@ import { meta, page as p, plans } from "@/content/pricing";
 import { faqFor } from "@/content/faq";
 import type { FileId } from "@/content/types";
 import { pageMetadata } from "@/lib/seo";
+import { planPriceText } from "@/lib/pricing";
 import { Section } from "@/components/ui/section";
 import { SpecStrip } from "@/components/ui/spec";
 import { Text } from "@/components/ui/text";
@@ -20,10 +21,11 @@ function Panel({ file }: { file: FileId }) {
   return (
     <div className="flex flex-col gap-16">
       <PricingCards plans={list} />
-      {list.length > 1 && (
+      {/* Comparison rows are written for File 01; the price row is derived from content/pricing.ts. */}
+      {file === "01" && list.length > 1 && (
         <div>
           <p className="label-mono mb-4">{p.table.label}</p>
-          <PlanTable plans={list} {...p.table} />
+          <PlanTable plans={list} {...p.table} rows={[...p.table.rows, { label: p.table.priceRow, cells: list.map(planPriceText), claim: true }]} />
         </div>
       )}
     </div>

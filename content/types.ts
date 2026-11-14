@@ -4,8 +4,10 @@ export type FileId = "01" | "02";
 export type Claim = { claim?: true };
 
 export interface Stat extends Claim { value: number | string; prefix?: string; suffix?: string; label: string; note?: string }
-export interface Service extends Claim { id: string; file: FileId; index: string; title: string; summary: string; includes: string[]; featured?: boolean; onRequest?: true; sampleImage?: string }
-export interface PricingPlan extends Claim { id: string; file: FileId; name: string; tagline: string; price: number | null; unit?: string; hours?: string; features: string[]; recommended?: boolean }
+export type ServiceTier = "core" | "addon";
+export interface Service extends Claim { id: string; file: FileId; index: string; title: string; summary: string; includes: string[]; tier: ServiceTier; featured?: boolean; onRequest?: true; sampleImage?: string }
+/** price: number = shown (formatted from `unit`), null = "Contact for pricing"; custom: shows "Custom". */
+export interface PricingPlan extends Claim { id: string; file: FileId; name: string; tagline: string; price: number | null; unit?: "month" | "supplement"; from?: true; custom?: true; hours?: string; features: string[]; recommended?: boolean }
 export type FaqTag = "general" | "file01" | "file02" | "billing" | "security" | "home";
 export interface FaqItem extends Claim { q: string; a: string; tags: FaqTag[] }
 export interface Step { time?: string; title: string; text: string; file?: FileId | "both" }
