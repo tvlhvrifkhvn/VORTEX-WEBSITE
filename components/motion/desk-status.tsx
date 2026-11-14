@@ -6,7 +6,8 @@ import { site } from "@/content/site";
 import { useMinute } from "./use-minute";
 
 /* §6.2.7 — dot + text, re-evaluated each minute. Text is always present (color is never the only signal). */
-export function DeskStatus({ className }: { className?: string }) {
+/** `compact`: dot + OPEN/CLOSED (full status stays available to screen readers). */
+export function DeskStatus({ className, compact }: { className?: string; compact?: boolean }) {
   const now = useMinute();
   const state = now ? deskState(site.desk, now) : null;
   return (
@@ -18,7 +19,12 @@ export function DeskStatus({ className }: { className?: string }) {
           state?.open ? "border-status bg-status" : "border-current bg-transparent",
         )}
       />
-      {state ? (state.open ? "DESK OPEN" : `DESK CLOSED · ${state.opensLabel}`) : "DESK HOURS"}
+      {compact ? (
+        <>
+          <span aria-hidden="true">{state ? (state.open ? "OPEN" : "CLOSED") : "DESK"}</span>
+          <span className="sr-only">{state ? (state.open ? "Desk open" : `Desk closed, ${state.opensLabel.toLowerCase()}`) : "Desk hours"}</span>
+        </>
+      ) : state ? (state.open ? "DESK OPEN" : `DESK CLOSED · ${state.opensLabel}`) : "DESK HOURS"}
     </p>
   );
 }

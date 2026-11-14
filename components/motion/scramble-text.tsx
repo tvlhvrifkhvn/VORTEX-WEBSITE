@@ -8,7 +8,7 @@ import { useScramble } from "./use-scramble";
 
 interface ScrambleTextProps {
   children: string;
-  /** "hover": runs when the closest link/button is hovered or focused. "enter": once on scroll-in. */
+  /** "hover": runs when the closest [data-scramble-host], link or button is hovered/focused. "enter": once on scroll-in. */
   trigger?: "hover" | "enter";
   className?: string;
 }
@@ -25,7 +25,7 @@ export function ScrambleText({ children, trigger = "hover", className }: Scrambl
   }, [enabled, trigger, inView, run]);
 
   useEffect(() => {
-    const host = ref.current?.closest("a,button") ?? ref.current;
+    const host = ref.current?.closest("[data-scramble-host],a,button") ?? ref.current;
     if (!enabled || trigger !== "hover" || !host) return;
     const go = () => run(500);
     host.addEventListener("mouseenter", go);

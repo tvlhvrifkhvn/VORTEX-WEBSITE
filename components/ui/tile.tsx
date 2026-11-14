@@ -31,13 +31,16 @@ export function Tile({ theme, marks, claim, className, children, ...props }: Til
   );
 }
 
-/** Big number + tiny label (+ note). Numbers scramble on enter (§6.2.3). */
+/** Big number + mono unit + tiny label (+ note). Numbers scramble on enter (§6.2.3). */
 export function StatTile({ stat, index, theme, className }: { stat: Stat; index?: string; theme?: Theme; className?: string }) {
   return (
     <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-10", className)}>
       {index && <span className="label-mono tabular text-muted-foreground">{index}</span>}
       <div>
-        <ScrambleNumber value={stat.value} prefix={stat.prefix} suffix={stat.suffix} className="text-display font-semibold" />
+        <p className="flex flex-wrap items-baseline gap-x-3">
+          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="text-display font-semibold" />
+          {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
+        </p>
         <Text as="p" className="label-mono mt-3">{stat.label}</Text>
         {stat.note && <Text as="p" className="mt-2 text-small text-muted-foreground">{stat.note}</Text>}
       </div>

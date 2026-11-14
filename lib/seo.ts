@@ -11,3 +11,18 @@ export function pageMetadata(meta: PageMeta): Metadata {
     openGraph: { title: meta.title, description: meta.description, url: meta.path, siteName: site.name, locale: "en_US", type: "website" },
   };
 }
+
+/** Organization JSON-LD for the root layout. Only confirmed facts (no US address, no founding date). */
+export function orgJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+    email: site.contact.email,
+    sameAs: [site.contact.linkedin],
+    founder: { "@type": "Person", name: site.founder.name },
+    address: { "@type": "PostalAddress", addressLocality: "Islamabad", addressCountry: "PK" },
+    areaServed: "US",
+  };
+}

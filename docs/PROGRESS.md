@@ -4,7 +4,7 @@
 |---|---|---|---|
 | S0 Setup & intake | done | 2026-11-14 | Next 16.4 static export, tokens, content stubs, API adapter, docs. Intake Request sent. |
 | S1 Design system & primitives | done | 2026-11-14 | Intake applied. All §10.1 UI + §6.2 motion primitives, /styleguide. Audited 390 + 1440, reduced motion, review mode, dialog keyboard. |
-| S2 Global layout + Home A | todo | | |
+| S2 Global layout + Home A | done | 2026-11-14 | Header (dropdown, auto-hide), mobile menu, footer + newsletter, CtaBand, Breadcrumb, skip link, UTM, Org JSON-LD; home 01–07. Audited 390 + 1440, menu focus trap, dropdown, auto-hide. |
 | S3 Home B | todo | | |
 | S4 File pages | todo | | |
 | S5 Pricing + Savings calculator | todo | | |
@@ -20,7 +20,8 @@
 - Full-page screenshots don't trigger scroll-based Reveal/LineDraw; check those by scrolling.
 
 ## Notes for next session
-- Pages: `/` (scaffold) and `/styleguide`. Routes are added in their segments.
+- Pages: `/` (home 01–07) and `/styleguide`. Other routes 404 until their segments (nav links already point to them).
+- Preview: https://claude-github-connection-7kt0gt-vortex-website.talhaarifone.workers.dev (Cloudflare Workers, auto-builds on push).
 - Primitives: components/ui (button, section, section-header, spec, labels, tile, image-frame, text, wordmark, accordion, tabs, slider, dialog, field, choice), components/motion (§6.2 all), components/layout (motion-toggle, review-mode).
 - Root layout has boot script + MotionProvider + ReviewMode. Header/footer/skip link come in S2.
 - Content stubs export `meta`; sections are added to each file in its segment.

@@ -33,3 +33,16 @@
 2026-11-14 · intake · Reply window, Part-time/Full-time/Custom tiers and all tools confirmed by user; tools claim flags removed · user confirmation
 2026-11-14 · components · Free open-source sources (Magic UI, Motion Primitives, React Bits, shadcn/ui) are fetched from raw.githubusercontent.com (reachable) instead of 21st.dev · 21st.dev free tier is 2/day; their sites are blocked but GitHub raw is not
 2026-11-14 · deploy · Added wrangler.jsonc (static assets from ./out, 404-page) · user's Cloudflare project was created as a Worker, which needs it
+2026-11-14 · home 03 · Tile B shows the confirmed reply window "4–7 PM PT" (not the spec's "<15 MIN" claim); tile F desk hours confirmed (no claim) · user confirmed both; no invented reply-time stat
+2026-11-14 · home 03 · Tile C is a "Run the numbers" tile (no computed savings %) · no public prices (spec's own null-price fallback)
+2026-11-14 · home 03 · H2 "Small desk. Clear numbers." added; StatTile shows the unit as a mono label next to the number · every section needs an H2; units at display size overflowed 3-col tiles
+2026-11-14 · home 05 · H2 count updated to "Fourteen jobs" (10 File 01 + 4 File 02); featured = MLS, TC, Xactimate, Supplement packages; leftover File 02 tiles span half rows · spec rule "update the count"; full rows on desktop
+2026-11-14 · home 07 · Desk log heading is an H2 styled at h3 size · correct heading order under its own section
+2026-11-14 · home 01 · Hero H1 uses text-h2 below 768px, text-display above · display size forced one-word lines at 390
+2026-11-14 · header · <640px shows the V1 monogram, compact desk status (dot + OPEN/CLOSED, full text for screen readers), compact Book a call, MENU · fits 390px without wrapping (§7.4 monogram for small spaces)
+2026-11-14 · header · LiveClock in the header only ≥1280px · not enough room at 1024–1279
+2026-11-14 · header · FILES dropdown is a disclosure (button + list), closes on Esc/outside click/blur · simpler and more robust than ARIA menu
+2026-11-14 · footer · Giant wordmark sized 15.2vw (arbitrary value) · must span the viewport; scale tokens are clamped
+2026-11-14 · footer · Newsletter copy "Desk notes" written; form uses lib/api mock + honeypot · spec flag newsletter=true, no title given
+2026-11-14 · layout · Styleguide wrapper changed from <main> to <div> · root layout now owns <main id="content">
+2026-11-14 · content · Service summaries written for all 14 services (S4 fills includes) · needed for the home 05 bento

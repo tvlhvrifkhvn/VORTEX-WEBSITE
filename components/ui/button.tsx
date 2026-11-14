@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 /* §6.2.12 — hard fill from the left (scaleX 0→1, 300ms quart), label color swap, arrow nudges 4px.
    Motion OFF → instant swap (global switch in globals.css). Min height 48px. */
-const button = cva(
+export const buttonClass = cva(
   [
     "group/btn relative isolate inline-flex items-center justify-center gap-3 overflow-hidden",
     "font-mono text-button font-medium uppercase transition-colors duration-300 ease-in-out-quart",
@@ -26,7 +26,7 @@ const button = cva(
   },
 );
 
-type ButtonVariants = VariantProps<typeof button>;
+type ButtonVariants = VariantProps<typeof buttonClass>;
 interface BaseProps extends ButtonVariants { className?: string; children: React.ReactNode; arrow?: "→" | "↗" | "↓" | false }
 type AsLink = BaseProps & { href: string } & Omit<React.ComponentProps<"a">, "href" | "children" | "className">;
 type AsButton = BaseProps & { href?: undefined } & Omit<React.ComponentProps<"button">, "children" | "className">;
@@ -45,7 +45,7 @@ export function Button(props: AsLink | AsButton) {
       )}
     </>
   );
-  const cls = cn(button({ variant, size }), className);
+  const cls = cn(buttonClass({ variant, size }), className);
 
   if (rest.href !== undefined) {
     const { href, ...a } = rest as AsLink;

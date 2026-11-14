@@ -2,15 +2,20 @@ import { cn } from "@/lib/utils";
 import { Text } from "./text";
 
 /** One row of 3–4 mono items separated by " · ", hairlines above and below; 2 columns on mobile (§5.4). */
-export function SpecStrip({ items, className }: { items: string[]; className?: string }) {
+type StripItem = string | { text: string; claim?: true };
+
+export function SpecStrip({ items, className }: { items: StripItem[]; className?: string }) {
   return (
     <ul className={cn("label-mono grid grid-cols-2 gap-y-2 border-y border-border py-3 md:flex md:flex-wrap", className)}>
-      {items.map((item, i) => (
-        <li key={item} className="flex items-center">
-          {i > 0 && <span aria-hidden="true" className="mx-3 hidden text-muted-foreground md:inline">·</span>}
-          <Text>{item}</Text>
-        </li>
-      ))}
+      {items.map((item, i) => {
+        const { text, claim } = typeof item === "string" ? { text: item, claim: undefined } : item;
+        return (
+          <li key={text} className="flex items-center">
+            {i > 0 && <span aria-hidden="true" className="mx-3 hidden text-muted-foreground md:inline">·</span>}
+            <Text claim={claim}>{text}</Text>
+          </li>
+        );
+      })}
     </ul>
   );
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: sg.title, robots: { index: false, fol
 /* Internal audit surface (§9.9): not in nav or sitemap. */
 export default function StyleguidePage() {
   return (
-    <main>
+    <div>
       <Section theme="ink">
         <p className="label-mono text-muted-foreground">INTERNAL · NOINDEX</p>
         <h1 className="mt-6 text-display font-semibold">{sg.title}</h1>
@@ -25,6 +25,6 @@ export default function StyleguidePage() {
         <Interactive />
       </Section>
       <MotionDemos />
-    </main>
+    </div>
   );
 }
