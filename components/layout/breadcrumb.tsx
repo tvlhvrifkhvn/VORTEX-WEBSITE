@@ -24,8 +24,10 @@ export function Breadcrumb({ items, label = "Breadcrumb" }: { items: Crumb[]; la
             {i > 0 && <span aria-hidden="true">/</span>}
             {c.href && i < all.length - 1 ? (
               <Link href={c.href} className="inline-flex min-h-11 items-center hover:text-foreground">{c.label.toUpperCase()}</Link>
-            ) : (
+            ) : i === all.length - 1 ? (
               <span aria-current="page" className="text-foreground">{c.label.toUpperCase()}</span>
+            ) : (
+              <span>{c.label.toUpperCase()}</span>
             )}
           </li>
         ))}

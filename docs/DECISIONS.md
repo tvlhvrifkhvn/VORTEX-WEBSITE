@@ -54,3 +54,15 @@
 2026-11-14 · home 11 · Work strip uses native CSS scroll-snap, 5 of 6 samples; sample titles written as generic deliverable names, labelled SAMPLE · no carousel dependency; S6 extends content/work.ts
 2026-11-14 · home 14 · 6 home FAQs written from confirmed facts; hours answer flagged claim · spec gives no FAQ copy
 2026-11-14 · shared · HowItStarts, Comparison, WorkStrip, FaqList, CalculatorCompact live in components/sections/shared for reuse on file pages · spec data flow
+2026-11-14 · file pages · Shared building blocks in components/sections/file (header, service list, audience, sample week, scope, file pricing); HowItStarts/Comparison/FaqSection reused with label/title/theme props · maximum reuse (S4 brief)
+2026-11-14 · file pages · Service rows carry id = service id and open when the URL hash matches · home 05 tiles deep-link to them
+2026-11-14 · file pages · Header giant numeral is 10% ink, cropped at the section's bottom-left · at full ink it fought the image and spec table
+2026-11-14 · file pages · File 01 spec table "Works in" lists confirmed tools; Price "Contact for pricing"; File 02 turnaround is a placeholder (claim) · no invented facts
+2026-11-14 · file 02 · Positioning line rendered in mono at body-small size, sentence case, with a signal rule · long uppercase mono sentence was hard to read
+2026-11-14 · file 02 · H2 for 02.5 is "Pricing, quoted to your volume" (not "Pricing per claim") · pricing model isn't confirmed; avoid implying per-claim pricing
+2026-11-14 · file 02 · "Xactimate estimate (ESX and PDF)" flagged claim · formats not confirmed
+2026-11-14 · pricing · Plans got taglines + features; Part-time/Full-time keep claim: true because they list "Daily written report" · features needed for cards; report promise not yet confirmed
+2026-11-14 · pricing · Non-numeric "hours" (e.g. "Task or project based") render at h3 size, numbers at h2 · long text at h2 dominated the card
+2026-11-14 · how it starts · 4-step variant uses display-size numerals on desktop · giant numerals collided in 4 columns
+2026-11-14 · content · Service "Includes" lists (3–5 each) and 8 file FAQs written from confirmed facts; promises flagged · spec asks for includes; no business facts invented
+2026-11-14 · home 14 · Home Questions now wraps the shared FaqSection · same markup on home and file pages

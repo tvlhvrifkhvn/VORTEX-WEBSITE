@@ -22,7 +22,10 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A15 | Real proof (reviews, results) | — | — | none yet |
 | A16 | Short founder bio (facts only: background, what you've done) | `short founder bio — facts only` | content/home.ts | needed |
 | A17 | Confirm security rules: NDA, password-manager access, daily report, no files on personal devices | 4 claims | content/home.ts | confirm |
-| A18 | Confirm "Live in about a week" and "Monthly, no lock-in" | claims | content/home.ts, comparison.ts | confirm |
+| A18 | Confirm "Live in about a week" and "Monthly, no lock-in" | claims | content/home.ts, comparison.ts, real-estate.ts | confirm (reserved) |
+| A19 | Supplement turnaround time | `supplement turnaround time` | content/supplementing.ts | needed |
+| A20 | Estimate file formats you deliver (ESX, PDF?) | claim | content/supplementing.ts | confirm |
+| A21 | Confirm service "Includes" lists and the new FAQ answers | written by Claude | content/services.ts, faq.ts | review |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
 | Slot | Path | Size (px) | Subject | Status |

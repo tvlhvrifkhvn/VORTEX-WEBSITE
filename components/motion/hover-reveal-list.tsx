@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useMedia } from "./use-media";
 
@@ -13,6 +13,17 @@ export function HoverRevealList({ rows, className }: { rows: RevealRow[]; classN
   const [hoverId, setHoverId] = useState<string | null>(null);
   const fine = useMedia("(hover: hover) and (pointer: fine)");
 
+  // Deep links (e.g. /real-estate-va#mls-listings from the home bento) open their row.
+  useEffect(() => {
+    const open = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (rows.some((r) => r.id === id)) setOpenId(id);
+    };
+    open();
+    window.addEventListener("hashchange", open);
+    return () => window.removeEventListener("hashchange", open);
+  }, [rows]);
+
   return (
     <ul className={cn("border-t border-border", className)}>
       {rows.map((row) => {
@@ -21,6 +32,7 @@ export function HoverRevealList({ rows, className }: { rows: RevealRow[]; classN
         return (
           <li
             key={row.id}
+            id={row.id}
             data-claim={row.claim ? "" : undefined}
             className="group border-b border-border"
             onMouseEnter={() => fine && setHoverId(row.id)}

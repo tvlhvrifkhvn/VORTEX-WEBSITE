@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { comparison as c, type CompCell } from "@/content/comparison";
 import { calculate } from "@/lib/calculator";
 import { defaults, prices } from "@/content/calculator";
-import { Section } from "@/components/ui/section";
+import { Section, type Theme } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Text } from "@/components/ui/text";
 import { Reveal } from "@/components/motion/reveal";
@@ -27,10 +27,10 @@ function Cell({ cell }: { cell: CompCell }) {
 }
 
 /* 09 — COMPS: VortexOne column carries an 8px signal bar. Mobile: horizontal scroll, sticky first column. */
-export function Comparison() {
+export function Comparison({ label = c.label, title = c.title, theme }: { label?: string; title?: string; theme?: Theme }) {
   return (
-    <Section aria-labelledby="comps-title">
-      <SectionHeader id="comps-title" label={c.label} meta={c.meta} title={c.title} />
+    <Section theme={theme} aria-labelledby="comps-title">
+      <SectionHeader id="comps-title" label={label} meta={c.meta} title={title} />
       <div className="relative -mx-(--spacing-margin) overflow-x-auto px-(--spacing-margin)" tabIndex={0} role="region" aria-label={c.caption}>
         <table className="w-full min-w-[44rem] border-collapse text-left">
           <caption className="sr-only">{c.caption}</caption>
