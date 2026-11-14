@@ -31,15 +31,19 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
 
   if (!pinned) {
     return (
-      <ol className={cn("border-t border-border", className)}>
-        {steps.map((s) => (
-          <li key={s.time + s.title} className="grid-vx border-b border-border py-6">
-            <p className="tabular label-mono col-span-4 md:col-span-2">
-              {format12(s.time)} {fromLabel}
-              <span className="block text-muted-foreground">{us(s.time)} {toLabel}</span>
-            </p>
-            <h3 className="col-span-4 mt-2 text-h3 font-semibold md:col-span-3 md:mt-0">{s.title}</h3>
-            <p className="col-span-4 mt-2 max-w-[60ch] text-muted-foreground md:col-span-3 md:mt-0 lg:col-span-7">{s.text}</p>
+      <ol className={cn("relative ml-1.5 border-l-2 border-foreground pl-6 md:pl-10", className)}>
+        {steps.map((s, i) => (
+          <li key={s.time + s.title} className="relative pb-12 last:pb-0">
+            <span aria-hidden="true" className={cn("absolute top-2 -left-[31px] size-3 md:-left-[47px]", i === steps.length - 1 ? "bg-signal" : "bg-foreground")} />
+            <div className="flex items-start justify-between gap-4">
+              <p data-theme="ink" className="label-mono tabular inline-flex flex-wrap gap-x-3 gap-y-1 px-3 py-2">
+                <span className="text-signal">{format12(s.time)} {fromLabel}</span>
+                <span>{us(s.time)} {toLabel}</span>
+              </p>
+              <span aria-hidden="true" data-numeral={String(i + 1).padStart(2, "0")} className="text-h2 leading-none font-semibold text-foreground/15 tabular before:content-[attr(data-numeral)]" />
+            </div>
+            <h3 className="mt-5 text-h3 font-semibold">{s.title}</h3>
+            <p className="mt-2 max-w-[60ch] text-muted-foreground">{s.text}</p>
           </li>
         ))}
       </ol>
@@ -50,11 +54,11 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
   return (
     <div ref={ref} className={className} style={{ height: `${steps.length * 70}vh` }}>
       <div className="grid-vx sticky top-(--spacing-header) h-[calc(100vh-var(--spacing-header))] content-center">
-        <div className="col-span-6">
+        <div data-theme="ink" className="col-span-6 self-center p-10">
           <p className="label-mono text-muted-foreground">{fromLabel}</p>
           <ScrambleNumber value={format12(step.time)} className="text-display font-semibold" />
-          <p className="label-mono tabular mt-4">{us(step.time)} {toLabel}</p>
-          <div className="mt-8 h-1 bg-border">
+          <p className="label-mono tabular mt-4 text-signal">{us(step.time)} {toLabel}</p>
+          <div className="mt-8 h-1 bg-ink-2">
             <motion.div className="h-full origin-left bg-signal" style={{ scaleX: scrollYProgress }} />
           </div>
         </div>

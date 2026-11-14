@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { Text } from "./text";
 
-/** One row of 3–4 mono items separated by " · ", hairlines above and below; 2 columns on mobile (§5.4). */
+/** One row of mono items separated by " · ", hairlines above and below; wraps naturally on mobile (§5.4). */
 type StripItem = string | { text: string; claim?: true };
 
 export function SpecStrip({ items, className }: { items: StripItem[]; className?: string }) {
   return (
-    <ul className={cn("label-mono grid grid-cols-2 gap-y-2 border-y border-border py-3 md:flex md:flex-wrap", className)}>
+    <ul className={cn("label-mono flex flex-wrap gap-x-6 gap-y-2 border-y border-border py-3 md:gap-x-0", className)}>
       {items.map((item, i) => {
         const { text, claim } = typeof item === "string" ? { text: item, claim: undefined } : item;
         return (

@@ -14,7 +14,8 @@ export const hero = {
     { title: "Islamabad → United States", line: "33.6844°N 73.0479°E" },
     { title: "File 01 + File 02", line: "Real estate · Supplementing" },
   ],
-  lines: ["Back office for", "the people who sell", "and rebuild property."],
+  /* Line 1 is the hero word; lines 2–3 run smaller (revision 2026-11-14). */
+  lines: ["Back office", "for the people who sell", "and rebuild property."],
   lead: "Real estate admin and insurance supplementing for US agents and contractors, done by a specialist on your hours.",
   strip: [
     { text: "On US hours" },

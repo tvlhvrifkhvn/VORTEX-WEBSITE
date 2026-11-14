@@ -20,6 +20,13 @@
 - Chromium full-page screenshots stop at 16,384px (home is ~18,000px): capture the bottom with viewport shots.
 - Full-page screenshots don't trigger scroll-based Reveal/LineDraw; check those by scrolling.
 
+- If a CSS/token change doesn't show up in the build, delete `.next/` (stale Turbopack CSS cache) and rebuild.
+
+## Revisions
+| Date | Summary |
+|---|---|
+| 2026-11-14 | Hero H1 hierarchy (--text-hero), phone hero spacing/bar, SpecStrip wrap, marquee OFF fix, night-shift contrast |
+
 ## Notes for next session
 - Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
 - Shared PageHeader (components/sections/shared/page-header.tsx) is the hero for single pages (S6/S7 reuse it). Other routes 404 until their segments (nav links already point to them).

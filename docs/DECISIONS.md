@@ -102,3 +102,8 @@
 2026-11-14 · a11y · Decorative giant numerals (file headers, 404) render via CSS content from data-numeral · decorative, excluded from reading order and contrast checks
 2026-11-14 · perf · Plex Mono imports latin-only files; Inter Tight variable keeps unicode-range subsets (browser downloads latin only) · smaller CSS, same rendering
 2026-11-14 · perf · Lighthouse measured on a compressing server (Cloudflare compresses in production): Perf 92/95/90 (home/file 01/pricing), A11y 100, BP 100, SEO 100 · uncompressed local server under-reports performance
+2026-11-14 · rev · Hero H1 lines → ["Back office", "for the people who sell", "and rebuild property."]; line 1 uses new token --text-hero (clamp 3.5rem–12rem, 11vw), lines 2–3 h3 (phone) / h2 (desktop); KineticHeadline gained `lineClasses` · user: make "Back office" the hero, reduce the rest
+2026-11-14 · rev · Phone hero: meta blocks stacked one per line, ink bar full width, hero bottom padding 2.5rem (was section padding) · user: symmetry and even gaps on phone
+2026-11-14 · rev · SpecStrip: wraps as a flex row with no separators on phone, " · " separators from 768px · 3-item 2-column grid left an orphan; separators wrapped to line starts
+2026-11-14 · rev · Marquee OFF state (Reduce Motion / Motion toggle off) now really wraps — the list was shrink-0 at max-content width, so it clipped and looked frozen · user report "bar not moving"
+2026-11-14 · rev · Night shift: static timeline (phone + desktop fallback) → ink rail with square nodes (last one signal), ink time chips (Islamabad in signal, ET in white), faint big step numbers; pinned desktop clock sits on an ink panel with a signal ET line · user: section felt dull

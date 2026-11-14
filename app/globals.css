@@ -30,6 +30,9 @@
   --text-giant: clamp(6rem, 18vw, 20rem);
   --text-giant--line-height: 0.82;
   --text-giant--letter-spacing: -0.05em;
+  --text-hero: clamp(3.5rem, 11vw, 12rem);
+  --text-hero--line-height: 0.86;
+  --text-hero--letter-spacing: -0.045em;
   --text-display: clamp(3rem, 7.2vw, 8.5rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.04em;
@@ -235,5 +238,7 @@ html[data-review] [data-placeholder]::after { content: "PLACEHOLDER"; background
 
 /* Marquee OFF state: wrap the list, drop the duplicate. */
 html:not([data-motion="on"]) .marquee-track { width: auto; flex-wrap: wrap; animation: none; }
-html:not([data-motion="on"]) .marquee-track > ul { flex-wrap: wrap; row-gap: 0.5rem; }
+html:not([data-motion="on"]) .marquee-track > ul { flex-wrap: wrap; flex-shrink: 1; row-gap: 0.5rem; }
+html:not([data-motion="on"]) .marquee-track > ul > li > span:first-child { padding-inline: 0 1rem; }
+html:not([data-motion="on"]) .marquee-track > ul > li > span:last-child { padding-right: 1rem; }
 html:not([data-motion="on"]) .marquee-dup { display: none; }
