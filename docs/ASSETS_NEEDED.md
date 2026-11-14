@@ -27,6 +27,10 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A20 | Estimate file formats you deliver (ESX, PDF?) | claim | content/supplementing.ts | confirm |
 | A22 | Confirm "Invoiced monthly" and "Monthly billing" | claims | content/pricing.ts | confirm |
 | A23 | Calculator defaults ($20/hr wage, 25% payroll & benefits) — check against BLS data before launch | claims | content/calculator.ts | confirm |
+| A24 | Founder bio for /about (longer version) + year you started VA work for US clients | `founder bio — facts only…`, `year started` | content/about.ts | needed |
+| A25 | Confirm channels: WhatsApp for quick questions, joining a client's Slack | claims | content/how-we-work.ts | confirm |
+| A26 | Confirm onboarding timeline (Day 1 → Month 1) and the 6 security rules on /how-we-work | claims | content/how-we-work.ts | confirm |
+| A27 | Work sample details ("Task · Time", what was done, tools) once real screenshots exist | claims | content/work.ts | confirm |
 | A21 | Confirm service "Includes" lists and the new FAQ answers | written by Claude | content/services.ts, faq.ts | review |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
@@ -42,6 +46,13 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | founder-portrait | public/images/founder/portrait.webp | 1600×2000 | Founder portrait | placeholder |
 | work-01 … work-06 | public/images/work/work-0N.webp | 1600×1000 | Anonymized deliverable screenshots (`describe work sample 0N`) | placeholder |
 | logo | — | — | Typographic wordmark in use until a logo is supplied | placeholder |
+
+## B2. Files (PDF checklists for /resources)
+| Path | Title | Status |
+|---|---|---|
+| public/files/transaction-coordination-checklist.pdf | Transaction coordination checklist | needed |
+| public/files/listing-launch-checklist.pdf | Listing launch checklist | needed |
+| public/files/roof-supplement-checklist.pdf | Roof supplement documentation checklist | needed |
 
 ## C. Legal review
 | Item | Placeholder text | Where | Status |

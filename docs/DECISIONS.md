@@ -75,3 +75,11 @@
 2026-11-14 · calculator · Outputs show in-house monthly (giant), wages, payroll & benefits, yearly cost and "Contact for pricing"; savings rows return automatically if prices are ever added · spec null-price rule; breakdown helps the visitor without inventing numbers
 2026-11-14 · calculator · "Book a call with these numbers" links to /book-a-call?file=01&hours=…&wage=… · spec; booking form pre-fills in S7
 2026-11-14 · layout · Shared PageHeader (breadcrumb, label, kinetic H1, lead, optional object) for single pages · reused in S6/S7
+2026-11-14 · footer · Footer headline "Talk to the desk." (was "Hand off the back office."); SPEC §11.0 updated · the CTA band directly above uses the same line, so it repeated on every page
+2026-11-14 · work · Samples now match the spec's starter list (adds Social post set, Supplement photo report); each has task · time, what was done and tools — all claims · placeholders until real screenshots
+2026-11-14 · work · Filter uses SegmentedTabs with one live TabsContent + an aria-live count; asymmetric 7/5 → 5/7 spans recomputed on the filtered list · pattern stays intact after filtering
+2026-11-14 · how-we-work · Onboarding is a static timeline (StepsList), report is a Swiss document card, tools shown as a grouped grid (not marquee), security reuses the home bento with 6 tiles · spec allows "marquee or grid"; grid is easier to scan on a detail page
+2026-11-14 · how-we-work · Large clocks stack vertically · two display-size clocks side by side overflowed 6 columns
+2026-11-14 · about · Coordinates poster is a client component (visitor time zone + both clocks, joined by a 12px ink bar) · needs the visitor's zone
+2026-11-14 · resources · Email gate in a Dialog, mock requestResource, honeypot, RECEIVED panel; PDFs listed in ASSETS_NEEDED §B2 · spec §11.9; delivery is Phase 2
+2026-11-14 · structure · Page-specific sections in components/sections/how/ and components/sections/about/ · keeps files small; spec folders are a guide

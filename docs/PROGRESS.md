@@ -8,7 +8,7 @@
 | S3 Home B | done | 2026-11-14 | Home 08–15, lib/calculator.ts, comparison, FAQ (6 home items), work samples list. Audited 390/768/1280/1440: no overflow, 1 H1, targets ≥44px. |
 | S4 File pages | done | 2026-11-14 | /real-estate-va and /insurance-supplementing; shared file components, PricingCards, FaqSection; service includes + 8 FAQs. Audited 390 + 1440. |
 | S5 Pricing + Savings calculator | done | 2026-11-14 | /pricing (file toggle via ?file=, cards, plan table, every-plan strip, billing FAQ) and /savings-calculator (sticky inputs, breakdown, how-we-calculate). Audited 390 + 1440. |
-| S6 Work, How we work, About, Resources | todo | | |
+| S6 Work, How we work, About, Resources | done | 2026-11-14 | /work (filter + lightbox), /how-we-work, /about, /resources (email-gate dialog, mock). Audited 390 + 1440; filter, dialog focus return, form error/success tested. |
 | S7 Book a call, FAQ, Legal, 404 | todo | | |
 | S8 Launch prep | todo | | |
 
@@ -21,7 +21,7 @@
 - Full-page screenshots don't trigger scroll-based Reveal/LineDraw; check those by scrolling.
 
 ## Notes for next session
-- Pages: `/`, `/real-estate-va`, `/insurance-supplementing`, `/pricing`, `/savings-calculator`, `/styleguide`.
+- Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. Left: book-a-call, faq, privacy, terms, 404 (S7).
 - Shared PageHeader (components/sections/shared/page-header.tsx) is the hero for single pages (S6/S7 reuse it). Other routes 404 until their segments (nav links already point to them).
 - Preview: https://claude-github-connection-7kt0gt-vortex-website.talhaarifone.workers.dev (Cloudflare Workers, auto-builds on push).
 - Primitives: components/ui (button, section, section-header, spec, labels, tile, image-frame, text, wordmark, accordion, tabs, slider, dialog, field, choice), components/motion (§6.2 all), components/layout (motion-toggle, review-mode).

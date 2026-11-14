@@ -38,7 +38,8 @@ export const mobileMenu = {
 };
 
 export const footer = {
-  title: "Hand off the back office.",
+  /* Differs from the CTA band headline so the two never repeat back to back. */
+  title: "Talk to the desk.",
   cta: { label: "Book a call", href: "/book-a-call" },
   columns: [
     { title: "Files", links: files.map(({ label, href }) => ({ label, href })) },
