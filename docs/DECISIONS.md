@@ -83,3 +83,12 @@
 2026-11-14 · about · Coordinates poster is a client component (visitor time zone + both clocks, joined by a 12px ink bar) · needs the visitor's zone
 2026-11-14 · resources · Email gate in a Dialog, mock requestResource, honeypot, RECEIVED panel; PDFs listed in ASSETS_NEEDED §B2 · spec §11.9; delivery is Phase 2
 2026-11-14 · structure · Page-specific sections in components/sections/how/ and components/sections/about/ · keeps files small; spec folders are a guide
+2026-11-14 · book-a-call · Lead line reads "You'll hear back during desk hours" (claim) instead of a response-time placeholder · reply time = desk hours per user
+2026-11-14 · book-a-call · No Calendly URL → hatched "Online booking opens soon" panel with an email button; with a URL, the iframe loads only on click · spec fallback; privacy/performance
+2026-11-14 · book-a-call · Form pre-fills from ?file, ?hours/?wage (calculator) and ?plan (pricing cards); Suspense fallback = same form without pre-fill · static export rule; no empty SSR
+2026-11-14 · book-a-call · Invalid submit focuses the first invalid field; SMS consent is unchecked, optional, tagged DRAFT and flagged as a claim · accessibility + TCPA-style consent pending legal review
+2026-11-14 · book-a-call · No CTA band at the end of /book-a-call, /privacy, /terms · the page itself is the CTA / legal pages stay plain
+2026-11-14 · faq · FAQ rewritten to the spec's 22 starter questions in 5 tags (home keeps 6); merged duplicates ("one person or a team" → "Who actually does the work?", carrier questions → one); FAQPage JSON-LD skips answers that are still placeholders · one source, no duplicate Q&A, no placeholder text in structured data
+2026-11-14 · tabs · Segmented control with >3 options uses a 2-column grid below 640px · 5 FAQ categories didn't fit one row at 390
+2026-11-14 · legal · Privacy + Terms drafts written from confirmed facts (Islamabad, Wise/Payoneer, File 02 rule, no claim-outcome guarantee, SMS non-sharing line); retention, payment terms, liability, governing law and review date are placeholders; whole article flagged in review mode · spec §11.12; legal review required
+2026-11-14 · 404 · not-found.tsx renders out/404.html; Cloudflare serves it via not_found_handling "404-page" · static export

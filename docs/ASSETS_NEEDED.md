@@ -9,7 +9,7 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A2 | Contact email | talharifone@gmail.com | content/site.ts | ✓ supplied |
 | A3 | WhatsApp number | +92 344 9111101 | content/site.ts | ✓ supplied |
 | A4 | LinkedIn URL | linkedin.com/in/talha-arif-3a9783364 | content/site.ts | ✓ supplied |
-| A5 | Calendly link | — (env `NEXT_PUBLIC_CALENDLY_URL`) | .env / host settings | later (form + email fallback until then) |
+| A5 | Calendly link | — (env `NEXT_PUBLIC_CALENDLY_URL`); /book-a-call shows "Online booking opens soon" + email until set | Cloudflare build variables | later |
 | A6 | Desk hours (US time zone) | 09:00–18:00 ET Mon–Fri | content/site.ts | ✓ confirmed |
 | A7 | File 01 services | + web dev, SEO, Meta ads, lead gen (on request) | content/services.ts | ✓ confirmed |
 | A8 | File 02 services + scope line | starter list + `scopeNote` | content/services.ts, supplementing.ts | ✓ confirmed |
@@ -31,6 +31,7 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A25 | Confirm channels: WhatsApp for quick questions, joining a client's Slack | claims | content/how-we-work.ts | confirm |
 | A26 | Confirm onboarding timeline (Day 1 → Month 1) and the 6 security rules on /how-we-work | claims | content/how-we-work.ts | confirm |
 | A27 | Work sample details ("Task · Time", what was done, tools) once real screenshots exist | claims | content/work.ts | confirm |
+| A28 | FAQ answers flagged as claims (MLS access, state coordination, NDA, logins, data location, contract, "what if it isn't working") | claims / placeholders | content/faq.ts | confirm |
 | A21 | Confirm service "Includes" lists and the new FAQ answers | written by Claude | content/services.ts, faq.ts | review |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
@@ -54,11 +55,12 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | public/files/listing-launch-checklist.pdf | Listing launch checklist | needed |
 | public/files/roof-supplement-checklist.pdf | Roof supplement documentation checklist | needed |
 
-## C. Legal review
+## C. Legal review (before launch)
 | Item | Placeholder text | Where | Status |
 |---|---|---|---|
-| Privacy policy | `privacy policy text — needs legal review` | content/legal/privacy.ts | needed |
-| Terms of service | `terms of service text — needs legal review` | content/legal/terms.ts | needed |
+| Privacy policy draft (incl. SMS section) | `date of legal review`, `data retention period` | content/legal/privacy.ts | draft written — needs legal review |
+| Terms of service draft | `date of legal review`, `payment terms — …`, `limitation of liability wording`, `governing law and venue` | content/legal/terms.ts | draft written — needs legal review |
+| SMS consent wording on the booking form | DRAFT tag, claim | content/book.ts | needs legal review |
 
 ## D. Copy Claude writes later (no input needed)
 | Item | Placeholder text | Segment |

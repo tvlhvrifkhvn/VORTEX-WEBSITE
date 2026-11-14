@@ -20,7 +20,7 @@ interface SegmentedListProps {
 export function SegmentedTabs({ items, value, label, className }: SegmentedListProps) {
   const id = React.useId();
   return (
-    <TabsPrimitive.List aria-label={label} className={cn("grid w-full auto-cols-fr grid-flow-col border border-foreground sm:inline-flex sm:w-auto", className)}>
+    <TabsPrimitive.List aria-label={label} className={cn("grid w-full border border-foreground sm:inline-flex sm:w-auto sm:flex-wrap", items.length > 3 ? "grid-cols-2" : "auto-cols-fr grid-flow-col", className)}>
       {items.map((item) => (
         <TabsPrimitive.Trigger
           key={item.value}
