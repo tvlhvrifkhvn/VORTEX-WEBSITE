@@ -242,10 +242,3 @@ html:not([data-motion="on"]) .marquee-track > ul { flex-wrap: wrap; flex-shrink:
 html:not([data-motion="on"]) .marquee-track > ul > li > span:first-child { padding-inline: 0 1rem; }
 html:not([data-motion="on"]) .marquee-track > ul > li > span:last-child { padding-right: 1rem; }
 html:not([data-motion="on"]) .marquee-dup { display: none; }
-
-/* File panels (home 04): task rows draw their hairline, then the text fades in, once the panel is in view.
-   Only when motion is on — without JS or with motion off, rows are simply visible. */
-html[data-motion="on"] [data-row] > .row-line { transform: scaleX(0); transform-origin: left; }
-html[data-motion="on"] [data-row] > .row-text { opacity: 0; }
-html[data-motion="on"] [data-inview] [data-row] > .row-line { transform: scaleX(1); transition: transform 600ms var(--ease-out-expo) var(--row-delay, 0ms); }
-html[data-motion="on"] [data-inview] [data-row] > .row-text { opacity: 1; transition: opacity 400ms ease calc(var(--row-delay, 0ms) + 250ms); }

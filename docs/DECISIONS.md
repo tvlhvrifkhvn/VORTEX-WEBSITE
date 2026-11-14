@@ -116,7 +116,3 @@
 2026-11-14 · images · Hero slot is 1600×1600 (was 2000) · source was 1080px; larger output only added bytes
 2026-11-14 · images · Alt text rewritten to describe the supplied photos (door key, shingle close-up, calculator with coffee, laptop + notebook, keys + model house) · alt must match what's shown
 2026-11-14 · rev · Home file-panel images cropped square (ImageFrame `square`) with corner marks in the panel accent (`text-primary`: signal on ink, ink on signal) · user: square images, colored + marks to support the design
-2026-11-14 · rev/home 04 · File panels redesigned: title + one-liner full width; tasks left; tall photo right (38%, 4:5 desktop / 4:3 phone) with the numeral over its top edge (giant on phone, --text-hero on desktop); "+N more in this file" (computed from services); spec-sheet strip at the bottom; blinking status dot in the label · user picked ideas 1,2,3,4,5,7,8
-2026-11-14 · rev/home 04 · Hover (desktop) = photo contrast up + 3% scale, signal block slides across, task numbers fill in sequence; touch devices get the same state once on scroll-in via PanelShell (data-live) · user: same effect on phone
-2026-11-14 · rev/home 04 · Task rows draw their hairline then fade in on scroll-in, only when <html data-motion="on"> (no-JS / motion off = visible) · no content depends on animation
-2026-11-14 · rev/home 04 · "+N more" is text, not a link · the whole panel is already the link (one tab stop)
