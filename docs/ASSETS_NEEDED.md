@@ -16,9 +16,9 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A9 | File 01 prices | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
 | A10 | File 02 pricing | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
 | A11 | Payment methods | Wise, Payoneer | content/pricing.ts | ✓ supplied |
-| A12 | Reply time | Replies 4–7 PM Pacific, Mon–Fri | content/site.ts | ✓ supplied — confirm wording |
+| A12 | Reply time | Replies 4–7 PM Pacific, Mon–Fri | content/site.ts | ✓ confirmed |
 | A13 | Contract / notice terms | `contract and notice terms` | content/pricing.ts | later |
-| A14 | Tools you work in | list supplied; Claude-added tools flagged `claim: true` | content/tools.ts | confirm added tools |
+| A14 | Tools you work in | full list confirmed | content/tools.ts | ✓ confirmed |
 | A15 | Real proof (reviews, results) | — | — | none yet |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)

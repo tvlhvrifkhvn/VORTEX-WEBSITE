@@ -30,3 +30,5 @@
 2026-11-14 · layout · GridOverlay lives in components/layout/review-mode.tsx (not its own file) · only used there
 2026-11-14 · styleguide · Section labels/demo strings inside app/styleguide/_parts are partly inline; demo copy in content/styleguide.ts · internal noindex page
 2026-11-14 · infra · `npx shadcn add` unavailable (ui.shadcn.com blocked) — Radix packages installed from npm directly · network policy
+2026-11-14 · intake · Reply window, Part-time/Full-time/Custom tiers and all tools confirmed by user; tools claim flags removed · user confirmation
+2026-11-14 · components · Free open-source sources (Magic UI, Motion Primitives, React Bits, shadcn/ui) are fetched from raw.githubusercontent.com (reachable) instead of 21st.dev · 21st.dev free tier is 2/day; their sites are blocked but GitHub raw is not
