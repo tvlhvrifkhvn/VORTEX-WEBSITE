@@ -8,7 +8,8 @@ import { useMedia } from "./use-media";
 
 /* §6.2.14 — wrap a file panel. Fine pointers + motion ON + feature flag only; the system
    cursor stays visible. Purely decorative (aria-hidden); the panel keeps its own link. */
-export function CursorLabel({ label, children, className }: { label: string; children: React.ReactNode; className?: string }) {
+/** `theme` = the panel's section theme, so the label inverts per panel (signal on ink, ink on signal). */
+export function CursorLabel({ label, children, className, theme }: { label: string; children: React.ReactNode; className?: string; theme?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { enabled } = useMotion();
   const fine = useMedia("(pointer: fine)");
@@ -38,12 +39,12 @@ export function CursorLabel({ label, children, className }: { label: string; chi
   }, [on, x, y]);
 
   return (
-    <div ref={ref} className={`relative ${className ?? ""}`}>
+    <div ref={ref} data-theme={theme} className={`relative ${className ?? ""}`}>
       {children}
       {on && (
         <motion.span
           aria-hidden="true"
-          className="label-mono pointer-events-none absolute top-0 left-0 z-10 bg-signal px-2 py-1 text-ink"
+          className="label-mono pointer-events-none absolute top-0 left-0 z-10 bg-primary px-2 py-1 text-primary-foreground"
           style={{ x, y }}
           animate={{ opacity: over ? 1 : 0 }}
           transition={{ duration: 0.15 }}

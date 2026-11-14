@@ -67,7 +67,7 @@ export const page = {
   cta: {
     label: "Next step",
     title: "Get a price for your workload.",
-    text: "15 minutes. Tell us what's on your desk and we quote a monthly price. No pitch deck.",
+    text: "15 minutes. Tell us what’s on your desk and we quote a monthly price. No pitch deck.",
     primary: { label: "Book a call", href: "/book-a-call" },
     secondary: { label: "Run the numbers", href: "/savings-calculator" },
   },

@@ -58,7 +58,7 @@ export function LeadForm({ prefill = {} }: { prefill?: LeadPrefill }) {
         {(d) => <Input id="lf-name" name="name" autoComplete="name" required aria-describedby={d} aria-invalid={inv("name")} />}
       </Field>
       <Field id="lf-email" label={f.email} required error={errors.email}>
-        {(d) => <Input id="lf-email" name="email" type="email" autoComplete="email" required aria-describedby={d} aria-invalid={inv("email")} />}
+        {(d) => <Input id="lf-email" name="email" type="email" autoComplete="email" spellCheck={false} required aria-describedby={d} aria-invalid={inv("email")} />}
       </Field>
       <Field id="lf-phone" label={f.phone} optionalLabel={f.optional}>
         {(d) => <Input id="lf-phone" name="phone" type="tel" autoComplete="tel" aria-describedby={d} />}
@@ -78,7 +78,7 @@ export function LeadForm({ prefill = {} }: { prefill?: LeadPrefill }) {
         </div>
       </fieldset>
       <Field id="lf-hours" label={f.hours} optionalLabel={f.optional}>
-        {(d) => <Input id="lf-hours" name="hours" type="number" inputMode="numeric" min={1} max={60} defaultValue={prefill.hours} aria-describedby={d} />}
+        {(d) => <Input id="lf-hours" name="hours" type="number" inputMode="numeric" autoComplete="off" min={1} max={60} defaultValue={prefill.hours} aria-describedby={d} />}
       </Field>
       <Field id="lf-message" label={f.message} optionalLabel={f.optional} hint={f.messageHint}>
         {(d) => <Textarea id="lf-message" name="message" defaultValue={prefill.message} aria-describedby={d} />}

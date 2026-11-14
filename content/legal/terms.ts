@@ -25,8 +25,8 @@ export const doc = {
     {
       title: "Insurance supplementing",
       body: [
-        "We prepare estimates and documentation for contractors. We don't negotiate with insurance carriers, represent homeowners or act as a public adjuster.",
-        "We don't guarantee any insurance claim outcome, approval or payment amount. Decisions are made by the carrier.",
+        "We prepare estimates and documentation for contractors. We don’t negotiate with insurance carriers, represent homeowners or act as a public adjuster.",
+        "We don’t guarantee any insurance claim outcome, approval or payment amount. Decisions are made by the carrier.",
       ],
     },
     {

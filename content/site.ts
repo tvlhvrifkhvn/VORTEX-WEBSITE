@@ -21,6 +21,8 @@ export const site = {
   },
   /* User 2026-11-14: replies follow desk hours (was a separate 4–7 PM PT window, which read as after-hours). */
   responseTime: { text: "Replies during desk hours, Monday to Friday", claim: true as const },
+  /* Browser UI color (mobile address bar) = paper token. */
+  themeColor: "#E4E4E2",
   primaryCta: { label: "Book a call", href: "/book-a-call" },
   features: {
     deskLog: true,

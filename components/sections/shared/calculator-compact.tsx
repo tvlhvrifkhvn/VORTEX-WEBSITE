@@ -47,6 +47,7 @@ export function CalculatorCompact() {
               id="calc-wage"
               type="number"
               inputMode="decimal"
+              autoComplete="off"
               min={defaults.wage.min}
               max={defaults.wage.max}
               value={wageText}

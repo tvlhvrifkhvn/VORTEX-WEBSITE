@@ -12,7 +12,7 @@ export function FilePanels() {
     <section aria-labelledby="files-title" className="grid lg:grid-cols-2">
       <h2 id="files-title" className="sr-only">{filesSection.srTitle}</h2>
       {filesSection.panels.map((p) => (
-        <CursorLabel key={p.file} label={filesSection.cursor} className="h-full">
+        <CursorLabel key={p.file} label={filesSection.cursor} theme={p.theme} className="h-full">
           <article
             data-theme={p.theme}
             data-scramble-host=""

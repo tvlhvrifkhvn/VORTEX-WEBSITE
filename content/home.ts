@@ -23,8 +23,8 @@ export const hero = {
     { text: "Monthly, no lock-in", claim: true as const },
   ],
   ctas: {
-    agent: { label: "I'm an agent", href: "/real-estate-va" },
-    contractor: { label: "I'm a contractor", href: "/insurance-supplementing" },
+    agent: { label: "I’m an agent", href: "/real-estate-va" },
+    contractor: { label: "I’m a contractor", href: "/insurance-supplementing" },
     call: { label: "or book a 15-min call", href: "/book-a-call" },
   },
   rotated: "VortexOne — Back office desk — No. 001",
@@ -91,16 +91,16 @@ export const shiftSection = {
   label: "06 — Your day, our night shift",
   meta: "Sample shift",
   title: "Your day. Our night shift.",
-  lead: "Your morning in the US is our evening in Islamabad. Here's a sample shift.",
+  lead: "Your morning in the US is our evening in Islamabad. Here’s a sample shift.",
   from: "Islamabad",
   to: "ET",
   steps: [
     { time: "19:00", title: "Overnight inbox triaged", text: "New leads tagged in your CRM; urgent emails flagged for you." },
     { time: "20:30", title: "Listings go live", text: "MLS entry, photos and descriptions checked against the listing checklist." },
     { time: "22:00", title: "Deadlines checked", text: "Inspection, appraisal and closing dates confirmed on every open file." },
-    { time: "23:30", title: "Supplement drafted", text: "Missing line items built in Xactimate from the contractor's photos and measurements." },
+    { time: "23:30", title: "Supplement drafted", text: "Missing line items built in Xactimate from the contractor’s photos and measurements." },
     { time: "01:00", title: "Follow-up sent", text: "Calls, texts and emails to your lead list, all logged in the CRM." },
-    { time: "03:00", title: "End-of-day report", text: "What's done, what's waiting on you, what's next." },
+    { time: "03:00", title: "End-of-day report", text: "What’s done, what’s waiting on you, what’s next." },
   ],
 };
 

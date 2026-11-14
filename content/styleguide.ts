@@ -29,7 +29,7 @@ export const sg = {
   mutedSample: "Secondary text in this theme uses the muted token.",
   buttons: { primary: "Primary", secondary: "Secondary", ghost: "Ghost", text: "Text link" },
   themes: ["paper", "paper-2", "white", "ink", "signal"] as const,
-  header: { label: "06 — THE SHIFT", meta: "FILE 01 + 02", title: "One desk, two files, written reports every day.", lead: "Split layout: the lead sits on the right, aligned to the headline's last line." },
+  header: { label: "06 — THE SHIFT", meta: "FILE 01 + 02", title: "One desk, two files, written reports every day.", lead: "Split layout: the lead sits on the right, aligned to the headline’s last line." },
   strip: ["FILE 01", "US HOURS", "DAILY REPORT", "ISLAMABAD"],
   table: [
     { key: "Coverage", value: "Monday to Friday, US hours" },

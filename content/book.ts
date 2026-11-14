@@ -9,7 +9,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "Schedule a showing / Send a claim",
   lines: ["Book a", "15-min call."],
-  lead: "Pick a time, or send a note. You'll hear back during desk hours, Monday to Friday.",
+  lead: "Pick a time, or send a note. You’ll hear back during desk hours, Monday to Friday.",
   leadClaim: true as const,
 };
 
@@ -20,7 +20,7 @@ export const calendar = {
   privacy: "The calendar loads from Calendly only after you click.",
   frameTitle: "Book a time with VortexOne",
   emptyTitle: "Online booking opens soon.",
-  emptyText: "Until then, send the form or email us and we'll reply with times that suit you.",
+  emptyText: "Until then, send the form or email us and we’ll reply with times that suit you.",
   email: "Email the desk",
 };
 
@@ -48,9 +48,9 @@ export const leadForm = {
   submit: "Send",
   submitting: "Sending",
   required: "Required",
-  errors: { name: "Enter your name", email: "Enter an email like name@company.com", role: "Choose what describes you", send: "That didn't go through. Try again, or email us." },
+  errors: { name: "Enter your name", email: "Enter an email like name@company.com", role: "Choose what describes you", send: "That didn’t go through. Try again, or email us." },
   successLabel: "Received",
-  success: "Thanks. We'll reply during desk hours, Monday to Friday.",
+  success: "Thanks. We’ll reply during desk hours, Monday to Friday.",
   prefill: {
     calculator: (hours: string, wage: string) => `From the savings calculator: ${hours} hours a week at $${wage} an hour.`,
     plan: (name: string) => `Interested in the ${name} plan.`,

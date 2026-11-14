@@ -26,6 +26,7 @@
 | Date | Summary |
 |---|---|
 | 2026-11-14 | Hero H1 hierarchy (--text-hero), phone hero spacing/bar, SpecStrip wrap, marquee OFF fix, night-shift contrast |
+| 2026-11-14 | Typographic apostrophes, theme-color/autocomplete details, lazy home leaves, phone numeral scramble, themed cursor label |
 
 ## Notes for next session
 - Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.

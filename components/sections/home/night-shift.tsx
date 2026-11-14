@@ -1,7 +1,9 @@
 import { shiftSection as s } from "@/content/home";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
-import { PinnedStory } from "@/components/motion/pinned-story";
+import dynamic from "next/dynamic";
+
+const PinnedStory = dynamic(() => import("@/components/motion/pinned-story").then((m) => m.PinnedStory));
 
 /* 06 — YOUR DAY, OUR NIGHT SHIFT: pinned scrollytelling (≥1024px, motion on) or static timeline. */
 export function NightShift() {

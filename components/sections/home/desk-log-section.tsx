@@ -1,7 +1,9 @@
 import { deskLogSection as s } from "@/content/home";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
-import { DeskLog } from "@/components/motion/desk-log";
+import dynamic from "next/dynamic";
+
+const DeskLog = dynamic(() => import("@/components/motion/desk-log").then((m) => m.DeskLog));
 
 /* 07 — DESK LOG (ink, compact): headline left, live sample feed right. */
 export function DeskLogSection() {

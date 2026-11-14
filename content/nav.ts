@@ -71,9 +71,9 @@ export const footer = {
     label: "Email",
     submit: "Subscribe",
     submitting: "Sending",
-    success: "Received. You're on the list.",
+    success: "Received. You’re on the list.",
     errorEmail: "Enter an email like name@company.com",
-    errorSend: "That didn't go through. Try again, or email us.",
+    errorSend: "That didn’t go through. Try again, or email us.",
   },
   deskHours: "Desk Mon–Fri · 9:00 AM–6:00 PM ET",
   legal: [

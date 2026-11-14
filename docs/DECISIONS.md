@@ -107,3 +107,8 @@
 2026-11-14 · rev · SpecStrip: wraps as a flex row with no separators on phone, " · " separators from 768px · 3-item 2-column grid left an orphan; separators wrapped to line starts
 2026-11-14 · rev · Marquee OFF state (Reduce Motion / Motion toggle off) now really wraps — the list was shrink-0 at max-content width, so it clipped and looked frozen · user report "bar not moving"
 2026-11-14 · rev · Night shift: static timeline (phone + desktop fallback) → ink rail with square nodes (last one signal), ink time chips (Islamabad in signal, ET in white), faint big step numbers; pinned desktop clock sits on an ink panel with a signal ET line · user: section felt dull
+2026-11-14 · rev/typography · 53 straight apostrophes in content/ → ’ (typographic); ranges already use en dashes · typography skill: straight quotes read as unfinished
+2026-11-14 · rev/interface · viewport themeColor (paper) + colorScheme light; numeric fields autoComplete="off"; email fields spellCheck={false} · web interface guidelines (autocomplete/spellcheck/theme-color); slider already touch-none
+2026-11-14 · rev/perf · Home PinnedStory, DeskLog and CalculatorCompact load via next/dynamic (still server-rendered) · TBT 210 → 130–160 ms, Lighthouse 91 → 91–93 (compressed); smaller gain than the earlier uncompressed estimate
+2026-11-14 · rev/motion · Hover-triggered ScrambleText also runs on scroll-in and on tap where the device can't hover · user: file numerals didn't scramble on phone
+2026-11-14 · rev/motion · CursorLabel takes the panel theme and uses primary colors: signal/ink on the ink panel, ink/white on the signal panel · user: label stayed orange on the orange panel

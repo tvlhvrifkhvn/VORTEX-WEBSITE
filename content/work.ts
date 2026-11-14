@@ -13,7 +13,7 @@ export const meta: PageMeta = {
 export interface WorkSample extends Claim { id: string; file: FileId; title: string; image: ImageId; task: string; time: string; done: string; tools: string[] }
 
 export const samples: WorkSample[] = [
-  { id: "listing-sheet", file: "01", title: "MLS listing input sheet", image: "work-01", task: "Listing entry", time: "45 min", done: "New listing entered from the agent's intake form, photos ordered and the description checked against the listing checklist.", tools: ["MLS", "Google Workspace"], claim: true },
+  { id: "listing-sheet", file: "01", title: "MLS listing input sheet", image: "work-01", task: "Listing entry", time: "45 min", done: "New listing entered from the agent’s intake form, photos ordered and the description checked against the listing checklist.", tools: ["MLS", "Google Workspace"], claim: true },
   { id: "tc-timeline", file: "01", title: "Transaction timeline tracker", image: "work-02", task: "Contract to close", time: "Ongoing", done: "Every deadline from the purchase agreement in one tracker, with reminders to the agent, lender and title.", tools: ["DocuSign", "Dotloop", "Google Workspace"], claim: true },
   { id: "crm-pipeline", file: "01", title: "CRM pipeline cleanup", image: "work-03", task: "CRM cleanup", time: "1 day", done: "Duplicate contacts merged, leads tagged by source and stage, and follow-up tasks scheduled.", tools: ["Follow Up Boss", "HubSpot"], claim: true },
   { id: "social-set", file: "01", title: "Social post set", image: "work-04", task: "Social posts", time: "2 hrs", done: "Just-listed and market-update posts drafted, captioned and scheduled for the week.", tools: ["Meta Ads Manager"], claim: true },

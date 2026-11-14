@@ -39,7 +39,7 @@ export const report = {
       { key: "File", value: "01" },
     ],
     sections: [
-      { title: "Done", items: ["6 new leads tagged and texted", "Listing entered in MLS, photos ordered", "Inspection reminder sent to buyer's agent"] },
+      { title: "Done", items: ["6 new leads tagged and texted", "Listing entered in MLS, photos ordered", "Inspection reminder sent to buyer’s agent"] },
       { title: "Waiting on you", items: ["Approve the listing description", "Sign the price change in DocuSign"] },
       { title: "Next", items: ["Appraisal date follow-up", "Just-listed post goes out Thursday"] },
     ],
@@ -78,7 +78,7 @@ export const needs = {
   title: "What we need to start",
   items: [
     "A 15-minute call to agree on scope",
-    "User access to your CRM, MLS and the tools we'll work in",
+    "User access to your CRM, MLS and the tools we’ll work in",
     "Your current checklists or templates, if you have them",
     "One contact for questions during the first week",
     "Feedback on the first few daily reports",

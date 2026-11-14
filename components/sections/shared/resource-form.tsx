@@ -41,7 +41,7 @@ export function ResourceForm({ resourceId }: { resourceId: string }) {
     <form noValidate onSubmit={onSubmit} className="mt-6 flex flex-col gap-4">
       <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <Field id={id} label={f.email} required error={error}>
-        {(d, inv) => <Input id={id} name="email" type="email" autoComplete="email" required aria-describedby={d} aria-invalid={inv || undefined} />}
+        {(d, inv) => <Input id={id} name="email" type="email" autoComplete="email" spellCheck={false} required aria-describedby={d} aria-invalid={inv || undefined} />}
       </Field>
       <Button type="submit" disabled={state === "submitting"} className="self-start">
         {state === "submitting" ? f.submitting : f.submit}

@@ -29,12 +29,12 @@ export const header = {
 export const sections = {
   services: { label: "01.1 — Property details", title: "What your VA takes off your plate" },
   audience: {
-    label: "01.2 — Who it's for",
+    label: "01.2 — Who it’s for",
     title: "Built for three kinds of operators",
     handoff: "Typical hand-off",
     groups: [
       { title: "Solo agents", text: "You sell. We keep the listings, paperwork and follow-up moving.", items: ["MLS entry and updates", "Showing confirmations", "CRM follow-up", "Social posts"] },
-      { title: "Teams & brokerages", text: "One desk that keeps every agent's files on the same checklist.", items: ["Transaction coordination", "Lead routing in the CRM", "Listing quality checks", "Weekly pipeline cleanup"] },
+      { title: "Teams & brokerages", text: "One desk that keeps every agent’s files on the same checklist.", items: ["Transaction coordination", "Lead routing in the CRM", "Listing quality checks", "Weekly pipeline cleanup"] },
       { title: "Investors & flippers", text: "Numbers, schedules and vendors tracked while you find the next deal.", items: ["Comps and deal numbers", "Contractor scheduling", "Budget and draw tracking", "Lead lists on request"] },
     ],
   },

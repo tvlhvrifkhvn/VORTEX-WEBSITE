@@ -2,7 +2,9 @@ import { savingsSection as s } from "@/content/home";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { ImageFrame } from "@/components/ui/image-frame";
-import { CalculatorCompact } from "@/components/sections/shared/calculator-compact";
+import dynamic from "next/dynamic";
+
+const CalculatorCompact = dynamic(() => import("@/components/sections/shared/calculator-compact").then((m) => m.CalculatorCompact));
 
 /* 08 — SAVINGS (paper-2): compact calculator + calculator object. */
 export function Savings() {

@@ -9,7 +9,7 @@ export const meta: PageMeta = {
 
 /* Positioning rule (SPEC §1), confirmed in intake 2026-11-14. */
 export const scopeNote =
-  "We prepare estimates and documentation for the contractor. We don't negotiate with insurance carriers, represent homeowners or act as a public adjuster.";
+  "We prepare estimates and documentation for the contractor. We don’t negotiate with insurance carriers, represent homeowners or act as a public adjuster.";
 
 export const header = {
   crumbs: [{ label: "File 02" }, { label: "Insurance Supplementing" }],
@@ -53,12 +53,12 @@ export const sections = {
       { n: "01", title: "Inspect", text: "We review the carrier scope and your photos." },
       { n: "02", title: "Itemize", text: "Missing items are built in Xactimate." },
       { n: "03", title: "Package", text: "Everything is ready for you to submit." },
-      { n: "04", title: "Track", text: "Each claim's status is logged until it closes." },
+      { n: "04", title: "Track", text: "Each claim’s status is logged until it closes." },
     ],
     cta: { label: "Send a claim", href: "/book-a-call?file=02" },
   },
   audience: {
-    label: "02.4 — Who it's for",
+    label: "02.4 — Who it’s for",
     title: "Contractors, not homeowners",
     handoff: "Typical hand-off",
     groups: [
@@ -74,7 +74,7 @@ export const sections = {
 export const cta = {
   label: "Next step",
   title: "Got a claim that came back short?",
-  text: "Bring the carrier scope and your photos to a 15-minute call. We'll look at what's missing together.",
+  text: "Bring the carrier scope and your photos to a 15-minute call. We’ll look at what’s missing together.",
   primary: { label: "Send a claim", href: "/book-a-call?file=02" },
   secondary: { label: "See rate sheet", href: "/pricing?file=02" },
 };

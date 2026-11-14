@@ -15,7 +15,7 @@ export const page = {
 
 export const founder = {
   label: "01 — Founder",
-  title: "Who you'll work with",
+  title: "Who you’ll work with",
   role: "Founder",
   bio: "[[PLACEHOLDER: founder bio — facts only (background, experience, why VortexOne)]]",
   since: "Real estate VA work for US clients since [[PLACEHOLDER: year started]]",
@@ -31,7 +31,7 @@ export const manifesto = {
     { n: "02", title: "You should know who does the work.", text: "The person on the call is the person on your files." },
     { n: "03", title: "Your hours, not ours.", text: "The desk runs on US business hours, Monday to Friday." },
     { n: "04", title: "Everything written down.", text: "Checklists for every task, and a written report every day." },
-    { n: "05", title: "Honest numbers.", text: "No inflated stats, no fake reviews, no client counts we can't back up." },
+    { n: "05", title: "Honest numbers.", text: "No inflated stats, no fake reviews, no client counts we can’t back up." },
   ],
 };
 

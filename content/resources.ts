@@ -10,7 +10,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "Resources",
   lines: ["Free", "checklists."],
-  lead: "The same checklists the desk works from. Enter your email and we'll send the PDF.",
+  lead: "The same checklists the desk works from. Enter your email and we’ll send the PDF.",
 };
 
 /* PDFs are placeholders until uploaded (see docs/ASSETS_NEEDED.md). Delivery by email is Phase 2. */
@@ -25,12 +25,12 @@ export const resources: Resource[] = [
 export const form = {
   cta: "Get the checklist",
   title: "Get the checklist",
-  text: "Enter your email and we'll send the PDF.",
+  text: "Enter your email and we’ll send the PDF.",
   email: "Work email",
   submit: "Send it",
   submitting: "Sending",
   errorEmail: "Enter an email like name@company.com",
-  errorSend: "That didn't go through. Try again, or email us.",
+  errorSend: "That didn’t go through. Try again, or email us.",
   successLabel: "Received",
   success: "Thanks. The checklist is on its way to your inbox.",
   close: "Close",

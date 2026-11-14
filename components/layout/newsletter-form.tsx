@@ -44,7 +44,7 @@ export function NewsletterForm() {
       <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
         <Field id="nl-email" label={n.label} error={error} className="flex-1">
-          {(d, inv) => <Input id="nl-email" name="email" type="email" autoComplete="email" aria-describedby={d} aria-invalid={inv || undefined} />}
+          {(d, inv) => <Input id="nl-email" name="email" type="email" autoComplete="email" spellCheck={false} aria-describedby={d} aria-invalid={inv || undefined} />}
         </Field>
         <Button type="submit" variant="ghost" arrow={false} disabled={state === "submitting"} className="sm:mt-6">
           {state === "submitting" ? n.submitting : n.submit}

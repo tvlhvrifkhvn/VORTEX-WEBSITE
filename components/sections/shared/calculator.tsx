@@ -50,7 +50,7 @@ export function Calculator() {
           <Range id="c-hours" label={labels.hours} unit={` ${labels.hoursUnit.toUpperCase()}`} value={hours} onChange={setHours} cfg={defaults.hours} />
           <Field id="c-wage" label={labels.wage} error={valid ? undefined : labels.wageError}>
             {(d, inv) => (
-              <Input id="c-wage" type="number" inputMode="decimal" min={defaults.wage.min} max={defaults.wage.max} value={wageText} onChange={(e) => setWageText(e.target.value)} aria-describedby={d} aria-invalid={inv || undefined} data-claim="" />
+              <Input id="c-wage" type="number" inputMode="decimal" autoComplete="off" min={defaults.wage.min} max={defaults.wage.max} value={wageText} onChange={(e) => setWageText(e.target.value)} aria-describedby={d} aria-invalid={inv || undefined} data-claim="" />
             )}
           </Field>
           <div data-claim="">

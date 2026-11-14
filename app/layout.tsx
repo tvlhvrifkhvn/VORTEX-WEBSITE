@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { site } from "@/content/site";
 import { bootScript } from "@/lib/boot-script";
 import { MotionProvider } from "@/components/motion/motion-provider";
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: [ogImage.url] },
   icons: { icon: "/favicon.svg" },
 };
+
+export const viewport: Viewport = { themeColor: site.themeColor, colorScheme: "light" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
