@@ -54,10 +54,13 @@ export const filesSection = {
   srTitle: "The two files",
   cursor: "Open file →",
   cta: "Open file",
+  more: (n: number) => `+${n} more in this file`,
   panels: [
     {
       file: "01" as const,
-      tag: "File 01 · Listing no. 001 · Active",
+      tag: "File 01 · Listing no. 001",
+      status: "Active",
+      spec: ["Listing no. 001", "Status active", "10 services", "US hours"],
       title: "Real Estate VA",
       line: "Listings, transactions and follow-up, off your plate.",
       tasks: ["MLS listings", "Transaction deadlines", "CRM & follow-up", "Social posts"],
@@ -67,7 +70,9 @@ export const filesSection = {
     },
     {
       file: "02" as const,
-      tag: "File 02 · Claim no. 002 · Open",
+      tag: "File 02 · Claim no. 002",
+      status: "Open",
+      spec: ["Claim no. 002", "Status open", "Xactimate", "Contractors only"],
       title: "Insurance Supplementing",
       line: "Xactimate supplements, documented line by line.",
       tasks: ["Xactimate estimates", "Supplement packages", "Photo documentation", "Status tracking"],
