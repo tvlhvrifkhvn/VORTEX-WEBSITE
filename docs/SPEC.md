@@ -148,7 +148,7 @@ Tailwind v4, CSS-first. After `shadcn init`, keep shadcn's `@theme inline { … 
   --color-ink: #0E0E0E;        /* text, dark sections */
   --color-black: #0E0E0E;      /* alias: pasted components using bg-black stay on brand */
   --color-ink-2: #1A1A1A;      /* surfaces inside dark sections */
-  --color-muted: #5A5A58;      /* secondary text on light */
+  --color-muted-light: #5A5A58; /* secondary text on light — renamed from --color-muted (clashes with shadcn semantic --color-muted) */
   --color-muted-dark: #8A8A88; /* secondary text on dark */
   --color-signal: #FF4D1F;     /* the only accent */
   --color-status: #1F9D55;     /* "desk open" dot only, always next to text */
@@ -239,12 +239,12 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
   --secondary: var(--color-ink);
   --secondary-foreground: var(--color-white);
   --muted: var(--color-paper-2);
-  --muted-foreground: var(--color-muted);
+  --muted-foreground: var(--color-muted-light);
   --accent: var(--color-paper-2);
   --accent-foreground: var(--color-ink);
   --destructive: var(--color-signal);
   --border: var(--color-line);
-  --input: var(--color-muted);          /* form field borders need ≥3:1 */
+  --input: var(--color-muted-light);    /* form field borders need ≥3:1 */
   --ring: var(--color-ink);
   --radius: 0rem;
 }
@@ -675,7 +675,7 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 ### 11.4 Pricing `/pricing`  (content: `content/pricing.ts`)
 - Label `FLOOR PLANS + RATE SHEET`; H1 "Pricing in plain numbers."; lead.
 - SegmentedToggle `FILE 01 · REAL ESTATE` / `FILE 02 · SUPPLEMENTING`. Reads `?file=` (default 01) and updates the URL with `replaceState`.
-- File 01 plans: **Studio** (part-time, 20 hrs/week) · **Townhouse** (full-time, 40 hrs/week, `RECOMMENDED`, 8px signal bar) · **Estate** (custom scope: task or project based). File 02: three plan cards with names/models from intake (e.g., per supplement / % of approved amount / monthly volume). Each card: label, name, ScrambleNumber price (null → `$—` + placeholder), unit, ✓ features, CTA.
+- File 01 plans: **Part-time** (20 hrs/week) · **Full-time** (40 hrs/week, `RECOMMENDED`, 8px signal bar) · **Custom scope** (task or project based). File 02: one plan card. No public prices (user, 2026-11-14): every card shows "Contact for pricing" instead of a number. Each card: label, name, hours, ✓ features, CTA.
 - "In every plan" SpecStrip: NDA · Daily report · US hours · Monthly billing · `[[NOTICE_PERIOD]]` notice (claims).
 - Plan comparison table (per file). Payment line: "Invoiced monthly. Pay by `[[PAYMENT_METHODS]]`."
 - FAQ tagged `billing`. CtaBand.

@@ -14,7 +14,7 @@
   --color-ink: #0E0E0E;        /* text, dark sections */
   --color-black: #0E0E0E;      /* alias: pasted components using bg-black stay on brand */
   --color-ink-2: #1A1A1A;      /* surfaces inside dark sections */
-  --color-muted: #5A5A58;      /* secondary text on light */
+  --color-muted-light: #5A5A58; /* secondary text on light (renamed from --color-muted: clashes with shadcn) */
   --color-muted-dark: #8A8A88; /* secondary text on dark */
   --color-signal: #FF4D1F;     /* the only accent */
   --color-status: #1F9D55;     /* "desk open" dot only, always next to text */
@@ -128,12 +128,12 @@
   --secondary: var(--color-ink);
   --secondary-foreground: var(--color-white);
   --muted: var(--color-paper-2);
-  --muted-foreground: var(--color-muted);
+  --muted-foreground: var(--color-muted-light);
   --accent: var(--color-paper-2);
   --accent-foreground: var(--color-ink);
   --destructive: var(--color-signal);
   --border: var(--color-line);
-  --input: var(--color-muted);          /* form field borders need ≥3:1 */
+  --input: var(--color-muted-light);    /* form field borders need ≥3:1 */
   --ring: var(--color-ink);
   --radius: 0rem;
 }
@@ -184,3 +184,56 @@
   :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   *, ::before, ::after { border-color: var(--border); }
 }
+
+/* ── Motion (§6) — CSS-driven primitives + global OFF switch ─ */
+@theme {
+  --animate-kinetic-in: kinetic-in 900ms var(--ease-out-expo) both;
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-blink: blink 1s steps(1, end) infinite;
+  --animate-content-in: content-in 300ms var(--ease-out-expo) both;
+  --animate-content-out: content-out 150ms ease-in both;
+  --animate-overlay-in: fade-in 300ms var(--ease-out-expo) both;
+  --animate-overlay-out: fade-out 150ms ease-in both;
+  @keyframes kinetic-in { from { transform: translateY(110%); } to { transform: translateY(0); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes content-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  @keyframes content-out { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+}
+
+/* Motion OFF (toggle or prefers-reduced-motion, set before paint by the boot script):
+   every transition/animation resolves to its final state instantly. */
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+/* Kinetic headline only animates when motion is explicitly on (no JS → static). */
+html:not([data-motion="on"]) .kinetic-line > span { animation: none; }
+
+/* ── Placeholder hatch (§7.3) — the only allowed gradient ─ */
+@utility hatch {
+  background-image: repeating-linear-gradient(-45deg, var(--border) 0 1px, transparent 1px 10px);
+}
+
+/* ── Review mode (§9.6) ─────────────────────────────────── */
+html[data-review] [data-claim],
+html[data-review] [data-placeholder] { outline: 1px dashed var(--color-signal); outline-offset: 2px; position: relative; }
+html[data-review] [data-placeholder] { outline-color: currentColor; }
+html[data-review] [data-claim]::after,
+html[data-review] [data-placeholder]::after {
+  position: absolute; top: -0.75rem; right: 0; z-index: 1;
+  font: 500 0.625rem/1 var(--font-mono); letter-spacing: 0.08em; padding: 0.125rem 0.25rem;
+  background: var(--color-signal); color: var(--color-ink); pointer-events: none;
+}
+html[data-review] [data-claim]::after { content: "CLAIM"; }
+html[data-review] [data-placeholder]::after { content: "PLACEHOLDER"; background: var(--color-ink); color: var(--color-white); }
+
+/* Marquee OFF state: wrap the list, drop the duplicate. */
+html:not([data-motion="on"]) .marquee-track { width: auto; flex-wrap: wrap; animation: none; }
+html:not([data-motion="on"]) .marquee-track > ul { flex-wrap: wrap; row-gap: 0.5rem; }
+html:not([data-motion="on"]) .marquee-dup { display: none; }

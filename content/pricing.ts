@@ -6,13 +6,15 @@ export const meta: PageMeta = {
   path: "/pricing/",
 };
 
-/* Prices are never invented — they stay null until confirmed (intake A9, A10). */
+/* Intake 2026-11-14: no public prices — every plan shows `priceLabel`. Plans describe scope only. */
+export const priceLabel = "Contact for pricing";
+
 export const plans: PricingPlan[] = [
-  { id: "studio", file: "01", name: "Studio", tagline: "", price: null, unit: "[[PLACEHOLDER: File 01 price unit]]", features: [] },
-  { id: "townhouse", file: "01", name: "Townhouse", tagline: "", price: null, unit: "[[PLACEHOLDER: File 01 price unit]]", features: [], recommended: true },
-  { id: "estate", file: "01", name: "Estate", tagline: "", price: null, unit: "[[PLACEHOLDER: File 01 price unit]]", features: [] },
-  { id: "file02", file: "02", name: "[[PLACEHOLDER: File 02 plan name]]", tagline: "", price: null, unit: "[[PLACEHOLDER: File 02 pricing model]]", features: [] },
+  { id: "part-time", file: "01", name: "Part-time", tagline: "", price: null, hours: "20 hrs/week", features: [], claim: true },
+  { id: "full-time", file: "01", name: "Full-time", tagline: "", price: null, hours: "40 hrs/week", features: [], recommended: true, claim: true },
+  { id: "custom", file: "01", name: "Custom scope", tagline: "", price: null, hours: "Task or project based", features: [] },
+  { id: "file02", file: "02", name: "Supplementing", tagline: "", price: null, features: [] },
 ];
 
-export const paymentMethods = "[[PLACEHOLDER: payment methods]]";
+export const paymentMethods = ["Wise", "Payoneer"];
 export const contractTerms = "[[PLACEHOLDER: contract and notice terms]]";

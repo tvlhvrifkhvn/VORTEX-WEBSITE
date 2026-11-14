@@ -1,0 +1,77 @@
+import type { Stat } from "./types";
+
+/* Demo copy for the internal /styleguide (noindex). Not shown on public pages. */
+export const sg = {
+  title: "Styleguide",
+  intro: "Internal audit surface for tokens, primitives and motion. Not linked from the site.",
+  colors: [
+    { name: "paper", hex: "#E4E4E2", cls: "bg-paper" },
+    { name: "paper-2", hex: "#F2F2F0", cls: "bg-paper-2" },
+    { name: "white", hex: "#FFFFFF", cls: "bg-white" },
+    { name: "ink", hex: "#0E0E0E", cls: "bg-ink" },
+    { name: "ink-2", hex: "#1A1A1A", cls: "bg-ink-2" },
+    { name: "muted-light", hex: "#5A5A58", cls: "bg-muted-light" },
+    { name: "muted-dark", hex: "#8A8A88", cls: "bg-muted-dark" },
+    { name: "signal", hex: "#FF4D1F", cls: "bg-signal" },
+    { name: "status", hex: "#1F9D55", cls: "bg-status" },
+  ],
+  pairs: [
+    { fg: "text-ink", bg: "bg-paper", label: "ink on paper", ratio: "~15:1" },
+    { fg: "text-ink", bg: "bg-white", label: "ink on white", ratio: "~19:1" },
+    { fg: "text-muted-foreground", bg: "bg-paper", label: "muted on paper", ratio: "~5.4:1" },
+    { fg: "text-white", bg: "bg-ink", label: "white on ink", ratio: "~19:1" },
+    { fg: "text-muted-dark", bg: "bg-ink", label: "muted-dark on ink", ratio: "~5.6:1" },
+    { fg: "text-ink", bg: "bg-signal", label: "ink on signal", ratio: "~5.8:1" },
+    { fg: "text-signal", bg: "bg-ink", label: "signal on ink", ratio: "~5.8:1" },
+  ],
+  type: ["giant", "display", "h2", "h3", "lead", "body", "small", "button", "label", "micro"] as const,
+  sample: "Hand off the back office",
+  mutedSample: "Secondary text in this theme uses the muted token.",
+  buttons: { primary: "Primary", secondary: "Secondary", ghost: "Ghost", text: "Text link" },
+  themes: ["paper", "paper-2", "white", "ink", "signal"] as const,
+  header: { label: "06 — THE SHIFT", meta: "FILE 01 + 02", title: "One desk, two files, written reports every day.", lead: "Split layout: the lead sits on the right, aligned to the headline's last line." },
+  strip: ["FILE 01", "US HOURS", "DAILY REPORT", "ISLAMABAD"],
+  table: [
+    { key: "Coverage", value: "Monday to Friday, US hours" },
+    { key: "Reply window", value: "4–7 PM Pacific" },
+    { key: "Reporting", value: "Written daily summary", note: "SAMPLE" },
+    { key: "Contract", value: "[[PLACEHOLDER: contract and notice terms]]" },
+  ],
+  stats: [
+    { value: 2, label: "Service files", note: "Real estate VA and insurance supplementing." },
+    { value: "09:00", label: "Desk opens (ET)" },
+    { value: 40, suffix: " hrs", label: "Full-time week", claim: true },
+  ] satisfies Stat[],
+  marquee: ["Zillow", "Follow Up Boss", "Mojo Dialer", "HubSpot", "DocuSign", "Xactimate"],
+  kinetic: ["Your back office,", "run from one desk."],
+  rows: [
+    { id: "sg-mls", index: "01.1", title: "MLS listing management", summary: "Demo row — real summaries arrive in S4.", includesLabel: "INCLUDES", includes: ["Listing input", "Photo uploads", "Status updates"] },
+    { id: "sg-tc", index: "01.2", title: "Transaction coordination", summary: "Demo row with a claim flag.", includesLabel: "INCLUDES", includes: ["Deadline tracking", "Document collection"], claim: true as const },
+  ],
+  log: [
+    { time: "09:02", text: "SAMPLE · Inbox triaged, 14 threads labelled" },
+    { time: "09:20", text: "SAMPLE · MLS listing #— status updated" },
+    { time: "10:05", text: "SAMPLE · 3 showing requests confirmed" },
+    { time: "11:40", text: "SAMPLE · Follow-up calls logged in CRM" },
+    { time: "13:15", text: "SAMPLE · Inspection deadline reminder sent" },
+    { time: "15:30", text: "SAMPLE · Supplement draft uploaded for review" },
+    { time: "16:45", text: "SAMPLE · Photo set renamed and filed" },
+    { time: "17:55", text: "SAMPLE · Daily report sent" },
+  ],
+  story: [
+    { time: "18:00", title: "Desk opens", text: "SAMPLE — Islamabad evening, US morning." },
+    { time: "20:30", title: "Listings updated", text: "SAMPLE — MLS changes posted and confirmed." },
+    { time: "23:00", title: "Follow-ups done", text: "SAMPLE — Calls logged in the CRM." },
+    { time: "03:00", title: "Daily report sent", text: "SAMPLE — Written summary in your inbox." },
+  ],
+  tabs: [
+    { value: "01", label: "FILE 01" },
+    { value: "02", label: "FILE 02" },
+  ],
+  form: { name: "Name", email: "Work email", emailError: "Enter an email like name@company.com", message: "Message", optional: "OPTIONAL", hint: "We reply 4–7 PM Pacific.", role: "Role", roles: ["Agent", "Team or brokerage", "Contractor"], consent: "I agree to receive text messages about my inquiry.", submit: "Submit" },
+  faq: [
+    { q: "Is the accordion keyboard accessible?", a: "Yes. Radix handles Enter, Space and the arrow keys between headers." },
+    { q: "Does it animate height?", a: "No. Content fades and slides in; only transform and opacity animate." },
+  ],
+  dialog: { open: "Open dialog", title: "Dialog title", body: "Square frame, ink scrim, no blur. Esc closes; focus returns to the trigger." },
+};
