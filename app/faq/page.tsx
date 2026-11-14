@@ -1,6 +1,6 @@
 import { meta, page as p, faq } from "@/content/faq";
 import { ctaBand } from "@/content/nav";
-import { pageMetadata } from "@/lib/seo";
+import { jsonLdHtml, pageMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/section";
 import { PageHeader } from "@/components/sections/shared/page-header";
 import { FaqBrowser } from "@/components/sections/shared/faq-browser";
@@ -22,11 +22,12 @@ export default function FaqPage() {
   return (
     <>
       <PageHeader crumb={meta.title} label={p.label} lines={p.lines} lead={p.lead} />
-      <Section theme="paper-2" aria-label={p.filterLabel}>
+      <Section theme="paper-2" aria-labelledby="faq-list-title">
+        <h2 id="faq-list-title" className="sr-only">{p.listTitle}</h2>
         <FaqBrowser />
       </Section>
       <CtaBand {...ctaBand} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(jsonLd)} />
     </>
   );
 }

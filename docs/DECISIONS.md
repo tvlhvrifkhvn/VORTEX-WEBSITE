@@ -92,3 +92,13 @@
 2026-11-14 · tabs · Segmented control with >3 options uses a 2-column grid below 640px · 5 FAQ categories didn't fit one row at 390
 2026-11-14 · legal · Privacy + Terms drafts written from confirmed facts (Islamabad, Wise/Payoneer, File 02 rule, no claim-outcome guarantee, SMS non-sharing line); retention, payment terms, liability, governing law and review date are placeholders; whole article flagged in review mode · spec §11.12; legal review required
 2026-11-14 · 404 · not-found.tsx renders out/404.html; Cloudflare serves it via not_found_handling "404-page" · static export
+2026-11-14 · seo · Title template "%s — VortexOne"; home uses an absolute title (root segment gets no template); OG/Twitter on every page with /og.png · SPEC §14
+2026-11-14 · seo · OG image is a static PNG (public/og.png, 1200×630) rendered once with Playwright from an HTML layout using the site's own fonts · spec allows static PNG; avoids satori/variable-font issues in static export
+2026-11-14 · seo · site.url falls back to the Cloudflare preview URL until NEXT_PUBLIC_SITE_URL is set · example.com canonicals would point search engines at the wrong host
+2026-11-14 · seo · JSON-LD: Organization + ProfessionalService in the root layout, Service (with offer catalog from content/services.ts) on file pages; all JSON-LD escapes "<" · spec; no review/rating schema
+2026-11-14 · seo · sitemap.ts/robots.ts use dynamic = "force-static"; /styleguide excluded and disallowed · static export
+2026-11-14 · a11y · AccessLint fixes: work strip scroll region wraps the list (role=region, own label); desk log role=log on a wrapper div; sr-only H2s on pricing, FAQ and calculator; slider thumbs get aria-labelledby · 0 violations after fixes
+2026-11-14 · a11y · Segmented tabs: active segment now fills ink on the button itself (motion layoutId indicator removed) · checker read the animated layer as 1:1 contrast; accessibility over the slide effect
+2026-11-14 · a11y · Decorative giant numerals (file headers, 404) render via CSS content from data-numeral · decorative, excluded from reading order and contrast checks
+2026-11-14 · perf · Plex Mono imports latin-only files; Inter Tight variable keeps unicode-range subsets (browser downloads latin only) · smaller CSS, same rendering
+2026-11-14 · perf · Lighthouse measured on a compressing server (Cloudflare compresses in production): Perf 92/95/90 (home/file 01/pricing), A11y 100, BP 100, SEO 100 · uncompressed local server under-reports performance

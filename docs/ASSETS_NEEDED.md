@@ -1,5 +1,12 @@
 # Assets & facts needed
 
+## Launch checklist (do these before pointing a real domain at the site)
+1. Set Cloudflare build variables: `NEXT_PUBLIC_SITE_URL` (your domain — canonicals, sitemap, OG URLs), `NEXT_PUBLIC_CALENDLY_URL` (when ready).
+2. Legal review of /privacy, /terms and the SMS consent text (§C), then remove the DRAFT tags.
+3. Confirm or rewrite every item marked `claim: true` — open any page with `?review=1` to see them outlined.
+4. Upload images (§B) and checklist PDFs (§B2); flip `placeholder: false` in content/images.ts.
+5. Set the Cloudflare production branch so the main workers.dev / custom domain serves the site.
+
 Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's supplied.
 
 ## A. Facts (from you)
@@ -27,7 +34,7 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A20 | Estimate file formats you deliver (ESX, PDF?) | claim | content/supplementing.ts | confirm |
 | A22 | Confirm "Invoiced monthly" and "Monthly billing" | claims | content/pricing.ts | confirm |
 | A23 | Calculator defaults ($20/hr wage, 25% payroll & benefits) — check against BLS data before launch | claims | content/calculator.ts | confirm |
-| A24 | Founder bio for /about (longer version) + year you started VA work for US clients | `founder bio — facts only…`, `year started` | content/about.ts | needed |
+| A24 | Founder bio for /about (longer version) + year you started VA work for US clients | `founder bio — facts only (background, experience, why VortexOne)`, `year started` | content/about.ts | needed |
 | A25 | Confirm channels: WhatsApp for quick questions, joining a client's Slack | claims | content/how-we-work.ts | confirm |
 | A26 | Confirm onboarding timeline (Day 1 → Month 1) and the 6 security rules on /how-we-work | claims | content/how-we-work.ts | confirm |
 | A27 | Work sample details ("Task · Time", what was done, tools) once real screenshots exist | claims | content/work.ts | confirm |
@@ -59,7 +66,7 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | Item | Placeholder text | Where | Status |
 |---|---|---|---|
 | Privacy policy draft (incl. SMS section) | `date of legal review`, `data retention period` | content/legal/privacy.ts | draft written — needs legal review |
-| Terms of service draft | `date of legal review`, `payment terms — …`, `limitation of liability wording`, `governing law and venue` | content/legal/terms.ts | draft written — needs legal review |
+| Terms of service draft | `date of legal review`, `payment terms — invoicing schedule, due dates, notice period`, `limitation of liability wording`, `governing law and venue` | content/legal/terms.ts | draft written — needs legal review |
 | SMS consent wording on the booking form | DRAFT tag, claim | content/book.ts | needs legal review |
 
 ## D. Copy Claude writes later (no input needed)

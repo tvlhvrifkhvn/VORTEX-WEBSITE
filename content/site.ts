@@ -1,8 +1,10 @@
 /* Global site facts (SPEC §9.5). Unknown facts stay [[PLACEHOLDER]] — see docs/ASSETS_NEEDED.md. */
 export const site = {
   name: "VortexOne",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
-  description: "[[PLACEHOLDER: site meta description]]",
+  /* Set NEXT_PUBLIC_SITE_URL to the real domain at launch; until then canonicals point at the Cloudflare preview. */
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://claude-github-connection-7kt0gt-vortex-website.talhaarifone.workers.dev",
+  description:
+    "Founder-run back-office desk for US real estate agents and roofing and restoration contractors: real estate VA work and Xactimate supplements, on US hours.",
   founder: { name: "Talha Arif", role: "Founder" },
   contact: {
     email: "talharifone@gmail.com",

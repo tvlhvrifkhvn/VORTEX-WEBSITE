@@ -36,7 +36,8 @@ export default function PricingPage() {
   return (
     <>
       <PageHeader crumb={meta.title} label={p.label} lines={p.lines} lead={p.lead} />
-      <Section theme="paper-2" aria-label={p.toggleLabel}>
+      <Section theme="paper-2" aria-labelledby="plans-title">
+        <h2 id="plans-title" className="sr-only">{p.plansTitle}</h2>
         <Suspense fallback={panels["01"]}>
           <PricingSwitcher tabs={p.tabs} label={p.toggleLabel} panels={panels} />
         </Suspense>

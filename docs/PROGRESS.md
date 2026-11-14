@@ -10,7 +10,7 @@
 | S5 Pricing + Savings calculator | done | 2026-11-14 | /pricing (file toggle via ?file=, cards, plan table, every-plan strip, billing FAQ) and /savings-calculator (sticky inputs, breakdown, how-we-calculate). Audited 390 + 1440. |
 | S6 Work, How we work, About, Resources | done | 2026-11-14 | /work (filter + lightbox), /how-we-work, /about, /resources (email-gate dialog, mock). Audited 390 + 1440; filter, dialog focus return, form error/success tested. |
 | S7 Book a call, FAQ, Legal, 404 | done | 2026-11-14 | /book-a-call (calendar fallback, pre-filled lead form, SMS draft), /faq (5 tabs, FAQPage JSON-LD), /privacy + /terms drafts, 404. Audited 390 + 1440; form validation/prefill/success tested. |
-| S8 Launch prep | todo | | |
+| S8 Launch prep | done | 2026-11-14 | Metadata (title template, OG/Twitter, og.png), JSON-LD (Organization, ProfessionalService, Service, FAQPage, BreadcrumbList), sitemap/robots, llms.txt. AccessLint: 0 violations on all public pages. Lighthouse mobile (compressed): 90–95 / 100 / 100 / 100. Final audit 14 pages × 390/1440 clean. |
 
 ## Known issues
 - `ui.shadcn.com` is blocked by the network policy → `npx shadcn add` won't work; paste component code instead (21st.dev is reachable).
@@ -21,7 +21,7 @@
 - Full-page screenshots don't trigger scroll-based Reveal/LineDraw; check those by scrolling.
 
 ## Notes for next session
-- Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All routes built (S7). S8 = SEO, sitemap/robots, llms.txt, OG image, final audit.
+- Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
 - Shared PageHeader (components/sections/shared/page-header.tsx) is the hero for single pages (S6/S7 reuse it). Other routes 404 until their segments (nav links already point to them).
 - Preview: https://claude-github-connection-7kt0gt-vortex-website.talhaarifone.workers.dev (Cloudflare Workers, auto-builds on push).
 - Primitives: components/ui (button, section, section-header, spec, labels, tile, image-frame, text, wordmark, accordion, tabs, slider, dialog, field, choice), components/motion (§6.2 all), components/layout (motion-toggle, review-mode).

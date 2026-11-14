@@ -31,7 +31,8 @@ export function DeskLog({ title, entries, className }: { title: string; entries:
   return (
     <div ref={ref} className={cn("border border-border bg-card font-mono text-small", className)}>
       <p className="label-mono border-b border-border px-4 py-3">{title}</p>
-      <ul role="log" aria-live="off" className="px-4 py-2">
+      <div role="log" aria-live="off" aria-label={title}>
+      <ul className="px-4 py-2">
         <AnimatePresence initial={false}>
           {rows.map((row) => (
             <motion.li
@@ -49,6 +50,7 @@ export function DeskLog({ title, entries, className }: { title: string; entries:
           ))}
         </AnimatePresence>
       </ul>
+      </div>
     </div>
   );
 }

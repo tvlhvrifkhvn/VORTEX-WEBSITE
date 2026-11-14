@@ -4,7 +4,7 @@ import type { ImageId } from "./images";
 export const meta: PageMeta = {
   title: "Work Samples",
   description:
-    "Anonymized examples of real estate VA and insurance supplementing deliverables: listing sheets, transaction trackers, CRM cleanup and Xactimate supplements.",
+    "Anonymized samples of real estate VA and supplementing work: listing sheets, transaction trackers, CRM cleanup and Xactimate supplements.",
   path: "/work/",
 };
 

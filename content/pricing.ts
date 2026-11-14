@@ -35,6 +35,7 @@ export const page = {
   lines: ["Pricing, scoped", "to your workload."],
   lead: "No price list to decode. Pick the shape of plan you need, book a 15-minute call, and we quote a monthly price for your workload.",
   toggleLabel: "Choose a file",
+  plansTitle: "Plans by file",
   tabs: [
     { value: "01", label: "File 01 · Real estate" },
     { value: "02", label: "File 02 · Supplementing" },

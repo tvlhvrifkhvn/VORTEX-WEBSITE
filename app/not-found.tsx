@@ -10,9 +10,7 @@ export const metadata: Metadata = { title: n.title, robots: { index: false } };
 export default function NotFound() {
   return (
     <Section aria-labelledby="nf-title" className="relative overflow-hidden">
-      <span aria-hidden="true" className="pointer-events-none absolute -bottom-[0.2em] -left-[0.04em] text-giant font-semibold text-foreground/10 tabular select-none">
-        {n.numeral}
-      </span>
+      <span aria-hidden="true" data-numeral={n.numeral} className="pointer-events-none absolute -bottom-[0.2em] -left-[0.04em] text-giant font-semibold text-foreground/10 tabular select-none before:content-[attr(data-numeral)]" />
       <div className="relative grid-vx gap-y-12 pb-24">
         <div className="col-span-4 flex flex-col gap-8 md:col-span-5 lg:col-span-7">
           <p className="label-mono">{n.label}</p>

@@ -26,9 +26,8 @@ interface FileHeaderProps {
 export function FileHeader({ crumbs, numeral, tag, lines, lead, specCaption, spec, primary, secondary, image, note }: FileHeaderProps) {
   return (
     <Section aria-labelledby="file-title" className="relative overflow-hidden pt-6 pb-[calc(var(--spacing-section)+4rem)] lg:pt-8">
-      <span aria-hidden="true" className="pointer-events-none absolute -bottom-[0.2em] left-[calc(var(--spacing-margin)-0.06em)] text-giant font-semibold text-foreground/10 tabular select-none">
-        {numeral}
-      </span>
+      {/* Decorative numeral via CSS content (not text), so it isn't read or contrast-checked. */}
+      <span aria-hidden="true" data-numeral={numeral} className="pointer-events-none absolute -bottom-[0.2em] left-[calc(var(--spacing-margin)-0.06em)] text-giant font-semibold text-foreground/10 tabular select-none before:content-[attr(data-numeral)]" />
       <div className="relative">
         <Breadcrumb items={crumbs} />
         <div className="grid-vx mt-10 gap-y-12">

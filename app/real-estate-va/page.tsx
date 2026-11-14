@@ -1,6 +1,6 @@
 import { meta, header, sections as s, cta } from "@/content/real-estate";
 import { faqFor } from "@/content/faq";
-import { pageMetadata } from "@/lib/seo";
+import { jsonLdHtml, pageMetadata, serviceJsonLd } from "@/lib/seo";
 import { FileHeader } from "@/components/sections/file/file-header";
 import { ServiceList } from "@/components/sections/file/service-list";
 import { Audience } from "@/components/sections/file/audience";
@@ -27,6 +27,7 @@ export default function RealEstatePage() {
       <Comparison {...s.comps} theme="paper-2" />
       <FaqSection {...s.faq} items={faqFor("file01")} />
       <CtaBand {...cta} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(serviceJsonLd("01", "Real estate virtual assistant", meta.description, meta.path))} />
     </>
   );
 }

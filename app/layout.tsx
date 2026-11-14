@@ -7,13 +7,15 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { UtmCapture } from "@/components/layout/utm-capture";
 import { header } from "@/content/nav";
-import { orgJsonLd } from "@/lib/seo";
+import { jsonLdHtml, ogImage, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.name, template: `%s · ${site.name}` },
+  title: { default: site.name, template: `%s — ${site.name}` },
   description: site.description,
+  openGraph: { siteName: site.name, locale: "en_US", type: "website", images: [ogImage] },
+  twitter: { card: "summary_large_image", images: [ogImage.url] },
   icons: { icon: "/favicon.svg" },
 };
 
@@ -36,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ReviewMode />
           <UtmCapture />
         </MotionProvider>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd()) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(siteJsonLd())} />
       </body>
     </html>
   );

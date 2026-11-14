@@ -1,6 +1,6 @@
 import { meta, header, sections as s, cta, scopeNote } from "@/content/supplementing";
 import { faqFor } from "@/content/faq";
-import { pageMetadata } from "@/lib/seo";
+import { jsonLdHtml, pageMetadata, serviceJsonLd } from "@/lib/seo";
 import { FileHeader } from "@/components/sections/file/file-header";
 import { ServiceList } from "@/components/sections/file/service-list";
 import { Scope } from "@/components/sections/file/scope";
@@ -24,6 +24,7 @@ export default function SupplementingPage() {
       <FilePricing file="02" {...s.pricing} theme="paper-2" />
       <FaqSection {...s.faq} items={faqFor("file02")} />
       <CtaBand {...cta} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(serviceJsonLd("02", "Insurance supplementing for contractors", meta.description, meta.path))} />
     </>
   );
 }

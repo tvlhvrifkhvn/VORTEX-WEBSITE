@@ -12,6 +12,7 @@ export const page = {
   lines: ["Questions."],
   lead: "Short answers from the desk. If yours isn't here, ask on a 15-minute call.",
   filterLabel: "FAQ category",
+  listTitle: "All questions",
 };
 
 export const categories: { value: FaqTag; label: string }[] = [

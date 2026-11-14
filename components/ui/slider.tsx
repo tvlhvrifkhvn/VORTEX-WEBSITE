@@ -17,6 +17,7 @@ export function Slider({ className, ...props }: React.ComponentProps<typeof Slid
         <SliderPrimitive.Thumb
           key={i}
           aria-label={props["aria-label"]}
+          aria-labelledby={props["aria-labelledby"]}
           className="relative block size-5 border-2 border-foreground bg-primary before:absolute before:-inset-3 before:content-['']"
         />
       ))}

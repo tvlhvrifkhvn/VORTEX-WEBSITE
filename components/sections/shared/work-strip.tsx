@@ -19,11 +19,8 @@ export function WorkStrip({ label, title, lead, samples, sampleLabel, cta }: Wor
   return (
     <Section theme="ink" aria-labelledby="work-title" className="overflow-hidden">
       <SectionHeader id="work-title" label={label} meta={`${samples.length} items`} title={title} lead={lead} layout="split" />
-      <ul
-        tabIndex={0}
-        aria-label={title}
-        className="-mx-(--spacing-margin) flex snap-x snap-mandatory scroll-px-(--spacing-margin) gap-(--spacing-gutter) overflow-x-auto px-(--spacing-margin) pt-4 pb-6"
-      >
+      <div role="region" tabIndex={0} aria-label={label} className="-mx-(--spacing-margin) snap-x snap-mandatory scroll-px-(--spacing-margin) overflow-x-auto px-(--spacing-margin) pt-4 pb-6">
+      <ul className="flex gap-(--spacing-gutter)">
         {samples.map((s) => (
           <li key={s.id} className="w-[80vw] max-w-[28rem] shrink-0 snap-start">
             <ImageFrame slot={s.image} screenshot marks={false} />
@@ -35,6 +32,7 @@ export function WorkStrip({ label, title, lead, samples, sampleLabel, cta }: Wor
           </li>
         ))}
       </ul>
+      </div>
       <Button href={cta.href} variant="ghost" size="lg" className="mt-10">{cta.label}</Button>
     </Section>
   );
