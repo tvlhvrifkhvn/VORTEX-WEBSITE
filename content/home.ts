@@ -54,11 +54,16 @@ export const filesSection = {
   srTitle: "The two files",
   cursor: "Open file →",
   cta: "Open file",
+  count: (n: number) => `${n} services in this file`,
   panels: [
     {
       file: "01" as const,
-      tag: "File 01 · Listing no. 001 · Active",
+      tag: "File 01 · Listing no. 001",
+      status: "Active",
+      spec: ["For", "Solo agents", "Teams", "Investors", "Flippers"],
       title: "Real Estate VA",
+      /* Both titles run on two lines so the panels mirror each other. */
+      titleLines: ["Real Estate", "Virtual Assistant"],
       line: "Listings, transactions and follow-up, off your plate.",
       tasks: ["MLS listings", "Transaction deadlines", "CRM & follow-up", "Social posts"],
       href: "/real-estate-va",
@@ -67,8 +72,11 @@ export const filesSection = {
     },
     {
       file: "02" as const,
-      tag: "File 02 · Claim no. 002 · Open",
+      tag: "File 02 · Claim no. 002",
+      status: "Open",
+      spec: ["For", "Roofing", "Restoration", "Contractors only"],
       title: "Insurance Supplementing",
+      titleLines: ["Insurance", "Supplementing"],
       line: "Xactimate supplements, documented line by line.",
       tasks: ["Xactimate estimates", "Supplement packages", "Photo documentation", "Status tracking"],
       href: "/insurance-supplementing",

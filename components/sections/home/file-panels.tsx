@@ -1,60 +1,100 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { filesSection } from "@/content/home";
+import { images } from "@/content/images";
+import { servicesFor } from "@/content/services";
 import { buttonClass } from "@/components/ui/button";
-import { ImageFrame } from "@/components/ui/image-frame";
+import { CornerMarks } from "@/components/ui/corner-marks";
+import { SpecStrip } from "@/components/ui/spec";
 import { CursorLabel } from "@/components/motion/cursor-label";
+import { PanelShell } from "@/components/motion/panel-shell";
 import { ScrambleText } from "@/components/motion/scramble-text";
 
-/* 04 — THE FILES (images square; corner marks in the panel accent: signal on ink, ink on signal): two full-panel links (stretched-link, one tab stop each). Hover re-scrambles the numeral. */
+/* Hover effects use group-hover (desktop) and group-data-[live] (touch: set once on scroll-in by PanelShell). */
+/* 04 — THE FILES: two full-panel links (stretched link, one tab stop each).
+   Both panels mirror each other: corner numeral, two-line title, tasks + square photo, audience strip at the bottom.
+   Phone: title → square photo → tasks → button → strip. */
 export function FilePanels() {
   return (
     <section aria-labelledby="files-title" className="grid lg:grid-cols-2">
       <h2 id="files-title" className="sr-only">{filesSection.srTitle}</h2>
-      {filesSection.panels.map((p) => (
-        <CursorLabel key={p.file} label={filesSection.cursor} theme={p.theme} className="h-full">
-          <article
-            data-theme={p.theme}
-            data-scramble-host=""
-            className="group/panel relative flex h-full min-h-[80vh] flex-col overflow-hidden px-(--spacing-margin) py-(--spacing-section)"
-          >
-            <span aria-hidden="true" className="pointer-events-none absolute -top-[0.12em] -right-[0.06em] text-giant font-semibold">
-              <ScrambleText className="tabular">{p.file}</ScrambleText>
-            </span>
-            <p className="label-mono relative">{p.tag}</p>
-            <h3 className="relative mt-auto pt-24 text-h2 font-semibold">
-              <Link
-                href={p.href}
-                className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:-outline-offset-8 focus-visible:after:outline-current"
-              >
-                {p.title}
-              </Link>
-            </h3>
-            <p className="relative mt-4 max-w-[40ch] text-lead">{p.line}</p>
-            <div className="relative mt-10 flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
-              <ol className="flex flex-col border-t border-border sm:w-1/2">
-                {p.tasks.map((t, i) => (
-                  <li key={t} className="flex gap-4 border-b border-border py-3">
-                    <span className="label-mono tabular text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                    {t}
-                  </li>
-                ))}
-              </ol>
-              <ImageFrame slot={p.image} square marksClassName="text-primary" sizes="160px" className="mr-3.5 mb-3.5 w-32 shrink-0 sm:w-40" />
-            </div>
-            <span
-              aria-hidden="true"
-              className={cn(
-                buttonClass({ variant: "primary" }),
-                "relative mt-10 self-start group-hover/panel:before:scale-x-100 group-hover/panel:text-background",
-              )}
-            >
-              {filesSection.cta}
-              <span className="font-sans text-body">→</span>
-            </span>
-          </article>
-        </CursorLabel>
-      ))}
+      {filesSection.panels.map((p) => {
+        const img = images[p.image];
+        const count = servicesFor(p.file).length;
+        return (
+          <CursorLabel key={p.file} label={filesSection.cursor} theme={p.theme} className="h-full">
+            <PanelShell theme={p.theme} className="relative flex h-full min-h-[80vh] flex-col overflow-hidden px-(--spacing-margin) pt-[calc(var(--text-giant)*0.78)] pb-10">
+              <span aria-hidden="true" className="pointer-events-none absolute -top-[0.12em] -right-[0.06em] text-giant font-semibold">
+                <ScrambleText className="tabular">{p.file}</ScrambleText>
+              </span>
+              <p className="label-mono relative flex items-center gap-3">
+                {p.tag} ·
+                <span className="flex items-center gap-2">
+                  <span aria-hidden="true" className="size-2 animate-blink rounded-full bg-primary" />
+                  {p.status}
+                </span>
+              </p>
+
+              <div className="mt-10 grid gap-x-(--spacing-gutter) gap-y-10 lg:grid-cols-[minmax(0,1fr)_38%]">
+                <div className="lg:col-span-2 lg:row-start-1">
+                  <h3 className="text-h2 font-semibold">
+                    <Link href={p.href} className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:-outline-offset-8 focus-visible:after:outline-current">
+                      {p.titleLines.map((l) => <span key={l} className="block">{l}</span>)}
+                    </Link>
+                  </h3>
+                  <p className="mt-4 max-w-[40ch] text-lead lg:min-h-[2lh]">{p.line}</p>
+                </div>
+
+                {/* Tall photo with the giant numeral over its top edge */}
+                <div className="relative mr-3.5 ml-3.5 max-w-sm lg:col-start-2 lg:row-start-2 lg:max-w-none lg:self-start">
+                  <CornerMarks className="z-20 text-primary" />
+                  <div className="relative aspect-square overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-processed halftone */}
+                    <img
+                      src={img.src}
+                      alt=""
+                      width={img.width}
+                      height={img.height}
+                      loading="lazy"
+                      decoding="async"
+                      className="size-full object-cover grayscale transition-[filter,transform] duration-500 ease-out-expo group-hover/panel:scale-[1.03] group-hover/panel:brightness-90 group-hover/panel:contrast-200 group-data-[live]/panel:scale-[1.03] group-data-[live]/panel:brightness-90 group-data-[live]/panel:contrast-200"
+                    />
+                    <span aria-hidden="true" className="absolute top-[48%] left-0 h-[22%] w-[45%] bg-signal mix-blend-multiply transition-transform duration-700 ease-in-out-quart group-hover/panel:translate-x-[122%] group-data-[live]/panel:translate-x-[122%]" />
+                  </div>
+                </div>
+
+                <div className="lg:col-start-1 lg:row-start-2">
+                  <ol className="flex flex-col">
+                    {p.tasks.map((t, i) => (
+                      <li key={t} data-row="" className="relative flex gap-4 py-3" style={{ "--row-delay": `${i * 90}ms` } as React.CSSProperties}>
+                        <span aria-hidden="true" className="row-line absolute inset-x-0 top-0 h-px bg-border" />
+                        <span className="row-text flex items-baseline gap-4">
+                          <span
+                            className="label-mono tabular px-1 text-muted-foreground transition-colors duration-300 group-hover/panel:bg-primary group-hover/panel:text-primary-foreground group-data-[live]/panel:bg-primary group-data-[live]/panel:text-primary-foreground"
+                            style={{ transitionDelay: `${i * 80}ms` }}
+                          >
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          {t}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                  <p className="label-mono border-t border-border pt-3 text-muted-foreground">{filesSection.count(count)}</p>
+                  <span aria-hidden="true" className={cn(buttonClass({ variant: "primary" }), "relative mt-10 group-hover/panel:text-background group-hover/panel:before:scale-x-100")}>
+                    {filesSection.cta}
+                    <span className="font-sans text-body">→</span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative mt-auto pt-16">
+                <SpecStrip items={p.spec} />
+              </div>
+            </PanelShell>
+          </CursorLabel>
+        );
+      })}
     </section>
   );
 }
