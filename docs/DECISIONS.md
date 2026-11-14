@@ -66,3 +66,12 @@
 2026-11-14 · how it starts · 4-step variant uses display-size numerals on desktop · giant numerals collided in 4 columns
 2026-11-14 · content · Service "Includes" lists (3–5 each) and 8 file FAQs written from confirmed facts; promises flagged · spec asks for includes; no business facts invented
 2026-11-14 · home 14 · Home Questions now wraps the shared FaqSection · same markup on home and file pages
+2026-11-14 · pricing · H1 "Pricing, scoped to your workload." replaces "Pricing in plain numbers."; SPEC §11.4 updated · no public prices, the old headline would mislead
+2026-11-14 · pricing · File toggle reads ?file= via useSearchParams inside <Suspense> (fallback = File 01 cards server-rendered); changes use history.replaceState · static export rule §9.8; no empty SSR
+2026-11-14 · pricing · Plan comparison table shown only for File 01 (File 02 has one plan) · a one-column comparison adds nothing
+2026-11-14 · pricing · "In every plan" strip items NDA / Daily report / Monthly billing are claims; notice period is a placeholder · contract terms reserved by user
+2026-11-14 · pricing · Added FAQ "Why isn't there a price on the site?" (billing) · explains the no-price choice honestly
+2026-11-14 · tabs · SegmentedTabs become two equal columns that wrap below 640px · labels overflowed and scrolled out of view at 390
+2026-11-14 · calculator · Outputs show in-house monthly (giant), wages, payroll & benefits, yearly cost and "Contact for pricing"; savings rows return automatically if prices are ever added · spec null-price rule; breakdown helps the visitor without inventing numbers
+2026-11-14 · calculator · "Book a call with these numbers" links to /book-a-call?file=01&hours=…&wage=… · spec; booking form pre-fills in S7
+2026-11-14 · layout · Shared PageHeader (breadcrumb, label, kinetic H1, lead, optional object) for single pages · reused in S6/S7

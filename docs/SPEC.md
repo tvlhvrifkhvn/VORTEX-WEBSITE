@@ -673,7 +673,7 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 - **CtaBand:** "Got a claim that came back short?" **[Send a claim]**.
 
 ### 11.4 Pricing `/pricing`  (content: `content/pricing.ts`)
-- Label `FLOOR PLANS + RATE SHEET`; H1 "Pricing in plain numbers."; lead.
+- Label `FLOOR PLANS + RATE SHEET`; H1 "Pricing, scoped to your workload." (changed 2026-11-14: no public prices); lead.
 - SegmentedToggle `FILE 01 · REAL ESTATE` / `FILE 02 · SUPPLEMENTING`. Reads `?file=` (default 01) and updates the URL with `replaceState`.
 - File 01 plans: **Part-time** (20 hrs/week) · **Full-time** (40 hrs/week, `RECOMMENDED`, 8px signal bar) · **Custom scope** (task or project based). File 02: one plan card. No public prices (user, 2026-11-14): every card shows "Contact for pricing" instead of a number. Each card: label, name, hours, ✓ features, CTA.
 - "In every plan" SpecStrip: NDA · Daily report · US hours · Monthly billing · `[[NOTICE_PERIOD]]` notice (claims).

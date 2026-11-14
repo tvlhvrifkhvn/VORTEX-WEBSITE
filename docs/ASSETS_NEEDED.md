@@ -17,7 +17,7 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A10 | File 02 pricing | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
 | A11 | Payment methods | Wise, Payoneer | content/pricing.ts | ✓ supplied |
 | A12 | Reply time | "Replies during desk hours" + home stat "Same day" (claim) | content/site.ts, home.ts | confirm "same day" |
-| A13 | Contract / notice terms | `contract and notice terms` | content/pricing.ts | later |
+| A13 | Contract / notice terms | `contract and notice terms`, `notice period` | content/pricing.ts | later |
 | A14 | Tools you work in | full list confirmed | content/tools.ts | ✓ confirmed |
 | A15 | Real proof (reviews, results) | — | — | none yet |
 | A16 | Short founder bio (facts only: background, what you've done) | `short founder bio — facts only` | content/home.ts | needed |
@@ -25,6 +25,8 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A18 | Confirm "Live in about a week" and "Monthly, no lock-in" | claims | content/home.ts, comparison.ts, real-estate.ts | confirm (reserved) |
 | A19 | Supplement turnaround time | `supplement turnaround time` | content/supplementing.ts | needed |
 | A20 | Estimate file formats you deliver (ESX, PDF?) | claim | content/supplementing.ts | confirm |
+| A22 | Confirm "Invoiced monthly" and "Monthly billing" | claims | content/pricing.ts | confirm |
+| A23 | Calculator defaults ($20/hr wage, 25% payroll & benefits) — check against BLS data before launch | claims | content/calculator.ts | confirm |
 | A21 | Confirm service "Includes" lists and the new FAQ answers | written by Claude | content/services.ts, faq.ts | review |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
@@ -50,4 +52,4 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 ## D. Copy Claude writes later (no input needed)
 | Item | Placeholder text | Segment |
 |---|---|---|
-| Site + page meta descriptions | `site meta description`, `meta description for /…/` (12 pages) | written per page segment, finalized in S8 |
+| Site + page meta descriptions | `site meta description`, `meta description for /…/` (written: home, file pages, pricing, calculator) | rest written per segment, finalized in S8 |

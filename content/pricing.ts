@@ -2,7 +2,8 @@ import type { PageMeta, PricingPlan } from "./types";
 
 export const meta: PageMeta = {
   title: "Pricing",
-  description: "[[PLACEHOLDER: meta description for /pricing/]]",
+  description:
+    "VortexOne plans for real estate VA work and insurance supplementing: part-time, full-time or custom scope, quoted on a 15-minute call.",
   path: "/pricing/",
 };
 
@@ -26,4 +27,47 @@ export const cardLabels = {
   cta: "Book a call",
   more: "See full pricing",
   check: "Included",
+};
+
+/* /pricing page (SPEC §11.4). H1 changed from "Pricing in plain numbers" — there are no public prices. */
+export const page = {
+  label: "Floor plans + rate sheet",
+  lines: ["Pricing, scoped", "to your workload."],
+  lead: "No price list to decode. Pick the shape of plan you need, book a 15-minute call, and we quote a monthly price for your workload.",
+  toggleLabel: "Choose a file",
+  tabs: [
+    { value: "01", label: "File 01 · Real estate" },
+    { value: "02", label: "File 02 · Supplementing" },
+  ],
+  everyPlan: {
+    label: "In every plan",
+    items: [
+      { text: "NDA", claim: true as const },
+      { text: "Daily report", claim: true as const },
+      { text: "US hours" },
+      { text: "Monthly billing", claim: true as const },
+      { text: "[[PLACEHOLDER: notice period]] notice", claim: true as const },
+    ],
+  },
+  table: {
+    label: "Plan comparison",
+    caption: "File 01 plans compared",
+    rowHeader: "Plan",
+    rows: [
+      { label: "Hours", cells: ["20 hrs/week", "40 hrs/week", "Task or project based"] },
+      { label: "Best for", cells: ["Solo agents", "Teams and busy agents", "Investors and one-off projects"] },
+      { label: "Services", cells: ["Any File 01 service", "Any File 01 service", "Scoped on a call"] },
+      { label: "Daily written report", cells: ["Included", "Included", "On request"], claim: true as const },
+      { label: "Price", cells: [priceLabel, priceLabel, priceLabel] },
+    ],
+  },
+  payment: { text: "Invoiced monthly. Pay by Wise or Payoneer.", claim: true as const },
+  faq: { label: "Billing", title: "Questions about billing", cta: { label: "All questions", href: "/faq" } },
+  cta: {
+    label: "Next step",
+    title: "Get a price for your workload.",
+    text: "15 minutes. Tell us what's on your desk and we quote a monthly price. No pitch deck.",
+    primary: { label: "Book a call", href: "/book-a-call" },
+    secondary: { label: "Run the numbers", href: "/savings-calculator" },
+  },
 };

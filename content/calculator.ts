@@ -3,7 +3,8 @@ import { plans, priceLabel } from "./pricing";
 
 export const meta: PageMeta = {
   title: "Savings Calculator",
-  description: "[[PLACEHOLDER: meta description for /savings-calculator/]]",
+  description:
+    "What does an in-house assistant really cost? Estimate wages plus payroll taxes and benefits per month and per year, then compare on a call.",
   path: "/savings-calculator/",
 };
 
@@ -29,7 +30,26 @@ export const labels = {
   vortexNull: priceLabel,
   perMonth: "per month",
   hoursUnit: "hrs/wk",
+  overhead: "Payroll taxes & benefits (%)",
+  perYear: "In-house cost per year",
+  wages: "Wages",
+  extras: "Payroll taxes & benefits",
   summary: (hours: number, wage: number, cost: string) =>
     `${hours} hours a week at $${wage} an hour costs about ${cost} a month in-house, including payroll taxes and benefits.`,
   footnote: "Estimate. Includes 25% for payroll taxes and benefits. Your real costs vary.",
+};
+
+/* /savings-calculator page (SPEC §11.5). */
+export const page = {
+  label: "Savings calculator",
+  lines: ["What does an", "in-house assistant", "really cost?"],
+  lead: "Move the sliders to match the hire you're weighing up. Then bring the numbers to a call and we'll quote VortexOne against them.",
+  inputsLabel: "Inputs",
+  outputsLabel: "Estimate",
+  how: {
+    title: "How we calculate",
+    body: "Wages = hourly wage × hours per week × 52 weeks ÷ 12 months. Payroll taxes and benefits are added as a percentage of wages. The yearly figure is the monthly figure × 12.",
+    note: "Estimates only. Your real costs vary.",
+  },
+  cta: { label: "Book a call with these numbers", href: "/book-a-call" },
 };

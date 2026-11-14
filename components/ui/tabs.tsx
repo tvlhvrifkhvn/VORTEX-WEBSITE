@@ -20,12 +20,12 @@ interface SegmentedListProps {
 export function SegmentedTabs({ items, value, label, className }: SegmentedListProps) {
   const id = React.useId();
   return (
-    <TabsPrimitive.List aria-label={label} className={cn("inline-flex max-w-full overflow-x-auto border border-foreground", className)}>
+    <TabsPrimitive.List aria-label={label} className={cn("grid w-full auto-cols-fr grid-flow-col border border-foreground sm:inline-flex sm:w-auto", className)}>
       {items.map((item) => (
         <TabsPrimitive.Trigger
           key={item.value}
           value={item.value}
-          className="label-mono relative isolate min-h-11 shrink-0 px-4 transition-colors duration-300 data-[state=active]:text-background"
+          className="label-mono relative isolate min-h-11 px-3 py-2 transition-colors duration-300 data-[state=active]:text-background sm:shrink-0 sm:px-4"
         >
           {value === item.value && (
             <motion.span layoutId={`seg-${id}`} className="absolute inset-0 -z-10 bg-foreground" transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }} />

@@ -81,6 +81,11 @@ export const faq: FaqItem[] = [
     a: "Yes. Estimates and supplements are built in Xactimate, with photo references for each line item.",
     tags: ["file02"],
   },
+  {
+    q: "Why isn't there a price on the site?",
+    a: "Every desk is different: hours, tools and the mix of tasks change the work. After a 15-minute call we quote a monthly price for your workload.",
+    tags: ["billing", "general"],
+  },
 ];
 
 export const faqFor = (tag: FaqItem["tags"][number]) => faq.filter((f) => f.tags.includes(tag));
