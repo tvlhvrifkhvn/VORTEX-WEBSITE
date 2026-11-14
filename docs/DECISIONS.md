@@ -32,3 +32,4 @@
 2026-11-14 · infra · `npx shadcn add` unavailable (ui.shadcn.com blocked) — Radix packages installed from npm directly · network policy
 2026-11-14 · intake · Reply window, Part-time/Full-time/Custom tiers and all tools confirmed by user; tools claim flags removed · user confirmation
 2026-11-14 · components · Free open-source sources (Magic UI, Motion Primitives, React Bits, shadcn/ui) are fetched from raw.githubusercontent.com (reachable) instead of 21st.dev · 21st.dev free tier is 2/day; their sites are blocked but GitHub raw is not
+2026-11-14 · deploy · Added wrangler.jsonc (static assets from ./out, 404-page) · user's Cloudflare project was created as a Worker, which needs it

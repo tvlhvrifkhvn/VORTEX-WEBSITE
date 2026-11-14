@@ -1,0 +1,9 @@
+// Cloudflare Workers static-assets deploy. Build first (`npm run build`), then `npx wrangler deploy` uploads out/.
+{
+  "name": "vortex-website",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
