@@ -16,10 +16,13 @@ Every `[[PLACEHOLDER: …]]` in `content/` is listed here. Tick a line when it's
 | A9 | File 01 prices | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
 | A10 | File 02 pricing | "Contact for pricing" | content/pricing.ts | ✓ decided (no public prices) |
 | A11 | Payment methods | Wise, Payoneer | content/pricing.ts | ✓ supplied |
-| A12 | Reply time | Replies 4–7 PM Pacific, Mon–Fri | content/site.ts | ✓ confirmed |
+| A12 | Reply time | "Replies during desk hours" + home stat "Same day" (claim) | content/site.ts, home.ts | confirm "same day" |
 | A13 | Contract / notice terms | `contract and notice terms` | content/pricing.ts | later |
 | A14 | Tools you work in | full list confirmed | content/tools.ts | ✓ confirmed |
 | A15 | Real proof (reviews, results) | — | — | none yet |
+| A16 | Short founder bio (facts only: background, what you've done) | `short founder bio — facts only` | content/home.ts | needed |
+| A17 | Confirm security rules: NDA, password-manager access, daily report, no files on personal devices | 4 claims | content/home.ts | confirm |
+| A18 | Confirm "Live in about a week" and "Monthly, no lock-in" | claims | content/home.ts, comparison.ts | confirm |
 
 ## B. Images (upload with these exact paths — see SPEC §7.1 for art direction)
 | Slot | Path | Size (px) | Subject | Status |

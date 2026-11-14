@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export function StatsBento() {
   const st = s.stats;
   return (
-    <Section aria-labelledby="stats-title">
+    <Section theme="paper-2" aria-labelledby="stats-title">
       <SectionHeader id="stats-title" label={s.label} meta={s.meta} title={s.title} />
       <Bento className="lg:auto-rows-[minmax(14rem,auto)]">
         <StatTile stat={st.capacity} index="A" className="col-span-4 md:col-span-8 lg:col-span-6 lg:row-span-2" />

@@ -46,3 +46,11 @@
 2026-11-14 · footer · Newsletter copy "Desk notes" written; form uses lib/api mock + honeypot · spec flag newsletter=true, no title given
 2026-11-14 · layout · Styleguide wrapper changed from <main> to <div> · root layout now owns <main id="content">
 2026-11-14 · content · Service summaries written for all 14 services (S4 fills includes) · needed for the home 05 bento
+2026-11-14 · content · Reply time now follows desk hours ("Replies during desk hours", claim); home stat B = "Same day" (claim) · user agreed the 4–7 PM PT window read as after-hours; "same day" needs confirmation
+2026-11-14 · home 08 · Compact calculator shows in-house cost only and "Contact for pricing" for VortexOne · no public prices (spec null-price rule)
+2026-11-14 · home 09 · In-house monthly cost in the comps table is computed from calculator defaults (claim); VortexOne "Contact for pricing"; freelance values generic text · no invented prices
+2026-11-14 · home 09 · Comparison scroll region is `relative` · sr-only text inside the wide table escaped the scroll box and widened the page to 545px at 390
+2026-11-14 · rhythm · Stats (03) and Security (13) use paper-2 instead of paper · avoids 3 consecutive paper sections (§5.11)
+2026-11-14 · home 11 · Work strip uses native CSS scroll-snap, 5 of 6 samples; sample titles written as generic deliverable names, labelled SAMPLE · no carousel dependency; S6 extends content/work.ts
+2026-11-14 · home 14 · 6 home FAQs written from confirmed facts; hours answer flagged claim · spec gives no FAQ copy
+2026-11-14 · shared · HowItStarts, Comparison, WorkStrip, FaqList, CalculatorCompact live in components/sections/shared for reuse on file pages · spec data flow

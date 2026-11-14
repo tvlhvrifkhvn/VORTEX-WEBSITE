@@ -39,7 +39,7 @@ export const statsSection = {
   title: "Small desk. Clear numbers.",
   stats: {
     capacity: { value: 40, suffix: " hrs/wk", label: "Full-time capacity, one specialist.", claim: true },
-    reply: { value: "4–7", suffix: " PM PT", label: "Reply window, Monday to Friday." },
+    reply: { value: "Same", suffix: " day", label: "Replies on business days, during desk hours.", claim: true },
     files: { value: 2, suffix: " files", label: "Two specialist lines. Nothing else." },
     founder: { value: 1, suffix: " founder", label: "The person you talk to does the work.", claim: true },
     hours: { value: "9–6", suffix: " ET", label: "Desk hours, Monday to Friday, US Eastern." },
@@ -123,3 +123,66 @@ export const deskLogSection = {
     { time: "02:55", text: "End-of-day report sent" },
   ],
 };
+
+/* 08 — SAVINGS */
+export const savingsSection = {
+  label: "08 — Savings",
+  title: "What does an in-house assistant really cost?",
+  cta: { label: "Run the numbers", href: "/savings-calculator" },
+};
+
+/* 10 — HOW IT STARTS */
+export const startSection = {
+  label: "10 — How it starts",
+  meta: "3 steps",
+  title: "Live in about a week.",
+  titleClaim: true as const,
+  steps: [
+    { n: "01", title: "Book a call", text: "15 minutes. We look at your workload and pick a plan." },
+    { n: "02", title: "Set up", text: "You share access. We write a checklist for every task." },
+    { n: "03", title: "Go live", text: "The first week runs on daily reports, so you see everything." },
+  ],
+  cta: { label: "Book a call", href: "/book-a-call" },
+};
+
+/* 11 — WORK SAMPLES */
+export const workSection = {
+  label: "11 — Work samples",
+  title: "What the work looks like.",
+  lead: "Anonymized examples. Every name, address and number is removed.",
+  cta: { label: "See all samples", href: "/work" },
+  count: 5,
+};
+
+/* 12 — THE FOUNDER */
+export const founderSection = {
+  label: "12 — The founder",
+  title: "You work with me directly.",
+  sub: "No account managers. No hand-offs. One specialist who knows your files.",
+  subClaim: true as const,
+  role: "Founder",
+  bio: "[[PLACEHOLDER: short founder bio — facts only]]",
+  cta: { label: "Read the story", href: "/about" },
+};
+
+/* 13 — SECURITY (all claims until confirmed) */
+export const securitySection = {
+  label: "13 — Security",
+  meta: "4 rules",
+  title: "Your logins. Your data. Your rules.",
+  tiles: [
+    { title: "NDA before access", text: "We sign your NDA before you share a single login." },
+    { title: "You control every login", text: "Shared through your password manager. Revoke access anytime." },
+    { title: "Daily written report", text: "Every task is logged, so you always know what was touched." },
+    { title: "No files on personal devices", text: "Client files stay in your systems, not on our laptops." },
+  ],
+};
+
+/* 14 — QUESTIONS */
+export const faqSection = {
+  label: "14 — Questions",
+  title: "Questions agents and contractors ask.",
+  cta: { label: "All questions", href: "/faq" },
+};
+
+/* 15 — NEXT STEP: uses ctaBand from content/nav.ts */

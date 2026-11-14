@@ -17,7 +17,8 @@ export const site = {
     open: "09:00",
     close: "18:00",
   },
-  responseTime: { text: "Replies 4–7 PM Pacific, Monday to Friday", timeZone: "America/Los_Angeles", open: "16:00", close: "19:00" },
+  /* User 2026-11-14: replies follow desk hours (was a separate 4–7 PM PT window, which read as after-hours). */
+  responseTime: { text: "Replies during desk hours, Monday to Friday", claim: true as const },
   primaryCta: { label: "Book a call", href: "/book-a-call" },
   features: {
     deskLog: true,

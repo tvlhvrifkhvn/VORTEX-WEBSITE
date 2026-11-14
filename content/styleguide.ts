@@ -33,7 +33,7 @@ export const sg = {
   strip: ["FILE 01", "US HOURS", "DAILY REPORT", "ISLAMABAD"],
   table: [
     { key: "Coverage", value: "Monday to Friday, US hours" },
-    { key: "Reply window", value: "4–7 PM Pacific" },
+    { key: "Replies", value: "During desk hours" },
     { key: "Reporting", value: "Written daily summary", note: "SAMPLE" },
     { key: "Contract", value: "[[PLACEHOLDER: contract and notice terms]]" },
   ],
@@ -68,7 +68,7 @@ export const sg = {
     { value: "01", label: "FILE 01" },
     { value: "02", label: "FILE 02" },
   ],
-  form: { name: "Name", email: "Work email", emailError: "Enter an email like name@company.com", message: "Message", optional: "OPTIONAL", hint: "We reply 4–7 PM Pacific.", role: "Role", roles: ["Agent", "Team or brokerage", "Contractor"], consent: "I agree to receive text messages about my inquiry.", submit: "Submit" },
+  form: { name: "Name", email: "Work email", emailError: "Enter an email like name@company.com", message: "Message", optional: "OPTIONAL", hint: "We reply during desk hours.", role: "Role", roles: ["Agent", "Team or brokerage", "Contractor"], consent: "I agree to receive text messages about my inquiry.", submit: "Submit" },
   faq: [
     { q: "Is the accordion keyboard accessible?", a: "Yes. Radix handles Enter, Space and the arrow keys between headers." },
     { q: "Does it animate height?", a: "No. Content fades and slides in; only transform and opacity animate." },

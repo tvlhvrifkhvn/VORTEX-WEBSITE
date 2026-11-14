@@ -9,7 +9,7 @@ interface RevealProps {
   /** Animate direct children one after another (70ms apart). */
   stagger?: boolean;
   className?: string;
-  as?: "div" | "ul" | "ol" | "section";
+  as?: "div" | "ul" | "ol" | "section" | "tbody";
 }
 
 /* §6.2.1 — server-rendered visible; only content still below the fold is hidden after
