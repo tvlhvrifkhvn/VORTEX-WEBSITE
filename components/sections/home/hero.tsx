@@ -36,8 +36,8 @@ export function Hero() {
           <p className="max-w-[52ch] text-lead text-muted-foreground">{hero.lead}</p>
           <SpecStrip items={hero.strip} />
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <Button href={hero.ctas.agent.href} size="lg">{hero.ctas.agent.label}</Button>
-            <Button href={hero.ctas.contractor.href} size="lg" variant="secondary">{hero.ctas.contractor.label}</Button>
+            <Button data-set-viewing="01" href={hero.ctas.agent.href} size="lg">{hero.ctas.agent.label}</Button>
+            <Button data-set-viewing="02" href={hero.ctas.contractor.href} size="lg" variant="secondary">{hero.ctas.contractor.label}</Button>
             <Button href={hero.ctas.call.href} variant="text" className="sm:ml-2">{hero.ctas.call.label}</Button>
           </div>
           <div className="flex flex-col gap-3">
@@ -50,7 +50,7 @@ export function Hero() {
 
         <Bar className="col-span-4 self-end md:col-span-3 lg:col-span-4 lg:row-start-4" />
       </div>
-      <RotatedLabel className="absolute top-1/2 right-3 -translate-y-1/2">{hero.rotated}</RotatedLabel>
+      <RotatedLabel className="absolute top-12 right-3">{hero.rotated}</RotatedLabel>
     </Section>
   );
 }

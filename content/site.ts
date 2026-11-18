@@ -30,5 +30,13 @@ export const site = {
     cursorLabel: true,
     newsletter: true,
     calculatorFile02: false,
+    /* Revision 2026-11-18 upgrades (set false to switch one off) */
+    visitorMode: true,
+    deskSearch: true,
+    scrollProgress: true,
+    mobileActionBar: true,
+    nextPager: true,
+    backToTop: true,
+    sectionIndex: true,
   },
 } as const;

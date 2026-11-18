@@ -42,6 +42,7 @@ export const page = {
   lead: "Starting prices for each plan. Book a 15-minute call and we confirm a monthly price for your workload.",
   toggleLabel: "Choose a file",
   plansTitle: "Plans by file",
+  compsLabel: "01 — Comps",
   tabs: [
     { value: "01", label: "File 01 · Real estate" },
     { value: "02", label: "File 02 · Supplementing" },

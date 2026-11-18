@@ -59,6 +59,7 @@ export const filesSection = {
   srTitle: "The two files",
   cursor: "Open file →",
   cta: "Open file",
+  allJobs: (file: string) => ({ label: `All File ${file} jobs`, href: `/services#file-${file}` }),
   /* Counts come from content/services.ts. */
   count: (core: number, addons: number) => (addons ? `${core} core + ${addons} add-ons` : `${core} core services`),
   panels: [
@@ -97,7 +98,7 @@ const WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "E
 export const numberWord = (n: number) => WORDS[n] ?? String(n);
 
 export const servicesSection = {
-  label: "05 — Everything on the desk",
+  label: "01 — Everything on the desk",
   /* Count comes from content/services.ts (core tier). */
   title: (core: number) => `${numberWord(core)} core jobs. Two files. One desk.`,
   lead: "Each job links to the full scope on its file page.",
@@ -110,7 +111,7 @@ export const servicesSection = {
 
 /* 06 — YOUR DAY, OUR NIGHT SHIFT */
 export const shiftSection = {
-  label: "06 — Your day, our night shift",
+  label: "05 — Your day, our night shift",
   meta: "Sample shift",
   title: "Your day. Our night shift.",
   lead: "Your morning in the US is our evening in Islamabad. Here’s a sample shift.",
@@ -149,14 +150,15 @@ export const deskLogSection = {
 
 /* 08 — SAVINGS */
 export const savingsSection = {
-  label: "08 — Savings",
+  label: "06 — Savings",
   title: "What does an in-house assistant really cost?",
   cta: { label: "Run the numbers", href: "/savings-calculator" },
+  compare: { label: "Compare all options", href: "/pricing#comps" },
 };
 
 /* 10 — HOW IT STARTS */
 export const startSection = {
-  label: "10 — How it starts",
+  label: "07 — How it starts",
   meta: "3 steps",
   title: "Live in about a week.",
   titleClaim: true as const,
@@ -179,7 +181,7 @@ export const workSection = {
 
 /* 12 — THE FOUNDER */
 export const founderSection = {
-  label: "12 — The founder",
+  label: "08 — The founder",
   title: "You work with me directly.",
   sub: "No account managers. No hand-offs. One specialist who knows your files.",
   subClaim: true as const,
@@ -203,9 +205,25 @@ export const securitySection = {
 
 /* 14 — QUESTIONS */
 export const faqSection = {
-  label: "14 — Questions",
+  label: "09 — Questions",
   title: "Questions agents and contractors ask.",
   cta: { label: "All questions", href: "/faq" },
 };
 
-/* 15 — NEXT STEP: uses ctaBand from content/nav.ts */
+/* 10 — NEXT STEP: uses ctaBand from content/nav.ts */
+export const ctaLabel = "10 — Next step";
+
+/* Home section index (desktop ≥1280): number, name, id of the element inside that section. */
+export const sectionIndex = [
+  { n: "01", label: "The desk", id: "hero-title" },
+  { n: "02", label: "Works inside", id: "tools-title" },
+  { n: "03", label: "By the numbers", id: "stats-title" },
+  { n: "04", label: "The files", id: "files-title" },
+  { n: "05", label: "Night shift", id: "shift-title" },
+  { n: "06", label: "Savings", id: "savings-title" },
+  { n: "07", label: "How it starts", id: "start-title" },
+  { n: "08", label: "The founder", id: "founder-title" },
+  { n: "09", label: "Questions", id: "faq-title" },
+  { n: "10", label: "Next step", id: "cta-band-title" },
+];
+export const sectionIndexLabel = "Sections on this page";

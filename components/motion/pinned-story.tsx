@@ -52,7 +52,7 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
 
   const step = steps[active];
   return (
-    <div ref={ref} className={className} style={{ height: `${steps.length * 70}vh` }}>
+    <div ref={ref} className={className} style={{ height: `${steps.length * 40}vh` }}>
       <div className="grid-vx sticky top-(--spacing-header) h-[calc(100vh-var(--spacing-header))] content-center">
         <div data-theme="ink" className="col-span-6 self-center p-10">
           <p className="label-mono text-muted-foreground">{fromLabel}</p>

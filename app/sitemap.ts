@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 /* All public routes; /styleguide is internal and excluded. */
 const routes = [
-  "/", "/real-estate-va/", "/insurance-supplementing/", "/pricing/", "/savings-calculator/", "/work/",
+  "/", "/real-estate-va/", "/insurance-supplementing/", "/services/", "/pricing/", "/savings-calculator/", "/work/",
   "/how-we-work/", "/about/", "/resources/", "/book-a-call/", "/faq/", "/privacy/", "/terms/",
 ];
 

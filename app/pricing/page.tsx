@@ -12,6 +12,7 @@ import { PricingCards } from "@/components/sections/shared/pricing-cards";
 import { PricingSwitcher } from "@/components/sections/shared/pricing-switcher";
 import { PlanTable } from "@/components/sections/shared/plan-table";
 import { FaqSection } from "@/components/sections/shared/faq-section";
+import { Comparison } from "@/components/sections/shared/comparison";
 import { CtaBand } from "@/components/layout/cta-band";
 
 export const metadata = pageMetadata(meta);
@@ -49,7 +50,9 @@ export default function PricingPage() {
           <Text as="p" claim={p.payment.claim} className="text-muted-foreground">{p.payment.text}</Text>
         </div>
       </Section>
-      <FaqSection label={`01 — ${p.faq.label}`} title={p.faq.title} items={faqFor("billing")} cta={p.faq.cta} />
+      {/* Comps moved here from home (revision 2026-11-18); anchor /pricing#comps. */}
+      <Comparison id="comps" label={p.compsLabel} theme="paper" hideCta />
+      <FaqSection label={`02 — ${p.faq.label}`} title={p.faq.title} items={faqFor("billing")} cta={p.faq.cta} theme="paper-2" />
       <CtaBand {...p.cta} />
     </>
   );

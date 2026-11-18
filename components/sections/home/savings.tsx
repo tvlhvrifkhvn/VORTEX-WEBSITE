@@ -1,6 +1,6 @@
 import { savingsSection as s } from "@/content/home";
 import { Section } from "@/components/ui/section";
-import { Button } from "@/components/ui/button";
+import { ArrowLink, Button } from "@/components/ui/button";
 import { ImageFrame } from "@/components/ui/image-frame";
 import dynamic from "next/dynamic";
 
@@ -17,7 +17,10 @@ export function Savings() {
           <div className="mt-12">
             <CalculatorCompact />
           </div>
-          <Button href={s.cta.href} size="lg" className="mt-10">{s.cta.label}</Button>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <Button href={s.cta.href} size="lg">{s.cta.label}</Button>
+            <ArrowLink href={s.compare.href}>{s.compare.label}</ArrowLink>
+          </div>
         </div>
         <ImageFrame slot="calculator-object" block="right" className="col-span-4 md:col-span-4 lg:col-span-4 lg:col-start-9 lg:self-center" />
       </div>

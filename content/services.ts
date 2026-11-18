@@ -27,3 +27,16 @@ export const addonsFor = (file: Service["file"]) => addonServices.filter((s) => 
 
 
 export const includesLabel = "Includes";
+
+/* /services page (revision 2026-11-18): the services bento moved here from home. */
+export const servicesPage = {
+  meta: {
+    title: "All Services",
+    description: "Every VortexOne job in one place: core real estate VA and insurance supplementing services, plus add-ons for File 01 clients.",
+    path: "/services/",
+  },
+  crumb: "All services",
+  label: "All services",
+  lines: ["Everything", "on the desk."],
+  lead: "Core jobs across two files, plus add-ons for existing File 01 clients. Each job links to its full scope.",
+};

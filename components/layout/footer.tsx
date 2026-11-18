@@ -6,6 +6,7 @@ import { MetaBlock } from "@/components/ui/labels";
 import { Wordmark } from "@/components/ui/wordmark";
 import { MotionToggle } from "./motion-toggle";
 import { NewsletterForm } from "./newsletter-form";
+import { BackToTop } from "./back-to-top";
 
 const linkCls = "inline-flex min-h-11 items-center hover:underline underline-offset-4";
 
@@ -56,6 +57,7 @@ export function Footer() {
               <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>
             ))}
           </ul>
+          <BackToTop className={`label-mono ${linkCls} gap-2`} />
           <p className="label-mono text-muted-foreground">© {year} {site.name}</p>
         </div>
       </div>

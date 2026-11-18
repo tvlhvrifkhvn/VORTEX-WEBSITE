@@ -27,9 +27,11 @@
 |---|---|
 | 2026-11-14 | Hero H1 hierarchy (--text-hero), phone hero spacing/bar, SpecStrip wrap, marquee OFF fix, night-shift contrast |
 | 2026-11-14 | Typographic apostrophes, theme-color/autocomplete details, lazy home leaves, phone numeral scramble, themed cursor label |
+| 2026-11-14 | Sample pricing (single source), core/add-on services, stats bento, valid time scramble, clock rule |
+| 2026-11-18 | Home cut to 10 sections (−41%/−37%), /services page, dropdown nav, desk search, visitor mode, section index, progress hairline, mobile action bar, next pager, back to top |
 
 ## Notes for next session
-- Pages: `/`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
+- Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
 - Shared PageHeader (components/sections/shared/page-header.tsx) is the hero for single pages (S6/S7 reuse it). Other routes 404 until their segments (nav links already point to them).
 - Preview: https://claude-github-connection-7kt0gt-vortex-website.talhaarifone.workers.dev (Cloudflare Workers, auto-builds on push).
 - Primitives: components/ui (button, section, section-header, spec, labels, tile, image-frame, text, wordmark, accordion, tabs, slider, dialog, field, choice), components/motion (§6.2 all), components/layout (motion-toggle, review-mode).

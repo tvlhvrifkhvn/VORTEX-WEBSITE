@@ -6,7 +6,7 @@ import { MetaBlock } from "@/components/ui/labels";
 import { Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 
-/* 12 — THE FOUNDER (paper): portrait + caption MetaBlock, short bio (facts only). */
+/* 08 — THE FOUNDER (paper): portrait + caption MetaBlock, short bio (facts only, max 2 lines on home). */
 export function Founder() {
   return (
     <Section aria-labelledby="founder-title">
@@ -21,7 +21,7 @@ export function Founder() {
         <div className="col-span-4 flex flex-col md:col-span-4 lg:col-span-6 lg:col-start-7 lg:justify-end">
           <h2 id="founder-title" className="text-h2 font-semibold">{s.title}</h2>
           <Text as="p" claim={s.subClaim} className="mt-6 max-w-[44ch] text-lead">{s.sub}</Text>
-          <Text as="p" className="mt-6 max-w-[60ch] text-muted-foreground">{s.bio}</Text>
+          <Text as="p" className="mt-6 line-clamp-2 max-w-[60ch] text-muted-foreground">{s.bio}</Text>
           <Button href={s.cta.href} variant="ghost" size="lg" className="mt-10 self-start">{s.cta.label}</Button>
         </div>
       </div>

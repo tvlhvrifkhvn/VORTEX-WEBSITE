@@ -29,9 +29,10 @@ function Cell({ cell }: { cell: CompCell }) {
 }
 
 /* 09 — COMPS: VortexOne column carries an 8px signal bar. Mobile: horizontal scroll, sticky first column. */
-export function Comparison({ label = c.label, title = c.title, theme }: { label?: string; title?: string; theme?: Theme }) {
+/** `id` = section anchor (e.g. /pricing#comps); `hideCta` drops the See pricing button when already on /pricing. */
+export function Comparison({ label = c.label, title = c.title, theme, id, hideCta }: { label?: string; title?: string; theme?: Theme; id?: string; hideCta?: boolean }) {
   return (
-    <Section theme={theme} aria-labelledby="comps-title">
+    <Section id={id} theme={theme} aria-labelledby="comps-title">
       <SectionHeader id="comps-title" label={label} meta={c.meta} title={title} />
       <div className="relative -mx-(--spacing-margin) overflow-x-auto px-(--spacing-margin)" tabIndex={0} role="region" aria-label={c.caption}>
         <table className="w-full min-w-[44rem] border-collapse text-left">
@@ -63,7 +64,7 @@ export function Comparison({ label = c.label, title = c.title, theme }: { label?
       </div>
       <div className="grid-vx mt-[calc(var(--spacing-section)/2)] items-center gap-y-6 border-t border-border pt-6">
         <Text as="p" claim={c.summary.claim} className="col-span-4 text-lead font-medium md:col-span-5 lg:col-span-8">{c.summary.text}</Text>
-        <Button href={c.summary.cta.href} variant="secondary" className="col-span-4 justify-self-start md:col-span-3 md:justify-self-end lg:col-span-4">{c.summary.cta.label}</Button>
+        {!hideCta && <Button href={c.summary.cta.href} variant="secondary" className="col-span-4 justify-self-start md:col-span-3 md:justify-self-end lg:col-span-4">{c.summary.cta.label}</Button>}
       </div>
     </Section>
   );

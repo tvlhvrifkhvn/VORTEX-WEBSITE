@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { VisitorCtaButton } from "./visitor-mode";
 import { ParallaxText } from "@/components/motion/parallax-text";
 
 interface CtaBandProps {
@@ -21,7 +22,7 @@ export function CtaBand({ label, title, text, primary, secondary, theme = "signa
       </ParallaxText>
       <p className="mt-8 max-w-[52ch] text-lead">{text}</p>
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-        <Button href={primary.href} size="lg">{primary.label}</Button>
+        <VisitorCtaButton href={primary.href} label={primary.label} size="lg" />
         {secondary && <Button href={secondary.href} size="lg" variant="ghost">{secondary.label}</Button>}
       </div>
     </Section>

@@ -24,7 +24,7 @@ export function MenuOverlay({ open, onClose, returnFocus, label, children, class
     const el = ref.current!;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const focusables = () => Array.from(el.querySelectorAll<HTMLElement>("a[href],button:not([disabled]),[tabindex]:not([tabindex='-1'])"));
+    const focusables = () => Array.from(el.querySelectorAll<HTMLElement>("input:not([disabled]),a[href],button:not([disabled]),[tabindex]:not([tabindex='-1'])"));
     focusables()[0]?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") return onClose();

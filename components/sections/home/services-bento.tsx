@@ -18,9 +18,11 @@ function span(svc: Service) {
   return rest === 2 ? "md:col-span-4 lg:col-span-6" : "md:col-span-4 lg:col-span-3";
 }
 
-function TileLink({ svc, addon }: { svc: Service; addon?: boolean }) {
+function TileLink({ svc, addon, fileAnchor }: { svc: Service; addon?: boolean; fileAnchor?: boolean }) {
   return (
-    <li data-claim={svc.claim ? "" : undefined} className={cn("col-span-4 bg-background", addon ? "md:col-span-4 lg:col-span-3" : span(svc))}>
+    <li id={svc.id} data-claim={svc.claim ? "" : undefined} className={cn("col-span-4 bg-background", addon ? "md:col-span-4 lg:col-span-3" : span(svc))}>
+      {/* #file-02 lands on the first File 02 tile (the core grid starts with File 01). */}
+      {fileAnchor && <span id={`file-${svc.file}`} className="block" />}
       <Link
         href={`${fileHref(svc.file)}#${svc.id}`}
         className={cn(
@@ -48,20 +50,20 @@ const grid = "grid grid-cols-4 gap-px border border-border bg-border md:grid-col
 
 /* 05 — EVERYTHING ON THE DESK (ink): core tiles (File 01 + 02), then the File 01 add-ons in a smaller group.
    Each tile links to its anchor on the file page. Counts come from content/services.ts. */
-export function ServicesBento() {
+export function ServicesBento({ label = s.label }: { label?: string } = {}) {
   const core = (["01", "02"] as const).flatMap((f) => [
     ...coreServices.filter((x) => x.file === f && x.featured),
     ...coreServices.filter((x) => x.file === f && !x.featured),
   ]);
   return (
     <Section theme="ink" aria-labelledby="services-title">
-      <SectionHeader id="services-title" label={s.label} meta={`${services.length} items`} title={s.title(coreServices.length)} lead={s.lead} layout="split" />
-      <p className="label-mono mb-4 flex justify-between gap-4">
+      <SectionHeader id="services-title" label={label} meta={`${services.length} items`} title={s.title(coreServices.length)} lead={s.lead} layout="split" />
+      <p id="file-01" className="label-mono mb-4 flex justify-between gap-4">
         {s.coreLabel}
         <span className="text-muted-foreground">{coreServices.length} items</span>
       </p>
       <ul className={grid}>
-        {core.map((svc) => <TileLink key={svc.id} svc={svc} />)}
+        {core.map((svc, i) => <TileLink key={svc.id} svc={svc} fileAnchor={svc.file === "02" && core[i - 1]?.file !== "02"} />)}
       </ul>
       <div className="mt-16 mb-4 flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
         <p className="label-mono">{s.addonLabel}</p>

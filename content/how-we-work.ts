@@ -46,8 +46,11 @@ export const report = {
   },
 };
 
+/* Desk log moved here from home (revision 2026-11-18). */
+export const deskLogLabel = "03 — Desk log";
+
 export const communication = {
-  label: "03 — Communication",
+  label: "04 — Communication",
   title: "Where to reach the desk",
   channels: [
     { name: "Email", detail: "For anything that needs a record." },
@@ -58,7 +61,7 @@ export const communication = {
 };
 
 export const security = {
-  label: "04 — Security",
+  label: "05 — Security",
   meta: "6 rules",
   title: "Your logins. Your data. Your rules.",
   tiles: [
@@ -71,10 +74,10 @@ export const security = {
   ],
 };
 
-export const toolsSection = { label: "05 — Tools", title: "Tools we already work in", groups: { "01": "File 01 · Real estate", "02": "File 02 · Supplementing", both: "Both files" } };
+export const toolsSection = { label: "06 — Tools", title: "Tools we already work in", groups: { "01": "File 01 · Real estate", "02": "File 02 · Supplementing", both: "Both files" } };
 
 export const needs = {
-  label: "06 — What we need from you",
+  label: "07 — What we need from you",
   title: "What we need to start",
   items: [
     "A 15-minute call to agree on scope",

@@ -188,7 +188,7 @@ Tailwind v4, CSS-first. After `shadcn init`, keep shadcn's `@theme inline { … 
   --text-micro--letter-spacing: 0.08em;
 
   /* Layout */
-  --spacing-section: clamp(5rem, 10vw, 10rem);
+  --spacing-section: clamp(4rem, 8vw, 8rem);
   --spacing-margin: clamp(1.25rem, 4vw, 4rem);
   --spacing-gutter: clamp(1rem, 1.6vw, 1.5rem);
   --spacing-header: 4rem;

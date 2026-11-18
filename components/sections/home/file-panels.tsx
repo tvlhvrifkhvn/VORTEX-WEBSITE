@@ -4,6 +4,8 @@ import { filesSection } from "@/content/home";
 import { images } from "@/content/images";
 import { addonsFor, coreFor } from "@/content/services";
 import { fromText } from "@/lib/pricing";
+import { viewing } from "@/content/nav";
+import { Tag } from "@/components/ui/labels";
 import { buttonClass } from "@/components/ui/button";
 import { CornerMarks } from "@/components/ui/corner-marks";
 import { SpecStrip } from "@/components/ui/spec";
@@ -28,6 +30,11 @@ export function FilePanels() {
             <PanelShell theme={p.theme} className="relative flex h-full min-h-[80vh] flex-col overflow-hidden px-(--spacing-margin) pt-[calc(var(--text-giant)*0.78)] pb-10">
               <span aria-hidden="true" className="pointer-events-none absolute -top-[0.12em] -right-[0.06em] text-giant font-semibold">
                 <ScrambleText className="tabular">{p.file}</ScrambleText>
+              </span>
+              {/* Visitor mode: shown via CSS when <html data-viewing> matches (no layout shift). Bar uses the panel accent. */}
+              <span aria-hidden="true" data-your-file={p.file} className="absolute inset-x-0 top-0 z-10 h-2 bg-primary" />
+              <span data-your-file={p.file} className="absolute top-6 left-(--spacing-margin)">
+                <Tag tone="solid">{viewing.yourFile}</Tag>
               </span>
               <p className="label-mono relative flex items-center gap-3">
                 {p.tag} ·
@@ -86,7 +93,11 @@ export function FilePanels() {
                     <span className="text-muted-foreground">{filesSection.count(core, addons)}</span>
                     <span data-claim="">{fromText(p.file)}</span>
                   </p>
-                  <span aria-hidden="true" className={cn(buttonClass({ variant: "primary" }), "relative mt-10 group-hover/panel:text-background group-hover/panel:before:scale-x-100")}>
+                  {/* Sits above the panel's stretched link so it stays clickable (its own tab stop). */}
+                  <Link href={filesSection.allJobs(p.file).href} className="label-mono relative z-10 mt-1 inline-flex min-h-11 items-center gap-2 underline-offset-4 hover:underline">
+                    {filesSection.allJobs(p.file).label} <span aria-hidden="true" className="font-sans">→</span>
+                  </Link>
+                  <span aria-hidden="true" className={cn(buttonClass({ variant: "primary" }), "relative mt-6 group-hover/panel:text-background group-hover/panel:before:scale-x-100")}>
                     {filesSection.cta}
                     <span className="font-sans text-body">→</span>
                   </span>
