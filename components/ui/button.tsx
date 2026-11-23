@@ -17,7 +17,7 @@ export const buttonClass = cva(
         primary: "bg-primary text-primary-foreground before:bg-foreground hover:text-background focus-visible:text-background",
         secondary: "bg-secondary text-secondary-foreground before:bg-primary hover:text-primary-foreground focus-visible:text-primary-foreground",
         ghost: "border border-foreground text-foreground before:bg-foreground hover:text-background focus-visible:text-background",
-        text: "min-h-11 px-0 underline-offset-4 before:hidden hover:underline",
+        text: "min-h-11 justify-start px-0 underline-offset-4 before:hidden hover:underline",
       },
       size: { md: "min-h-12 px-5", lg: "min-h-14 px-7" },
     },

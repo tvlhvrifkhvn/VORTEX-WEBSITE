@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import { convertTime, format12 } from "@/lib/time";
 import { useMotion } from "./motion-provider";
@@ -23,15 +23,28 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
   const desktop = useMedia("(min-width: 64rem)");
   const now = useMinute();
   const pinned = enabled && desktop;
+  const inner = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  useMotionValueEvent(scrollYProgress, "change", (v) => setActive(Math.min(steps.length - 1, Math.floor(v * steps.length))));
+  // Progress = how far through the sticky phase we are (wrapper minus the sticky block's own height).
+  const progress = useMotionValue(0);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", () => {
+    const w = ref.current, el = inner.current;
+    if (!w || !el) return;
+    const r = w.getBoundingClientRect();
+    const span = r.height - el.offsetHeight;
+    const v = span > 0 ? Math.min(1, Math.max(0, (parseFloat(getComputedStyle(el).top) - r.top) / span)) : 0;
+    progress.set(v);
+    setActive(Math.min(steps.length - 1, Math.floor(v * steps.length)));
+  });
+  // The bar visibly starts at step 1: minimum fill = 1/steps.
+  const fill = useTransform(progress, (v) => Math.max(v, 1 / steps.length));
 
   const us = (t: string) => (now ? format12(convertTime(t, PK, US, now)) : "--:-- --");
 
   if (!pinned) {
     return (
-      <ol className={cn("relative ml-1.5 border-l-2 border-foreground pl-6 md:pl-10", className)}>
+      <ol className={cn("relative ml-1.5 border-l border-foreground pl-6 md:pl-10", className)}>
         {steps.map((s, i) => (
           <li key={s.time + s.title} className="relative pb-12 last:pb-0">
             <span aria-hidden="true" className={cn("absolute top-2 -left-[31px] size-3 md:-left-[47px]", i === steps.length - 1 ? "bg-signal" : "bg-foreground")} />
@@ -52,14 +65,18 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
 
   const step = steps[active];
   return (
-    <div ref={ref} className={className} style={{ height: `${steps.length * 40}vh` }}>
-      <div className="grid-vx sticky top-(--spacing-header) h-[calc(100vh-var(--spacing-header))] content-center">
-        <div data-theme="ink" className="col-span-6 self-center p-10">
-          <p className="label-mono text-muted-foreground">{fromLabel}</p>
-          <ScrambleNumber value={format12(step.time)} className="text-display font-semibold" />
-          <p className="label-mono tabular mt-4 text-signal">{us(step.time)} {toLabel}</p>
-          <div className="mt-8 h-1 bg-ink-2">
-            <motion.div className="h-full origin-left bg-signal" style={{ scaleX: scrollYProgress }} />
+    <div ref={ref} className={className}>
+      {/* Sticky block = clock panel + step list, top-aligned (no centring gap); the spacer below provides the scroll distance. */}
+      <div ref={inner} className="grid-vx sticky top-[calc(var(--spacing-header)+var(--space-block))] items-stretch">
+        <div data-theme="ink" className="col-span-6 flex flex-col justify-between gap-(--space-block) p-10">
+          <div>
+            <p className="label-mono text-muted-foreground">{fromLabel}</p>
+            <ScrambleNumber value={format12(step.time)} className="mt-(--space-tight) block text-display font-semibold" />
+            <p className="label-mono tabular mt-(--space-tight) text-signal">{us(step.time)} {toLabel}</p>
+            <p aria-hidden="true" className="label-mono mt-(--space-tight) text-muted-foreground">{step.title}</p>
+          </div>
+          <div className="h-1 bg-ink-2">
+            <motion.div className="h-full origin-left bg-signal" style={{ scaleX: fill }} />
           </div>
         </div>
         <ol className="col-span-6 flex flex-col gap-6">
@@ -76,6 +93,7 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
           ))}
         </ol>
       </div>
+      <div aria-hidden="true" style={{ height: `${steps.length * 25}vh` }} />
     </div>
   );
 }

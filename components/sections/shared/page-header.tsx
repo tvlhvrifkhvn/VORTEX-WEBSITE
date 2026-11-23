@@ -1,6 +1,7 @@
 import type { ImageId } from "@/content/images";
 import { Section } from "@/components/ui/section";
 import { ImageFrame } from "@/components/ui/image-frame";
+import { Text } from "@/components/ui/text";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { KineticHeadline } from "@/components/motion/kinetic-headline";
 
@@ -19,13 +20,13 @@ export function PageHeader({ label, lines, lead, image, crumb, children }: PageH
   return (
     <Section aria-labelledby="page-title" className="pt-6 lg:pt-8">
       <Breadcrumb items={[{ label: crumb }]} />
-      <div className="grid-vx mt-10 items-end gap-y-12">
-        <div className="col-span-4 flex flex-col gap-8 md:col-span-8 lg:col-span-8">
+      <div className="grid-vx mt-(--space-header) items-end gap-y-(--space-header)">
+        <div className="col-span-4 flex flex-col gap-(--space-block) md:col-span-8 lg:col-span-8">
           <p className="label-mono">{label}</p>
-          <div id="page-title">
+          <div id="page-title" className="mt-[calc(var(--space-header)-var(--space-block))]">
             <KineticHeadline lines={lines} className="text-h2 font-semibold md:text-display" />
           </div>
-          {lead && <p className="max-w-[56ch] text-lead text-muted-foreground">{lead}</p>}
+          {lead && <Text as="p" className="max-w-[56ch] text-lead text-muted-foreground">{lead}</Text>}
           {children}
         </div>
         {image && (

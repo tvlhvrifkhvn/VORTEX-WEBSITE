@@ -31,7 +31,7 @@ export function StatsBento() {
                 <ScrambleNumber value={st.capacity.value} className="text-giant font-semibold" />
                 <span className="label-mono">{st.capacity.suffix.trim()}</span>
               </p>
-              <p className="label-mono mt-3">{st.capacity.label}</p>
+              <p className="label-mono mt-(--space-tight)">{st.capacity.label}</p>
             </div>
             <HoursGrid {...s.week} />
           </div>
@@ -45,7 +45,7 @@ export function StatsBento() {
             <span className="label-mono">C · {s.savings.label}</span>
             <div>
               <ScrambleNumber value={pct} suffix="%" className="text-stat font-semibold" />
-              <p className="label-mono mt-3">{s.savings.text}</p>
+              <p className="label-mono mt-(--space-tight)">{s.savings.text}</p>
               <p className="mt-4 text-small">
                 {s.savings.footnote}{" "}
                 <Link href={s.savings.href} className="inline-flex min-h-11 items-center font-medium underline underline-offset-4">{s.savings.link}</Link>

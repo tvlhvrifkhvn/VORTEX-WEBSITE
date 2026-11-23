@@ -3,6 +3,8 @@ import { KineticHeadline } from "@/components/motion/kinetic-headline";
 import { Section } from "@/components/ui/section";
 import { MetaBlock, RotatedLabel } from "@/components/ui/labels";
 import { SpecStrip } from "@/components/ui/spec";
+import { ActionGroup } from "@/components/ui/action-group";
+import { Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import { ImageFrame } from "@/components/ui/image-frame";
 import { Bar } from "@/components/ui/rule";
@@ -33,13 +35,13 @@ export function Hero() {
         </div>
 
         <div className="col-span-4 flex flex-col gap-8 md:col-span-8 lg:col-span-7 lg:row-start-3">
-          <p className="max-w-[52ch] text-lead text-muted-foreground">{hero.lead}</p>
+          <Text as="p" className="max-w-[52ch] text-lead text-muted-foreground">{hero.lead}</Text>
           <SpecStrip items={hero.strip} />
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <ActionGroup>
             <Button data-set-viewing="01" href={hero.ctas.agent.href} size="lg">{hero.ctas.agent.label}</Button>
             <Button data-set-viewing="02" href={hero.ctas.contractor.href} size="lg" variant="secondary">{hero.ctas.contractor.label}</Button>
-            <Button href={hero.ctas.call.href} variant="text" className="sm:ml-2">{hero.ctas.call.label}</Button>
-          </div>
+            <Button href={hero.ctas.call.href} variant="text">{hero.ctas.call.label}</Button>
+          </ActionGroup>
           <div className="flex flex-col gap-3">
             <div data-claim="" className="w-fit">
               <DeskStatus labels={hero.desk} />

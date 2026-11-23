@@ -645,7 +645,7 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 - H2 "Your logins. Your data. Your rules." Bento of 4 tiles (all claims until confirmed): NDA before access · You control every login (shared through your password manager, revocable anytime) · Daily written report · No client files on personal devices.
 
 **14 — QUESTIONS (paper)**
-- H2 "Questions agents and contractors ask." Accordion of the FAQ items tagged `home` (6) + **[All questions →]** → `/faq`.
+- Split (revision 2026-11-23): left cols 1–5 sticky — H2 "Questions agents and contractors ask.", short lead, **[Book a call]** + "Search the desk /"; right cols 7–12 — numbered accordion of the FAQ items tagged `home` (4), "+"→"×", answer + "Related: <page> →", one open at a time on desktop, then **[All questions →]** → `/faq`. Same block on file pages and /pricing.
 
 **15 — NEXT STEP (signal)**
 - ParallaxText headline (`text-display`): "Hand off the back office." Sub: "15 minutes. No pitch deck. We look at your workload and tell you honestly if we can help." **[Book a call]** (ink) · **[See pricing]** (secondary).

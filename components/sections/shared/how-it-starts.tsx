@@ -23,22 +23,28 @@ export function HowItStarts({ label, meta, title, titleClaim, steps, cta, theme,
         <SectionHeader id={id} label={label} meta={meta} title={title} />
       </div>
       <div className="relative">
-        <LineDraw viewBox="0 0 1000 2" d="M0 1 H1000" className={cn("absolute right-0 left-0 hidden h-px lg:block", steps.length === 4 ? "top-[calc(var(--text-display)*0.45)]" : "top-[calc(var(--text-giant)*0.45)]")} />
         <LineDraw viewBox="0 0 2 1000" d="M1 0 V1000" className="absolute top-0 bottom-0 left-4 w-px lg:hidden" />
-        <ol className={cn("relative grid gap-12 pl-12 lg:gap-(--spacing-gutter) lg:pl-0", steps.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3")}>
-          {steps.map((s) => (
-            <li key={s.n}>
-              <span aria-hidden="true" className={cn("block bg-background pr-4 text-giant font-semibold tabular lg:w-fit", steps.length === 4 && "lg:text-display")}>{s.n}</span>
-              <h3 className="mt-6 text-h3 font-semibold">
+        {/* Desktop: one equal 12-col span per step (4/4/4 or 3/3/3/3); subgrid rows keep numerals, titles and text on shared lines.
+            The connector runs from each numeral to the next column, centred on the numerals. */}
+        <ol className="relative grid gap-y-(--space-header) pl-12 lg:grid-cols-12 lg:gap-y-0 lg:grid-rows-[auto_auto_auto] lg:gap-x-(--spacing-gutter) lg:pl-0">
+          {steps.map((s, i) => (
+            <li key={s.n} className={cn("lg:row-span-3 lg:grid lg:grid-rows-subgrid lg:gap-y-0", steps.length === 4 ? "lg:col-span-3" : "lg:col-span-4")}>
+              <div className="flex items-center gap-(--space-block)">
+                <span aria-hidden="true" className={cn("text-giant font-semibold tabular", steps.length === 4 ? "lg:text-display" : "lg:text-hero")}>{s.n}</span>
+                {i < steps.length - 1 && (
+                  <LineDraw viewBox="0 0 1000 2" d="M0 1 H1000" className="hidden h-px flex-1 lg:-mr-(--spacing-gutter) lg:block" />
+                )}
+              </div>
+              <h3 className="mt-(--space-block) text-h3 font-semibold">
                 <span className="sr-only">{s.n}. </span>
                 {s.title}
               </h3>
-              <p className="mt-3 max-w-[36ch] text-muted-foreground">{s.text}</p>
+              <p className="mt-(--space-tight) max-w-[36ch] text-muted-foreground">{s.text}</p>
             </li>
           ))}
         </ol>
       </div>
-      <Button href={cta.href} size="lg" className="mt-16">{cta.label}</Button>
+      <Button href={cta.href} size="lg" className="mt-(--space-header)">{cta.label}</Button>
     </Section>
   );
 }

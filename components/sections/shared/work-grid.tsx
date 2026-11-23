@@ -63,7 +63,7 @@ export function WorkGrid() {
       <SegmentedTabs items={page.filters} value={filter} label={page.filterLabel} />
       <p aria-live="polite" className="sr-only">{page.count(list.length)}</p>
       <TabsContent value={filter}>
-        <ul className="grid-vx mt-12 gap-y-16">
+        <ul className="grid-vx mt-(--space-header) gap-y-(--space-header)">
           {list.map((s, i) => <Card key={s.id} s={s} i={i} />)}
         </ul>
       </TabsContent>

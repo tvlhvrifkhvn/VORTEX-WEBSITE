@@ -17,7 +17,7 @@ export default function CalculatorPage() {
       <Section theme="paper-2" aria-labelledby="calc-title">
         <h2 id="calc-title" className="sr-only">{p.calcTitle}</h2>
         <Calculator />
-        <Accordion type="single" collapsible className="mt-20 border-t border-border lg:w-1/2">
+        <Accordion type="single" collapsible className="mt-(--space-header) border-t border-border lg:w-1/2">
           <AccordionItem value="how">
             <AccordionTrigger>{p.how.title}</AccordionTrigger>
             <AccordionContent>

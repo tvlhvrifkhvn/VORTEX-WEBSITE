@@ -16,7 +16,7 @@ export const hero = {
   ],
   /* Line 1 is the hero word; lines 2–3 run smaller (revision 2026-11-14). */
   lines: ["Back office", "for the people who sell", "and rebuild property."],
-  lead: "Real estate admin and insurance supplementing for US agents and contractors, done by a specialist on your hours.",
+  lead: "Real estate admin and insurance supplementing for US agents and contractors, done by a specialist **on your hours**.",
   strip: [
     { text: "On US hours" },
     { text: "Founder-run" },
@@ -67,12 +67,18 @@ export const filesSection = {
       file: "01" as const,
       tag: "File 01 · Listing no. 001",
       status: "Active",
-      spec: ["For", "Solo agents", "Teams", "Investors", "Flippers"],
+      spec: ["Solo agents", "Teams", "Investors", "Flippers"],
       title: "Real Estate VA",
       /* Both titles run on two lines so the panels mirror each other. */
       titleLines: ["Real Estate", "Virtual Assistant"],
-      line: "Listings, transactions and follow-up, off your plate.",
-      tasks: ["MLS listings", "Transaction deadlines", "CRM & follow-up", "Social posts"],
+      line: "Listings, transactions and follow-up, **off your plate**.",
+      /* Each row reveals the service's one-line `short` (content/services.ts) on hover. */
+      tasks: [
+        { label: "MLS listings", service: "mls-listings" },
+        { label: "Transaction deadlines", service: "transaction-coordination" },
+        { label: "CRM & follow-up", service: "crm-management" },
+        { label: "Social posts", service: "social-media" },
+      ],
       href: "/real-estate-va",
       image: "file01-object" as const,
       theme: "ink" as const,
@@ -81,11 +87,16 @@ export const filesSection = {
       file: "02" as const,
       tag: "File 02 · Claim no. 002",
       status: "Open",
-      spec: ["For", "Roofing", "Restoration", "Contractors only"],
+      spec: ["Roofing", "Restoration", "Contractors only"],
       title: "Insurance Supplementing",
       titleLines: ["Insurance", "Supplementing"],
-      line: "Xactimate supplements, documented line by line.",
-      tasks: ["Xactimate estimates", "Supplement packages", "Photo documentation", "Status tracking"],
+      line: "Xactimate supplements, documented **line by line**.",
+      tasks: [
+        { label: "Xactimate estimates", service: "xactimate-estimates" },
+        { label: "Supplement packages", service: "supplement-packages" },
+        { label: "Photo documentation", service: "photo-documentation" },
+        { label: "Status tracking", service: "claim-tracking" },
+      ],
       href: "/insurance-supplementing",
       image: "file02-object" as const,
       theme: "signal" as const,
@@ -114,7 +125,7 @@ export const shiftSection = {
   label: "05 — Your day, our night shift",
   meta: "Sample shift",
   title: "Your day. Our night shift.",
-  lead: "Your morning in the US is our evening in Islamabad. Here’s a sample shift.",
+  lead: "Your morning in the US is **our evening in Islamabad**. Here’s a sample shift.",
   from: "Islamabad",
   to: "ET",
   steps: [
@@ -152,6 +163,8 @@ export const deskLogSection = {
 export const savingsSection = {
   label: "06 — Savings",
   title: "What does an in-house assistant really cost?",
+  /* Manual lines; U+2011 non-breaking hyphen keeps "in‑house" together. */
+  titleLines: ["What does an", "in\u2011house assistant", "really cost?"],
   cta: { label: "Run the numbers", href: "/savings-calculator" },
   compare: { label: "Compare all options", href: "/pricing#comps" },
 };

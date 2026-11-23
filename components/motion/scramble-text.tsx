@@ -32,12 +32,12 @@ export function ScrambleText({ children, trigger = "hover", className }: Scrambl
     if (!enabled || trigger !== "hover" || !host) return;
     const go = () => run(500);
     host.addEventListener("mouseenter", go);
-    host.addEventListener("focus", go);
+    host.addEventListener("focusin", go);
     host.addEventListener("touchstart", go, { passive: true });
     return () => {
       host.removeEventListener("touchstart", go);
       host.removeEventListener("mouseenter", go);
-      host.removeEventListener("focus", go);
+      host.removeEventListener("focusin", go);
     };
   }, [enabled, trigger, run]);
 

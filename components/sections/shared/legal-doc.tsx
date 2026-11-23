@@ -20,7 +20,7 @@ export function LegalDoc({ crumb, doc }: LegalDocProps) {
           <Tag tone="signal">{doc.draft}</Tag>
           <Text as="p" className="label-mono text-muted-foreground">{doc.updated}</Text>
         </div>
-        <ol className="mt-12 border-t border-border">
+        <ol className="mt-(--space-header) border-t border-border">
           {doc.sections.map((s, i) => (
             <li key={s.title} className="border-b border-border py-8">
               <h2 className="flex items-baseline gap-4 text-h3 font-semibold">

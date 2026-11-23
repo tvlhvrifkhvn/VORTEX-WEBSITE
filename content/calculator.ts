@@ -49,7 +49,7 @@ export const labels = {
 export const page = {
   label: "Savings calculator",
   lines: ["What does an", "in-house assistant", "really cost?"],
-  lead: "Move the sliders to match the hire you’re weighing up. Then bring the numbers to a call and we’ll quote VortexOne against them.",
+  lead: "Move the sliders to match the hire you’re weighing up. Then bring the numbers to a call and **we’ll quote VortexOne against them**.",
   calcTitle: "Your estimate",
   inputsLabel: "Inputs",
   outputsLabel: "Estimate",

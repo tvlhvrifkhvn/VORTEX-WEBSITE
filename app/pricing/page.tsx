@@ -44,7 +44,7 @@ export default function PricingPage() {
         <Suspense fallback={panels["01"]}>
           <PricingSwitcher tabs={p.tabs} label={p.toggleLabel} panels={panels} />
         </Suspense>
-        <div className="mt-16 flex flex-col gap-4">
+        <div className="mt-(--space-header) flex flex-col gap-(--space-tight)">
           <p className="label-mono">{p.everyPlan.label}</p>
           <SpecStrip items={p.everyPlan.items} />
           <Text as="p" claim={p.payment.claim} className="text-muted-foreground">{p.payment.text}</Text>

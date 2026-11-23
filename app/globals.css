@@ -72,6 +72,15 @@
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/* Rhythm system (polish pass): the only vertical/inline gaps used between blocks. */
+:root {
+  --space-section: var(--spacing-section);    /* top/bottom of every section */
+  --space-header: clamp(2rem, 3.5vw, 3.5rem); /* label row → H2, H2 → first content */
+  --space-block: clamp(1.5rem, 2.5vw, 2.5rem); /* between blocks inside a section */
+  --space-inline: 1.5rem;                     /* between actions in a row */
+  --space-tight: 0.75rem;                     /* label → value, title → one line */
+}
+
 /* ── shadcn semantic mapping ─────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
@@ -186,6 +195,9 @@
     -webkit-font-smoothing: antialiased;
   }
   body { font-family: var(--font-sans); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, dd, figcaption { text-wrap: pretty; }
+  strong { font-weight: 600; }
   ::selection { background: var(--color-signal); color: var(--color-ink); }
   :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   *, ::before, ::after { border-color: var(--border); }
@@ -252,6 +264,8 @@ html[data-motion="on"] [data-row] > .row-line { transform: scaleX(0); transform-
 html[data-motion="on"] [data-row] > .row-text { opacity: 0; }
 html[data-motion="on"] [data-inview] [data-row] > .row-line { transform: scaleX(1); transition: transform 600ms var(--ease-out-expo) var(--row-delay, 0ms); }
 html[data-motion="on"] [data-inview] [data-row] > .row-text { opacity: 1; transition: opacity 400ms ease calc(var(--row-delay, 0ms) + 250ms); }
+/* Hover/focus movement (panel image shift, block slide): none unless motion is on. */
+html:not([data-motion="on"]) .fx-move { translate: none !important; scale: none !important; transform: none !important; }
 
 /* Visitor mode (features.visitorMode): <html data-viewing="01|02"> is set before paint by the boot script. */
 .vx-cta-01, .vx-cta-02 { visibility: hidden; }

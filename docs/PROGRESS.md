@@ -29,6 +29,7 @@
 | 2026-11-14 | Typographic apostrophes, theme-color/autocomplete details, lazy home leaves, phone numeral scramble, themed cursor label |
 | 2026-11-14 | Sample pricing (single source), core/add-on services, stats bento, valid time scramble, clock rule |
 | 2026-11-18 | Home cut to 10 sections (−41%/−37%), /services page, dropdown nav, desk search, visitor mode, section index, progress hairline, mobile action bar, next pager, back to top |
+| 2026-11-23 | Design polish pass: rhythm tokens, SectionRule/ActionGroup/StatusChip, split FAQ + new accordion, file-panel symmetry + row reveal, index in margin, night shift top-aligned, savings/start/founder fixes (docs/POLISH.md) |
 
 ## Notes for next session
 - Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.

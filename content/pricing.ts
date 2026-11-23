@@ -39,7 +39,7 @@ export const cardLabels = {
 export const page = {
   label: "Floor plans + rate sheet",
   lines: ["Pricing, scoped", "to your workload."],
-  lead: "Starting prices for each plan. Book a 15-minute call and we confirm a monthly price for your workload.",
+  lead: "Starting prices for each plan. Book a 15-minute call and we **confirm a monthly price** for your workload.",
   toggleLabel: "Choose a file",
   plansTitle: "Plans by file",
   compsLabel: "01 — Comps",

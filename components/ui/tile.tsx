@@ -42,7 +42,7 @@ export function StatTile({ stat, index, theme, className, wide }: { stat: Stat; 
           <ScrambleNumber value={stat.value} prefix={stat.prefix} className="text-stat font-semibold" />
           {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
         </p>
-        <Text as="p" className={cn("label-mono mt-3", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>
+        <Text as="p" className={cn("label-mono mt-(--space-tight)", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>
         {stat.note && <Text as="p" className="mt-2 text-small text-muted-foreground">{stat.note}</Text>}
       </div>
     </Tile>

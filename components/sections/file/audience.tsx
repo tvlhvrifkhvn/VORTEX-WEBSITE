@@ -20,7 +20,7 @@ export function Audience({ label, title, handoff, groups, notFor, theme }: Audie
       <SectionHeader id="audience-title" label={label} meta={`${groups.length} groups`} title={title} />
       <ul className={cn("grid gap-(--spacing-gutter) md:grid-cols-2", cols >= 3 && "lg:grid-cols-3")}>
         {groups.map((g, i) => (
-          <li key={g.title} className="flex flex-col border-t-2 border-foreground pt-4">
+          <li key={g.title} className="flex flex-col border-t border-foreground pt-4">
             <span className="label-mono tabular text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="mt-6 text-h3 font-semibold">{g.title}</h3>
             <p className="mt-3 max-w-[40ch] text-muted-foreground">{g.text}</p>

@@ -11,7 +11,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "FAQ",
   lines: ["Questions."],
-  lead: "Short answers from the desk. If yours isn’t here, ask on a 15-minute call.",
+  lead: "Short answers from the desk. If yours isn’t here, ask on a **15\u2011minute call**.",
   filterLabel: "FAQ category",
   listTitle: "All questions",
 };
@@ -23,6 +23,21 @@ export const categories: { value: FaqTag; label: string }[] = [
   { value: "billing", label: "Pricing & billing" },
   { value: "security", label: "Security" },
 ];
+
+/* Shared FAQ block (home, file pages, pricing): left-column copy and the "Related" page per category. */
+export const faqBlock = {
+  lead: "Short answers from the desk. Still unsure? Ask on a **15\u2011minute call**.",
+  book: { label: "Book a call", href: "/book-a-call" },
+  search: "Search the desk",
+  related: "Related",
+};
+export const faqRelated: Record<Exclude<FaqTag, "home">, { label: string; href: string }> = {
+  general: { label: "How we work", href: "/how-we-work" },
+  file01: { label: "Real estate VA", href: "/real-estate-va" },
+  file02: { label: "Insurance supplementing", href: "/insurance-supplementing" },
+  billing: { label: "Pricing", href: "/pricing" },
+  security: { label: "Security", href: "/how-we-work#security-title" },
+};
 
 /* One list, filtered by tag; never duplicated. Answers use confirmed facts; promises and unknowns are claims. */
 export const faq: FaqItem[] = [

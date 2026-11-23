@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound as n } from "@/content/not-found";
 import { Section } from "@/components/ui/section";
+import { ActionGroup } from "@/components/ui/action-group";
 import { Button } from "@/components/ui/button";
 import { ImageFrame } from "@/components/ui/image-frame";
 
@@ -16,10 +17,10 @@ export default function NotFound() {
           <p className="label-mono">{n.label}</p>
           <h1 id="nf-title" className="text-h2 font-semibold md:text-display">{n.h1}</h1>
           <p className="max-w-[44ch] text-lead text-muted-foreground">{n.text}</p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <ActionGroup>
             <Button href={n.home.href} size="lg">{n.home.label}</Button>
             <Button href={n.call.href} size="lg" variant="ghost">{n.call.label}</Button>
-          </div>
+          </ActionGroup>
         </div>
         <ImageFrame slot="notfound-object" block="left" className="col-span-3 md:col-span-3 lg:col-span-3 lg:col-start-10" />
       </div>

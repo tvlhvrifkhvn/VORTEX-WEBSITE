@@ -30,7 +30,7 @@ export function PricingSwitcher({ tabs, label, panels }: PricingSwitcherProps) {
     <Tabs value={file} onValueChange={change}>
       <SegmentedTabs items={tabs} value={file} label={label} />
       {(Object.keys(panels) as FileId[]).map((f) => (
-        <TabsContent key={f} value={f} className="mt-12 focus-visible:outline-offset-8">
+        <TabsContent key={f} value={f} className="mt-(--space-header) focus-visible:outline-offset-8">
           {panels[f]}
         </TabsContent>
       ))}

@@ -142,7 +142,7 @@ export const footer = {
 export const ctaBand = {
   label: "Next step",
   title: "Hand off the back office.",
-  text: "15 minutes. No pitch deck. We look at your workload and tell you honestly if we can help.",
+  text: "15 minutes. No pitch deck. We look at your workload and **tell you honestly if we can help**.",
   primary: { label: "Book a call", href: "/book-a-call" },
   secondary: { label: "See pricing", href: "/pricing" },
 };

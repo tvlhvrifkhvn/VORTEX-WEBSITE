@@ -10,7 +10,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "Resources",
   lines: ["Free", "checklists."],
-  lead: "The same checklists the desk works from. Enter your email and we’ll send the PDF.",
+  lead: "The same checklists the desk works from. Enter your email and **we’ll send the PDF**.",
 };
 
 /* PDFs are placeholders until uploaded (see docs/ASSETS_NEEDED.md). Delivery by email is Phase 2. */

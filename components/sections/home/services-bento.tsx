@@ -65,7 +65,7 @@ export function ServicesBento({ label = s.label }: { label?: string } = {}) {
       <ul className={grid}>
         {core.map((svc, i) => <TileLink key={svc.id} svc={svc} fileAnchor={svc.file === "02" && core[i - 1]?.file !== "02"} />)}
       </ul>
-      <div className="mt-16 mb-4 flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+      <div className="mt-(--space-header) mb-(--space-tight) flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
         <p className="label-mono">{s.addonLabel}</p>
         <p className="text-small text-muted-foreground">{s.addonNote}</p>
       </div>

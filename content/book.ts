@@ -9,7 +9,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "Schedule a showing / Send a claim",
   lines: ["Book a", "15-min call."],
-  lead: "Pick a time, or send a note. You’ll hear back during desk hours, Monday to Friday.",
+  lead: "Pick a time, or send a note. You’ll hear back **during desk hours**, Monday to Friday.",
   leadClaim: true as const,
 };
 

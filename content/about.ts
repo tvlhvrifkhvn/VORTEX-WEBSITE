@@ -10,7 +10,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "About",
   lines: ["Small", "on purpose."],
-  lead: "One founder, two specialist files, US hours. No account managers between you and the person doing the work.",
+  lead: "One founder, two specialist files, US hours. No account managers between you and **the person doing the work**.",
 };
 
 export const founder = {

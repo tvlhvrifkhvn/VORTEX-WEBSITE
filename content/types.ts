@@ -5,7 +5,7 @@ export type Claim = { claim?: true };
 
 export interface Stat extends Claim { value: number | string; prefix?: string; suffix?: string; label: string; note?: string }
 export type ServiceTier = "core" | "addon";
-export interface Service extends Claim { id: string; file: FileId; index: string; title: string; summary: string; includes: string[]; tier: ServiceTier; featured?: boolean; onRequest?: true; sampleImage?: string }
+export interface Service extends Claim { id: string; file: FileId; index: string; title: string; summary: string; /** One line (≤40 chars) for the home file-panel rows. */ short?: string; includes: string[]; tier: ServiceTier; featured?: boolean; onRequest?: true; sampleImage?: string }
 /** price: number = shown (formatted from `unit`), null = "Contact for pricing"; custom: shows "Custom". */
 export interface PricingPlan extends Claim { id: string; file: FileId; name: string; tagline: string; price: number | null; unit?: "month" | "supplement"; from?: true; custom?: true; hours?: string; features: string[]; recommended?: boolean }
 export type FaqTag = "general" | "file01" | "file02" | "billing" | "security" | "home";

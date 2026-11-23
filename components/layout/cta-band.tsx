@@ -1,5 +1,8 @@
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { ActionGroup } from "@/components/ui/action-group";
+import { SectionRule } from "@/components/ui/section-header";
+import { Text } from "@/components/ui/text";
 import { VisitorCtaButton } from "./visitor-mode";
 import { ParallaxText } from "@/components/motion/parallax-text";
 
@@ -16,15 +19,15 @@ interface CtaBandProps {
 export function CtaBand({ label, title, text, primary, secondary, theme = "signal" }: CtaBandProps) {
   return (
     <Section theme={theme} aria-labelledby="cta-band-title" className="overflow-hidden">
-      <p className="label-mono border-t border-border pt-3">{label}</p>
-      <ParallaxText className="mt-10">
+      <SectionRule label={label} />
+      <ParallaxText className="mt-(--space-header)">
         <h2 id="cta-band-title" className="max-w-[14ch] text-display font-semibold">{title}</h2>
       </ParallaxText>
-      <p className="mt-8 max-w-[52ch] text-lead">{text}</p>
-      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+      <Text as="p" className="mt-(--space-block) max-w-[52ch] text-lead">{text}</Text>
+      <ActionGroup className="mt-(--space-header)">
         <VisitorCtaButton href={primary.href} label={primary.label} size="lg" />
         {secondary && <Button href={secondary.href} size="lg" variant="ghost">{secondary.label}</Button>}
-      </div>
+      </ActionGroup>
     </Section>
   );
 }

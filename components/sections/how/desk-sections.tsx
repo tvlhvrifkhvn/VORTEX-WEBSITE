@@ -58,7 +58,7 @@ export function ToolsGrid() {
       <div className="grid gap-(--spacing-gutter) md:grid-cols-3">
         {groups.map((g) => (
           <div key={g.key}>
-            <p className="label-mono border-b-2 border-foreground pb-3">{g.label}</p>
+            <p className="label-mono border-b border-foreground pb-3">{g.label}</p>
             <ul>
               {g.items.map((t) => (
                 <li key={t.name} className="border-b border-border py-3 text-lead font-medium">{t.name}</li>

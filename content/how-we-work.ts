@@ -10,7 +10,7 @@ export const meta: PageMeta = {
 export const page = {
   label: "How we work",
   lines: ["How the", "desk runs."],
-  lead: "The same routine for every client: written checklists, a report at the end of every day, and access you can revoke at any time.",
+  lead: "The same routine for every client: written checklists, a report **at the end of every day**, and access you can revoke at any time.",
 };
 
 export const onboarding = {
@@ -29,7 +29,7 @@ export const onboarding = {
 export const report = {
   label: "02 — Daily rhythm",
   title: "A written report at the end of every day",
-  lead: "Plain text, sent to your inbox before your next morning. Three sections, nothing else.",
+  lead: "Plain text, sent to your inbox **before your next morning**. Three sections, nothing else.",
   doc: {
     sample: "Sample",
     header: "End-of-day report",

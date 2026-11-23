@@ -33,6 +33,12 @@ export function PanelShell({ theme, className, children }: { theme: string; clas
       data-scramble-host=""
       data-inview={inview ? "" : undefined}
       data-live={inview && !canHover ? "" : undefined}
+      onClick={(e) => {
+        // Rows, photo and the button sit above the stretched title link; forward their clicks to it.
+        const t = e.target as Element;
+        if (t.closest("a,button") || window.getSelection()?.toString()) return;
+        ref.current?.querySelector<HTMLAnchorElement>("a[data-panel-link]")?.click();
+      }}
       className={cn("group/panel", className)}
     >
       {children}

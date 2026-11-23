@@ -28,7 +28,7 @@ export default function BookPage() {
         <Text as="p" claim={p.leadClaim} className="max-w-[52ch] text-lead text-muted-foreground">{p.lead}</Text>
       </div>
 
-      <div className="grid-vx mt-16 gap-y-16">
+      <div className="grid-vx mt-(--space-header) gap-y-(--space-header)">
         <section aria-label={calendar.label} className="col-span-4 md:col-span-8 lg:col-span-5">
           <CalendarBlock />
           <div className="mt-10 border-t border-border pt-4">
