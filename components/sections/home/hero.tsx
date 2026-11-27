@@ -39,14 +39,14 @@ export function Hero() {
             <Button href={hero.ctas.call.href} variant="text">{hero.ctas.call.label}</Button>
           </ActionGroup>
           <div className="mt-auto pt-(--space-header)">
-            <div className="flex flex-col gap-(--space-tight) border-t border-border pt-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-(--space-inline)">
+            <div className="flex flex-col gap-(--space-tight) border-t border-border pt-3 xl:flex-row xl:items-baseline xl:justify-between xl:gap-x-(--space-inline)">
               <div data-claim="" className="w-fit">
                 <DeskStatus labels={hero.desk} />
               </div>
               {prices.length > 0 && (
                 <p data-claim="" className="label-mono flex flex-col sm:flex-row sm:gap-x-2">
                   {prices.map((t, i) => (
-                    <span key={t}>{i > 0 && <span aria-hidden="true" className="mr-2 hidden sm:inline">·</span>}{t}</span>
+                    <span key={t} className="whitespace-nowrap">{i > 0 && <span aria-hidden="true" className="mr-2 hidden sm:inline">·</span>}{t}</span>
                   ))}
                 </p>
               )}

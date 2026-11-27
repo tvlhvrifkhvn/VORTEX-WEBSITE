@@ -35,7 +35,10 @@ export function Footer() {
           <div className="col-span-2 md:col-span-2">
             <p className="label-mono text-muted-foreground">{footer.contactTitle}</p>
             <ul className="mt-3">
-              <li><a href={`mailto:${site.contact.email}`} className={`${linkCls} break-all`}>{site.contact.email}</a></li>
+              <li><a href={`mailto:${site.contact.email}`} className={linkCls}>
+                {/* Break only before the @ in narrow columns, never mid-word. */}
+                {site.contact.email.split("@")[0]}<wbr />@{site.contact.email.split("@")[1]}
+              </a></li>
               <li><a href={site.contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className={linkCls}>{footer.whatsapp} ↗<span className="sr-only"> (opens in a new tab)</span></a></li>
               <li><a href={site.contact.linkedin} target="_blank" rel="noopener noreferrer" className={linkCls}>{footer.linkedin} ↗<span className="sr-only"> (opens in a new tab)</span></a></li>
               <li><Link href={footer.cta.href} className={linkCls}>{footer.bookCall} →</Link></li>
