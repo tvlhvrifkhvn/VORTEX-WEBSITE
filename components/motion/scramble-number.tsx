@@ -12,11 +12,13 @@ interface ScrambleNumberProps {
   suffix?: string;
   format?: Intl.NumberFormatOptions;
   className?: string;
+  /** "scramble" (default) or "blur": focus-pull from blur on enter (stats tiles); no digit flicker. */
+  reveal?: "scramble" | "blur";
 }
 
 /* §6.2.3 — digits scramble on enter (1.6s, slowed on request) and on value change (600ms). Symbols never scramble.
    Screen readers get the final value only. Motion OFF → final value. */
-export function ScrambleNumber({ value, prefix = "", suffix = "", format, className }: ScrambleNumberProps) {
+export function ScrambleNumber({ value, prefix = "", suffix = "", format, className, reveal = "scramble" }: ScrambleNumberProps) {
   const text = typeof value === "number" ? new Intl.NumberFormat("en-US", format).format(value) : value;
   const final = `${prefix}${text}${suffix}`;
   const ref = useRef<HTMLSpanElement>(null);
@@ -26,13 +28,13 @@ export function ScrambleNumber({ value, prefix = "", suffix = "", format, classN
   const played = useRef(false);
 
   useEffect(() => {
-    if (!enabled || !inView) return;
+    if (!enabled || !inView || reveal === "blur") return;
     run(played.current ? 600 : 1600);
     played.current = true;
-  }, [enabled, inView, final, run]);
+  }, [enabled, inView, final, run, reveal]);
 
   return (
-    <span ref={ref} className={cn("tabular inline-block", className)}>
+    <span ref={ref} data-shown={inView ? "" : undefined} className={cn("tabular inline-block", reveal === "blur" && "blur-reveal", className)}>
       <span aria-hidden="true">{display}</span>
       <span className="sr-only">{final}</span>
     </span>

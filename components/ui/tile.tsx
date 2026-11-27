@@ -35,11 +35,11 @@ export function Tile({ theme, marks, claim, className, children, ...props }: Til
 /** No index letter. The number and its unit share a baseline (unit on the right); the label sits at the bottom.
     The tile is a @container, so sizes follow the tile: "stat" (narrow tiles, number + unit fill the width),
     "giant" / "hero" (wide tiles; hero is the larger). `wide`: desktop row — number left, vertically centred; label bottom-right. */
-export function StatTile({ stat, theme, className, wide, size = "stat" }: { stat: Stat; theme?: Theme; className?: string; wide?: boolean; size?: "stat" | "giant" | "hero" }) {
+export function StatTile({ stat, theme, className, wide, justify, size = "stat" }: { stat: Stat; theme?: Theme; className?: string; wide?: boolean; justify?: boolean; size?: "stat" | "giant" | "hero" }) {
   return (
     <Tile theme={theme} claim={stat.claim} className={cn("@container justify-between gap-(--space-block)", wide && "lg:flex-row lg:items-center", className)}>
-      <div className={cn("flex items-baseline gap-x-3", !wide && "pt-(--space-tight)")}>
-        <ScrambleNumber value={stat.value} prefix={stat.prefix} className={size === "hero" ? "hero-num" : size === "giant" ? "giant-fit" : "stat-fit"} />
+      <div className={cn("flex items-baseline gap-x-3", !wide && "pt-(--space-tight)", justify && "justify-between")}>
+        <ScrambleNumber value={stat.value} prefix={stat.prefix} reveal="blur" className={size === "hero" ? "hero-num" : size === "giant" ? "giant-fit" : "stat-fit"} />
         {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
       </div>
       <div className={cn(wide && "lg:max-w-[22ch] lg:self-end lg:text-right")}>

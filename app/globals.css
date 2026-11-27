@@ -133,10 +133,10 @@
 @utility tabular { font-variant-numeric: tabular-nums; }
 /* Stat numerals (Anton) sized from their own tile (tiles are @container):
    stat-fit = narrow tile, "<24" + unit fill the width; giant/hero = wide tiles; fill-num = width / --fit em (equal side gaps). */
-@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: min(calc((100cqi - 3.5rem) / 1.35), 11rem); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: calc((100cqi - 2.4rem) / 1.315); /* "<24" (1.31em) + 12px gap + HRS = tile width */ line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
 /* Fills its own @container tile edge to edge ("72%" is 2.045em wide in Anton; 2.07 keeps equal side gaps). */
 @utility fill-num { font-family: var(--font-num); font-weight: 400; font-size: calc(100cqi / var(--fit, 2.07)); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
-@utility hero-num { font-family: var(--font-num); font-weight: 400; font-size: clamp(8rem, 48cqi, 19rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
+@utility hero-num { font-family: var(--font-num); font-weight: 400; font-size: clamp(8rem, 42cqi, 17rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
 @utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(7rem, 40cqi, 16rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
 /* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
 @utility hero-fit {
@@ -280,6 +280,9 @@ html[data-motion="on"] [data-row] > .row-line { transform: scaleX(0); transform-
 html[data-motion="on"] [data-row] > .row-text { opacity: 0; }
 html[data-motion="on"] [data-inview] [data-row] > .row-line { transform: scaleX(1); transition: transform 600ms var(--ease-out-expo) var(--row-delay, 0ms); }
 html[data-motion="on"] [data-inview] [data-row] > .row-text { opacity: 1; transition: opacity 400ms ease calc(var(--row-delay, 0ms) + 250ms); }
+/* Stats numbers: blur-in reveal (focus pull) on scroll-in; only when motion is on, so no-JS/motion-off shows them sharp. */
+html[data-motion="on"] .blur-reveal { transition: filter 1200ms var(--ease-out-expo), opacity 900ms ease; }
+html[data-motion="on"] .blur-reveal:not([data-shown]) { filter: blur(14px); opacity: 0; }
 /* Hover/focus movement (panel image shift, block slide): none unless motion is on. */
 html:not([data-motion="on"]) .fx-move { translate: none !important; scale: none !important; transform: none !important; }
 

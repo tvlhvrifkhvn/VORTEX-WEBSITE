@@ -29,22 +29,22 @@ export function StatsBento() {
             (equal gaps: tile padding left, 24px gutter right) and ends where the squares end. */}
         <Tile claim={st.capacity.claim} className="col-span-4 grid grid-cols-[minmax(0,1fr)_minmax(0,10rem)] content-end gap-x-6 gap-y-(--space-tight) sm:grid-cols-[minmax(0,1fr)_minmax(0,17rem)] md:col-span-8 lg:col-span-6 lg:row-span-2">
           <div className="@container self-end">
-            <ScrambleNumber value={st.capacity.value} className="fill-num [--fit:1]" />
+            <ScrambleNumber value={st.capacity.value} reveal="blur" className="fill-num [--fit:1]" />
           </div>
           <HoursGrid days={s.week.days} hoursPerDay={s.week.hoursPerDay} className="max-w-none self-end" />
           <span className="label-mono">{st.capacity.suffix.trim()}</span>
           <p className="label-mono">{st.capacity.label}</p>
         </Tile>
 
-        <StatTile stat={st.reply} theme="ink" className="col-span-4 lg:col-span-3 max-lg:order-1" />
+        <StatTile stat={st.reply} theme="ink" justify className="col-span-4 lg:col-span-3 max-lg:order-1" />
 
         {/* C — savings % from calculator defaults, or "Run the numbers" when prices aren't public */}
         {pct !== null ? (
           // C — savings: progress ring (fills to the % on scroll-in, replays on hover) + "72%" spanning the tile width (equal gaps).
           <Tile theme="signal" claim className="@container col-span-4 justify-between gap-(--space-block) lg:col-span-3 lg:row-span-2 max-lg:-order-1">
-            <SavingsRing pct={pct} label={s.savings.ring} />
+            <SavingsRing pct={pct} />
             <div>
-              <ScrambleNumber value={pct} suffix="%" className="fill-num" />
+              <ScrambleNumber value={pct} suffix="%" reveal="blur" className="fill-num" />
               <p className="label-mono mt-(--space-tight)">{s.savings.text}</p>
               <p className="mt-(--space-tight) text-small">
                 {s.savings.footnote}{" "}
