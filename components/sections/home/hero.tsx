@@ -11,15 +11,15 @@ import { stripText } from "@/lib/pricing";
 
 /* 01 — THE DESK (§11.1). Swiss poster lockup on one 12-col grid:
    index row (3 × 4 cols) → "Back office" filling the content width → one-line deck →
-   hairline → band: lead + actions + base line (cols 1–6) | square photo (cols 9–12, under the third index block).
+   hairline → band: lead + actions + base line (cols 1–7) | square photo (cols 10–12, under the third index block).
    The base line sits on the photo's bottom edge. Phone: index → H1 → photo → lead → actions → base line. */
 export function Hero() {
   const prices = (["01", "02"] as const).flatMap((f) => stripText(f) ?? []);
   return (
-    <Section aria-labelledby="hero-title" className="relative pt-8 lg:pt-12">
+    <Section aria-labelledby="hero-title" className="relative pt-8 pb-(--space-header) lg:pt-12">
       <div className="grid-vx gap-y-(--space-tight)">
         {hero.meta.map((m) => (
-          <div key={m.title} data-claim={"claim" in m ? "" : undefined} className="col-span-4 md:col-span-4 lg:col-span-4">
+          <div key={m.title} data-claim={"claim" in m ? "" : undefined} className="col-span-4 md:col-span-4 lg:col-span-4 lg:last:col-span-3 lg:last:col-start-10">
             <MetaBlock title={m.title} line={m.line} className="[&>span:last-child]:hidden md:[&>span:last-child]:block" />
           </div>
         ))}
@@ -30,7 +30,7 @@ export function Hero() {
       </div>
 
       <div className="grid-vx mt-(--space-header) gap-y-(--space-header) border-t border-border pt-(--space-block)">
-        <ImageFrame slot="hero-object" block="left" square priority sizes="(min-width: 1024px) 30vw, 100vw" className="col-span-4 md:col-span-4 lg:col-start-9 lg:row-start-1" />
+        <ImageFrame slot="hero-object" block="left" square priority sizes="(min-width: 1024px) 22vw, 100vw" className="col-span-4 md:col-span-4 lg:col-span-3 lg:col-start-10 lg:row-start-1" />
         <div className="col-span-4 flex flex-col md:col-span-8 lg:col-span-7 lg:row-start-1">
           <Text as="p" className="max-w-[52ch] text-lead text-muted-foreground">{hero.lead}</Text>
           <ActionGroup className="mt-(--space-header)">
