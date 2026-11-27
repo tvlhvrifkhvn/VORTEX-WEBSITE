@@ -20,7 +20,7 @@ const short = (id: string) => services.find((s) => s.id === id)?.short ?? "";
 
 /* 04 — THE FILES: two mirrored panels, one tab stop each (stretched title link; PanelShell forwards other clicks).
    Identical internal grid: label row → title → [rows · meta · actions | image] → audience strip.
-   Desktop image runs from the first row rule to the action row. Phone: title → square photo → rows → actions → strip.
+   Desktop image: square, top on the first row rule (stretching it made a thin strip at laptop widths). Phone: title → square photo → rows → actions → strip.
    Panel hover/focus: image frame 8px, signal block 12px, numeral scramble (transform only; .fx-move = off without motion).
    Row hover: index becomes a box, the row reveals the service's one line (list reserves that line at ≥1024px). */
 export function FilePanels() {
@@ -33,7 +33,7 @@ export function FilePanels() {
         return (
           <CursorLabel key={p.file} label={filesSection.cursor} theme={p.theme} className="h-full">
             <PanelShell theme={p.theme} className="relative flex h-full flex-col overflow-hidden px-(--spacing-margin) pt-[calc(var(--text-giant)*0.78)] pb-(--space-header)">
-              <span aria-hidden="true" className="pointer-events-none absolute -top-[0.12em] -right-[0.06em] text-giant font-semibold">
+              <span aria-hidden="true" className="pointer-events-none absolute -top-[0.12em] -right-[0.02em] font-num text-giant font-normal">
                 <ScrambleText className="tabular">{p.file}</ScrambleText>
               </span>
               {/* Visitor mode: shown via CSS when <html data-viewing> matches (no layout shift). Bar uses the panel accent. */}
@@ -57,9 +57,9 @@ export function FilePanels() {
               </div>
 
               <div className="mt-(--space-header) grid gap-x-(--spacing-gutter) gap-y-(--space-block) lg:grid-cols-[minmax(0,1fr)_40%]">
-                <div className="relative mx-3.5 max-w-sm lg:col-start-2 lg:row-start-1 lg:max-w-none">
+                <div className="relative mx-3.5 max-w-sm lg:col-start-2 lg:row-start-1 lg:max-w-none lg:self-start">
                   <CornerMarks className="z-20 text-primary" />
-                  <div className="fx-move relative aspect-square overflow-hidden transition-transform duration-500 ease-out-expo group-hover/panel:translate-x-2 group-focus-within/panel:translate-x-2 group-data-[live]/panel:translate-x-2 lg:aspect-auto lg:h-full">
+                  <div className="fx-move relative aspect-square overflow-hidden transition-transform duration-500 ease-out-expo group-hover/panel:translate-x-2 group-focus-within/panel:translate-x-2 group-data-[live]/panel:translate-x-2">
                     {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-processed halftone */}
                     <img src={img.src} alt="" width={img.width} height={img.height} loading="lazy" decoding="async" className="size-full object-cover grayscale" />
                     <span aria-hidden="true" className="fx-move absolute top-[48%] left-0 h-[22%] w-[45%] bg-signal mix-blend-multiply transition-transform duration-700 ease-in-out-quart group-hover/panel:translate-x-3 group-focus-within/panel:translate-x-3 group-data-[live]/panel:translate-x-3" />

@@ -172,3 +172,4 @@
 2026-11-27 · rev/stats · stat-fit = (tile − 2.4rem) / 1.315 so "<24" + HRS span tile B edge to edge (justify); "2" grows with it; hero-num → clamp(8rem, 42cqi, 17rem) ("1" slightly smaller, vertically mid)
 2026-11-27 · rev/stats · Savings ring: rounded line ends (activity-ring look, user request — exception to square corners), label removed, inner dial reduced to 20 ticks (1 tick = 5%)
 2026-11-27 · rev/laptop · Checked at 100% zoom widths (1024–1366): stat number groups never shrink or wrap (shrink-0 + nowrap; "9–6" broke as "9- / 6" beside the label); hero status/price base line stacks below 1280 with each price unbroken; footer email breaks only before "@" (was break-all)
+2026-11-27 · rev/panels · File-panel photo square again, top on the first row rule (stretched to the action row it became a ~0.47 strip at 1000–1333px); corner numerals 01/02 in Anton (font-num) like the stat numbers
