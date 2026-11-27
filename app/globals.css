@@ -129,6 +129,13 @@
   font-weight: 500;
 }
 @utility tabular { font-variant-numeric: tabular-nums; }
+/* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
+@utility hero-fit {
+  font-size: calc(min(100vw - 2 * var(--spacing-margin), 82rem) / 4.56);
+  margin-left: -0.04em; /* optical: the B's side bearing sits on the grid edge */
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+}
 
 /* ── §4.2 Semantic layer + section themes ───────────────── */
 :root, [data-theme="paper"] {

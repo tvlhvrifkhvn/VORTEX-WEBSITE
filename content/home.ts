@@ -9,26 +9,22 @@ export const meta: PageMeta = {
 
 /* 01 — THE DESK */
 export const hero = {
+  /* Index row on the same 3 × 4-column grid as the band below (third block sits over the photo). */
   meta: [
-    { title: "VortexOne", line: "Back office desk" },
     { title: "Islamabad → United States", line: "33.6844°N 73.0479°E" },
-    { title: "File 01 + File 02", line: "Real estate · Supplementing" },
+    { title: "File 01 · File 02", line: "Real estate VA · Supplementing" },
+    { title: "Founder-run desk", line: "Monthly, no lock-in", claim: true as const },
   ],
-  /* Line 1 is the hero word; lines 2–3 run smaller (revision 2026-11-14). */
-  lines: ["Back office", "for the people who sell", "and rebuild property."],
-  lead: "Real estate admin and insurance supplementing for US agents and contractors, done by a specialist **on your hours**.",
-  strip: [
-    { text: "On US hours" },
-    { text: "Founder-run" },
-    { text: "Monthly, no lock-in", claim: true as const },
-  ],
+  /* Line 1 fills the content width (hero-fit); line 2 is the one-line deck that names the audience. */
+  lines: ["Back office", "for US agents, roofers and restoration contractors."],
+  lead: "Transaction coordination, MLS and CRM upkeep for agents. Xactimate estimates and supplement packages for contractors. One specialist, working **your US hours**.",
   ctas: {
-    agent: { label: "I’m an agent", href: "/real-estate-va" },
-    contractor: { label: "I’m a contractor", href: "/insurance-supplementing" },
-    call: { label: "or book a 15-min call", href: "/book-a-call" },
+    agent: { label: "Real estate VA", href: "/real-estate-va" },
+    contractor: { label: "Insurance supplementing", href: "/insurance-supplementing" },
+    call: { label: "Book a 15-minute call", href: "/book-a-call" },
   },
   rotated: "VortexOne — Back office desk — No. 001",
-  /* Under the CTAs: live desk line (claim: reply promise) + price strip derived from content/pricing.ts. */
+  /* Base line of the band: live desk status (claim: reply promise) + prices derived from content/pricing.ts. */
   desk: { open: "Desk open — replies today", closedPrefix: "Desk closed — " },
 };
 
