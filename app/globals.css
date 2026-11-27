@@ -2,6 +2,7 @@
 @import "@fontsource-variable/inter-tight";
 @import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/anton/latin-400.css";
 
 /* ── §4.1 Brand tokens ───────────────────────────────────── */
 @theme {
@@ -25,6 +26,7 @@
 
   --font-sans: "Inter Tight Variable", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-num: "Anton", "Inter Tight Variable", ui-sans-serif, sans-serif; /* condensed display numerals (stats) */
 
   /* Type scale (fluid) */
   --text-giant: clamp(6rem, 18vw, 20rem);
@@ -130,9 +132,9 @@
 }
 @utility tabular { font-variant-numeric: tabular-nums; }
 /* Bento numbers sized from the bento's width (Bento is the @container): one size for every secondary number
-   (fits "72%" in a 3-col tile), one for the lead number; never above the type tokens. */
-@utility stat-fit { font-size: min(var(--text-stat), max(7.5cqi, 4rem)); line-height: 0.9; letter-spacing: -0.04em; }
-@utility giant-fit { font-size: min(var(--text-giant), max(15cqi, 6rem)); line-height: 0.82; letter-spacing: -0.05em; }
+   (Anton is condensed: "72%" still fits a 3-col tile), one for the lead number; never above the type tokens. */
+@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: min(calc(var(--text-stat) * 1.15), max(9cqi, 4.5rem)); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+@utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: min(var(--text-giant), max(18cqi, 7rem)); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
 /* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
 @utility hero-fit {
   font-size: calc(min(100vw - 2 * var(--spacing-margin), 82rem) / 4.56);

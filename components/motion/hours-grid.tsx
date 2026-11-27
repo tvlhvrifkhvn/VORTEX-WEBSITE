@@ -5,7 +5,7 @@ import { inView, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useMotion } from "./motion-provider";
 
-interface HoursGridProps { days: string[]; hoursPerDay: number; caption: string; className?: string }
+interface HoursGridProps { days: string[]; hoursPerDay: number; caption?: string; className?: string }
 
 /* Swiss "hours grid": one column per weekday, one ink square per hour. Server-rendered filled; if it is still
    below the fold after hydration, squares pop in day by day on enter. Motion OFF → static. */
@@ -29,18 +29,19 @@ export function HoursGrid({ days, hoursPerDay, caption, className }: HoursGridPr
   }, [enabled, animate, scope]);
 
   return (
-    <div ref={scope} className={cn("w-full max-w-[15rem]", className)}>
-      <div aria-hidden="true" className="grid grid-cols-5 gap-1.5">
+    <div ref={scope} className={cn("flex w-full max-w-[15rem] flex-col", className)}>
+      {/* Cells stretch to the height the parent gives (tile A: full tile height); min 14rem when stacked. */}
+      <div aria-hidden="true" className="grid min-h-56 flex-1 grid-cols-5 gap-1.5">
         {days.map((d) => (
           <div key={d} className="flex flex-col gap-1.5">
             <span className="font-mono text-micro uppercase text-muted-foreground">{d}</span>
             {Array.from({ length: hoursPerDay }, (_, i) => (
-              <span key={i} data-sq="" className="block aspect-square bg-foreground" />
+              <span key={i} data-sq="" className="block min-h-3 flex-1 bg-foreground" />
             ))}
           </div>
         ))}
       </div>
-      <p className="label-mono mt-3">{caption}</p>
+      {caption && <p className="label-mono mt-(--space-tight)">{caption}</p>}
     </div>
   );
 }

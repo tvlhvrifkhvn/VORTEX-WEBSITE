@@ -316,7 +316,7 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
 - Numbers: `tabular` wherever they align or animate.
 - Headlines that animate or need a controlled rag take **manual line breaks from content** (`lines: string[]`).
 - Body measure: 60–68ch. Never center body text.
-- Fonts come from npm (Fontsource): `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono` (400, 500). Verify exact package and family names after install. Don't use `next/font/google` (build-time network may be blocked).
+- Fonts come from npm (Fontsource): `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono` (400, 500), `@fontsource/anton` (400, stat numerals only — revision 2026-11-27). Verify exact package and family names after install. Don't use `next/font/google` (build-time network may be blocked).
 
 ### 4.5 Grid, spacing, borders, layers
 - Container: `container-vx` (max 1440px, fluid side margins). Section backgrounds go full-bleed; content stays in the container.
@@ -444,7 +444,7 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
 - Deploy target: any static host (e.g., Cloudflare Pages or Netlify, connected to GitHub), or the same server as the Phase 2 backend. Don't deploy anything yourself; document it in the README.
 
 ### 9.2 Approved dependencies
-`next`, `react`, `react-dom`, `typescript`, `@types/*`, `tailwindcss`, `@tailwindcss/postcss`, `postcss`, `motion`, `clsx`, `tailwind-merge`, `class-variance-authority`, `lucide-react`, `@radix-ui/*` (only those that shadcn adds for components actually used), `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono`, `eslint` + Next's ESLint config, and (dev-only, optional, for audits) `playwright`.
+`next`, `react`, `react-dom`, `typescript`, `@types/*`, `tailwindcss`, `@tailwindcss/postcss`, `postcss`, `motion`, `clsx`, `tailwind-merge`, `class-variance-authority`, `lucide-react`, `@radix-ui/*` (only those that shadcn adds for components actually used), `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono`, `@fontsource/anton`, `eslint` + Next's ESLint config, and (dev-only, optional, for audits) `playwright`.
 Anything else → ask first (e.g., carousels: prefer native CSS scroll-snap over adding `embla-carousel`).
 
 ### 9.3 Scaffold (Segment 0)

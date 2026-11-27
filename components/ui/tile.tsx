@@ -39,7 +39,7 @@ export function StatTile({ stat, index, theme, className, wide }: { stat: Stat; 
       {index && <span className="label-mono tabular text-muted-foreground">{index}</span>}
       <div className={cn(wide && "lg:flex lg:items-end lg:justify-between lg:gap-10")}>
         <p className="flex flex-wrap items-baseline gap-x-3">
-          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="stat-fit font-semibold" />
+          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="stat-fit" />
           {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
         </p>
         <Text as="p" className={cn("label-mono mt-(--space-tight)", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>

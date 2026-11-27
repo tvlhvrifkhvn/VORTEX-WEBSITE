@@ -44,7 +44,7 @@ export const statsSection = {
     hours: { value: "9–6", suffix: " ET", label: "Desk hours, Monday to Friday, US Eastern." },
   } satisfies Record<string, Stat>,
   /* Tile A hours grid: 5 days × 8 hours. */
-  week: { days: ["Mon", "Tue", "Wed", "Thu", "Fri"], hoursPerDay: 8, caption: "40 hours · one specialist" },
+  week: { days: ["Mon", "Tue", "Wed", "Thu", "Fri"], hoursPerDay: 8 },
   /* Tile C: savings % computed from calculator defaults + content/pricing.ts; falls back to `run` if prices are null. */
   savings: { label: "Savings", text: "Lower monthly cost than an in-house assistant*", footnote: "*Calculator defaults.", link: "Run your own numbers →", href: "/savings-calculator" },
   run: { label: "Savings", title: "What would an in-house assistant cost you?", cta: "Run the numbers", href: "/savings-calculator" },

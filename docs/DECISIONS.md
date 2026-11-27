@@ -161,3 +161,5 @@
 2026-11-27 · rev/stats · Bento rows minmax(13rem, auto) instead of fixed 15rem (labels spilled out of B and D, "72%" out of C); numbers sized from the bento width (Bento = @container): stat-fit min(--text-stat, max(7.5cqi, 4rem)) for all secondary numbers, giant-fit for tile A; hours grid capped at 10rem; gaps on tokens
 2026-11-27 · rev/motion · Digit scramble slowed: 80ms per cycle (was 40), 1.6s on enter (was 0.9s), 600ms on change (was 400ms); letters unchanged
 2026-11-27 · rev/tokens · --spacing-section → clamp(3.5rem, 6vw, 6rem) (was 4–8rem): tighter, equal gaps between every section · user: gaps above/below sections too large
+2026-11-27 · rev/stats · Stat numerals in Anton (@fontsource/anton, latin-400, user request; added to approved deps) via --font-num in stat-fit/giant-fit; secondary numbers +15% (B, C asked slightly bigger, D/E/F follow for one size); inner span is block so the box matches the type
+2026-11-27 · rev/stats · Tile A: hours grid fills the tile from top padding to bottom (cells stretch, min 14rem when stacked); grid caption removed, "Full-time capacity, one specialist." moved under the grid; number keeps only HRS/WK

@@ -16,7 +16,7 @@ const pct = (() => {
 })();
 
 /* 03 — BY THE NUMBERS: 6 tiles on the 12-col grid (A 6×2, B 3, C 3×2, D 3, E 6, F 6). Rows have a minimum height and grow
-   with content, so nothing spills; every number is sized to its own tile (stat-fit/giant-fit). Mobile: one column. */
+   with content, so nothing spills; every number is sized from the bento width (stat-fit/giant-fit, Anton). Mobile: one column. */
 export function StatsBento() {
   const st = s.stats;
   return (
@@ -24,17 +24,18 @@ export function StatsBento() {
       <SectionHeader id="stats-title" label={s.label} meta={s.meta} title={s.title} />
       <Bento className="lg:auto-rows-[minmax(13rem,auto)]">
         {/* A — capacity: giant number + hours grid */}
-        <Tile claim={st.capacity.claim} className="col-span-4 justify-between gap-(--space-block) md:col-span-8 lg:col-span-6 lg:row-span-2">
-          <span className="label-mono tabular text-muted-foreground">A</span>
-          <div className="flex flex-col gap-(--space-block) sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="flex items-baseline gap-x-3">
-                <ScrambleNumber value={st.capacity.value} className="giant-fit font-semibold" />
-                <span className="label-mono">{st.capacity.suffix.trim()}</span>
-              </p>
-              <p className="label-mono mt-(--space-tight)">{st.capacity.label}</p>
-            </div>
-            <HoursGrid {...s.week} className="max-w-[10rem]" />
+        {/* Left: index top, number bottom. Right: hours grid from the tile's top padding down, label under it. */}
+        <Tile claim={st.capacity.claim} className="col-span-4 gap-(--space-block) sm:flex-row md:col-span-8 lg:col-span-6 lg:row-span-2">
+          <div className="flex flex-1 flex-col justify-between gap-(--space-block)">
+            <span className="label-mono tabular text-muted-foreground">A</span>
+            <p className="flex items-baseline gap-x-3">
+              <ScrambleNumber value={st.capacity.value} className="giant-fit" />
+              <span className="label-mono">{st.capacity.suffix.trim()}</span>
+            </p>
+          </div>
+          <div className="flex flex-col sm:w-[15rem]">
+            <HoursGrid days={s.week.days} hoursPerDay={s.week.hoursPerDay} className="max-w-none flex-1" />
+            <p className="label-mono mt-(--space-tight)">{st.capacity.label}</p>
           </div>
         </Tile>
 
@@ -45,7 +46,7 @@ export function StatsBento() {
           <Tile theme="signal" claim className="col-span-4 justify-between gap-(--space-block) lg:col-span-3 lg:row-span-2 max-lg:-order-1">
             <span className="label-mono">C · {s.savings.label}</span>
             <div>
-              <ScrambleNumber value={pct} suffix="%" className="stat-fit font-semibold" />
+              <ScrambleNumber value={pct} suffix="%" className="stat-fit" />
               <p className="label-mono mt-(--space-tight)">{s.savings.text}</p>
               <p className="mt-(--space-tight) text-small">
                 {s.savings.footnote}{" "}
