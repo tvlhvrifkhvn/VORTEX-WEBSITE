@@ -62,7 +62,7 @@
   --text-micro--letter-spacing: 0.08em;
 
   /* Layout */
-  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-section: clamp(3.5rem, 6vw, 6rem);
   --spacing-margin: clamp(1.25rem, 4vw, 4rem);
   --spacing-gutter: clamp(1rem, 1.6vw, 1.5rem);
   --spacing-header: 4rem;
@@ -129,6 +129,10 @@
   font-weight: 500;
 }
 @utility tabular { font-variant-numeric: tabular-nums; }
+/* Bento numbers sized from the bento's width (Bento is the @container): one size for every secondary number
+   (fits "72%" in a 3-col tile), one for the lead number; never above the type tokens. */
+@utility stat-fit { font-size: min(var(--text-stat), max(7.5cqi, 4rem)); line-height: 0.9; letter-spacing: -0.04em; }
+@utility giant-fit { font-size: min(var(--text-giant), max(15cqi, 6rem)); line-height: 0.82; letter-spacing: -0.05em; }
 /* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
 @utility hero-fit {
   font-size: calc(min(100vw - 2 * var(--spacing-margin), 82rem) / 4.56);

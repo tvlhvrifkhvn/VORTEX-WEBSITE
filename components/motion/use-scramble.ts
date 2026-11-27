@@ -6,7 +6,7 @@ const DIGITS = "0123456789";
 const ALNUM = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 /* Shared engine for ScrambleNumber/ScrambleText (adapted from 21st.dev dqnamo/scramble-text):
-   scramblable characters cycle every 40ms and lock left→right; everything else never scrambles. */
+   scramblable characters cycle (letters 40ms, digits 80ms — slower, calmer numbers) and lock left→right; everything else never scrambles. */
 export function useScramble(final: string, kind: "digits" | "alnum") {
   const [display, setDisplay] = useState(final);
   const timer = useRef<number | undefined>(undefined);
@@ -36,7 +36,8 @@ export function useScramble(final: string, kind: "digits" | "alnum") {
         if (i === h + 1) return "012345";
         return DIGITS;
       };
-      const gap = Math.min(60, totalMs / (idx.length + 1));
+      const tick = kind === "digits" ? 80 : 40;
+      const gap = Math.min(tick * 2, totalMs / (idx.length + 1));
       const start = performance.now();
       timer.current = window.setInterval(() => {
         const t = performance.now() - start;
@@ -53,7 +54,7 @@ export function useScramble(final: string, kind: "digits" | "alnum") {
           stop();
           setDisplay(final);
         }
-      }, 40);
+      }, tick);
     },
     [final, kind, stop],
   );

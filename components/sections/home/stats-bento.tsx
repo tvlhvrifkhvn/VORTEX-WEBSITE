@@ -15,25 +15,26 @@ const pct = (() => {
   return r.savingsPct === null ? null : Math.round(r.savingsPct);
 })();
 
-/* 03 — BY THE NUMBERS: 6 tiles, fixed row height on desktop, 2 large (A, C). Mobile: one column, large tiles first. */
+/* 03 — BY THE NUMBERS: 6 tiles on the 12-col grid (A 6×2, B 3, C 3×2, D 3, E 6, F 6). Rows have a minimum height and grow
+   with content, so nothing spills; every number is sized to its own tile (stat-fit/giant-fit). Mobile: one column. */
 export function StatsBento() {
   const st = s.stats;
   return (
     <Section theme="paper-2" aria-labelledby="stats-title">
       <SectionHeader id="stats-title" label={s.label} meta={s.meta} title={s.title} />
-      <Bento className="lg:auto-rows-[15rem]">
+      <Bento className="lg:auto-rows-[minmax(13rem,auto)]">
         {/* A — capacity: giant number + hours grid */}
-        <Tile claim={st.capacity.claim} className="col-span-4 justify-between gap-8 md:col-span-8 lg:col-span-6 lg:row-span-2">
+        <Tile claim={st.capacity.claim} className="col-span-4 justify-between gap-(--space-block) md:col-span-8 lg:col-span-6 lg:row-span-2">
           <span className="label-mono tabular text-muted-foreground">A</span>
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-(--space-block) sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="flex items-baseline gap-x-3">
-                <ScrambleNumber value={st.capacity.value} className="text-giant font-semibold" />
+                <ScrambleNumber value={st.capacity.value} className="giant-fit font-semibold" />
                 <span className="label-mono">{st.capacity.suffix.trim()}</span>
               </p>
               <p className="label-mono mt-(--space-tight)">{st.capacity.label}</p>
             </div>
-            <HoursGrid {...s.week} />
+            <HoursGrid {...s.week} className="max-w-[10rem]" />
           </div>
         </Tile>
 
@@ -41,12 +42,12 @@ export function StatsBento() {
 
         {/* C — savings % from calculator defaults, or "Run the numbers" when prices aren't public */}
         {pct !== null ? (
-          <Tile theme="signal" claim className="col-span-4 justify-between gap-10 lg:col-span-3 lg:row-span-2 max-lg:-order-1">
+          <Tile theme="signal" claim className="col-span-4 justify-between gap-(--space-block) lg:col-span-3 lg:row-span-2 max-lg:-order-1">
             <span className="label-mono">C · {s.savings.label}</span>
             <div>
-              <ScrambleNumber value={pct} suffix="%" className="text-stat font-semibold" />
+              <ScrambleNumber value={pct} suffix="%" className="stat-fit font-semibold" />
               <p className="label-mono mt-(--space-tight)">{s.savings.text}</p>
-              <p className="mt-4 text-small">
+              <p className="mt-(--space-tight) text-small">
                 {s.savings.footnote}{" "}
                 <Link href={s.savings.href} className="inline-flex min-h-11 items-center font-medium underline underline-offset-4">{s.savings.link}</Link>
               </p>

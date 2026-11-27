@@ -7,7 +7,7 @@ import type { Theme } from "./section";
 
 /** Bento layout: 4/8/12 columns, hairline gaps drawn by the tiles' own borders (§3.4). */
 export function Bento({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("grid grid-cols-4 gap-(--spacing-gutter) md:grid-cols-8 lg:grid-cols-12", className)} {...props} />;
+  return <div className={cn("@container grid grid-cols-4 gap-(--spacing-gutter) md:grid-cols-8 lg:grid-cols-12", className)} {...props} />;
 }
 
 interface TileProps extends React.ComponentProps<"div"> {
@@ -35,11 +35,11 @@ export function Tile({ theme, marks, claim, className, children, ...props }: Til
 /** `wide`: on desktop the number sits left and the label right, so wide tiles have no empty half. */
 export function StatTile({ stat, index, theme, className, wide }: { stat: Stat; index?: string; theme?: Theme; className?: string; wide?: boolean }) {
   return (
-    <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-10", className)}>
+    <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-(--space-block)", className)}>
       {index && <span className="label-mono tabular text-muted-foreground">{index}</span>}
       <div className={cn(wide && "lg:flex lg:items-end lg:justify-between lg:gap-10")}>
         <p className="flex flex-wrap items-baseline gap-x-3">
-          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="text-stat font-semibold" />
+          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="stat-fit font-semibold" />
           {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
         </p>
         <Text as="p" className={cn("label-mono mt-(--space-tight)", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>
