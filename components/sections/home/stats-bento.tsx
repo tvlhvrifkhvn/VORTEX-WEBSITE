@@ -8,7 +8,7 @@ import { Bento, StatTile, Tile } from "@/components/ui/tile";
 import { Button } from "@/components/ui/button";
 import { ScrambleNumber } from "@/components/motion/scramble-number";
 import { HoursGrid } from "@/components/motion/hours-grid";
-import { SavingsGrid } from "@/components/ui/savings-grid";
+import { SavingsRing } from "@/components/motion/savings-ring";
 
 /* Savings % at calculator defaults (null when VortexOne prices aren't public). */
 const pct = (() => {
@@ -25,27 +25,24 @@ export function StatsBento() {
       <SectionHeader id="stats-title" label={s.label} meta={s.meta} title={s.title} />
       <Bento className="lg:auto-rows-[minmax(13rem,auto)]">
         {/* A — capacity: giant number + hours grid */}
-        {/* A — left: "40" + unit centred between the tile edge and the grid. Right: hours grid from the top padding down, label under it. */}
-        <Tile claim={st.capacity.claim} className="col-span-4 gap-(--space-block) sm:flex-row md:col-span-8 lg:col-span-6 lg:row-span-2">
-          <div className="flex flex-1 items-center justify-center">
-            <div>
-              <ScrambleNumber value={st.capacity.value} className="giant-fit" />
-              <span className="label-mono mt-(--space-tight) block">{st.capacity.suffix.trim()}</span>
-            </div>
+        {/* A — 2×2 grid: ["40" | hours grid] bottom-aligned, then [HRS/WK | label]. "40" fills its column
+            (equal gaps: tile padding left, 24px gutter right) and ends where the squares end. */}
+        <Tile claim={st.capacity.claim} className="col-span-4 grid grid-cols-[minmax(0,1fr)_minmax(0,10rem)] content-end gap-x-6 gap-y-(--space-tight) sm:grid-cols-[minmax(0,1fr)_minmax(0,17rem)] md:col-span-8 lg:col-span-6 lg:row-span-2">
+          <div className="@container self-end">
+            <ScrambleNumber value={st.capacity.value} className="fill-num [--fit:1]" />
           </div>
-          <div className="flex flex-col sm:w-[15rem]">
-            <HoursGrid days={s.week.days} hoursPerDay={s.week.hoursPerDay} className="max-w-none flex-1" />
-            <p className="label-mono mt-(--space-tight)">{st.capacity.label}</p>
-          </div>
+          <HoursGrid days={s.week.days} hoursPerDay={s.week.hoursPerDay} className="max-w-none self-end" />
+          <span className="label-mono">{st.capacity.suffix.trim()}</span>
+          <p className="label-mono">{st.capacity.label}</p>
         </Tile>
 
         <StatTile stat={st.reply} theme="ink" className="col-span-4 lg:col-span-3 max-lg:order-1" />
 
         {/* C — savings % from calculator defaults, or "Run the numbers" when prices aren't public */}
         {pct !== null ? (
-          // C — savings: 10×10 grid (1 square = 1% of in-house cost; filled = saved, rising from the bottom) + "72%" spanning the tile width (equal gaps).
+          // C — savings: progress ring (fills to the % on scroll-in, replays on hover) + "72%" spanning the tile width (equal gaps).
           <Tile theme="signal" claim className="@container col-span-4 justify-between gap-(--space-block) lg:col-span-3 lg:row-span-2 max-lg:-order-1">
-            <SavingsGrid pct={pct} caption={s.savings.grid} />
+            <SavingsRing pct={pct} label={s.savings.ring} />
             <div>
               <ScrambleNumber value={pct} suffix="%" className="fill-num" />
               <p className="label-mono mt-(--space-tight)">{s.savings.text}</p>
@@ -65,7 +62,7 @@ export function StatsBento() {
         )}
 
         <StatTile stat={st.files} className="col-span-4 lg:col-span-3 max-lg:order-1" />
-        <StatTile stat={st.founder} theme="signal" size="giant" wide className="col-span-4 lg:col-span-6 max-lg:order-1" />
+        <StatTile stat={st.founder} theme="signal" size="hero" wide className="col-span-4 lg:col-span-6 max-lg:order-1" />
         <StatTile stat={st.hours} theme="ink" size="giant" wide className="col-span-4 md:col-span-8 lg:col-span-6 max-lg:order-1" />
       </Bento>
     </Section>

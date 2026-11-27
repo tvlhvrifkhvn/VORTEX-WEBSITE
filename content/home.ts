@@ -46,7 +46,7 @@ export const statsSection = {
   /* Tile A hours grid: 5 days × 8 hours. */
   week: { days: ["Mon", "Tue", "Wed", "Thu", "Fri"], hoursPerDay: 8 },
   /* Tile C: savings % computed from calculator defaults + content/pricing.ts; falls back to `run` if prices are null. */
-  savings: { label: "Savings", grid: "1 square = 1% of in-house cost · filled = saved", text: "Lower monthly cost than an in-house assistant*", footnote: "*Calculator defaults.", link: "Run your own numbers →", href: "/savings-calculator" },
+  savings: { label: "Savings", ring: "Saved vs. in-house", text: "Lower monthly cost than an in-house assistant*", footnote: "*Calculator defaults.", link: "Run your own numbers →", href: "/savings-calculator" },
   run: { label: "Savings", title: "What would an in-house assistant cost you?", cta: "Run the numbers", href: "/savings-calculator" },
 };
 

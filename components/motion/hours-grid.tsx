@@ -30,13 +30,12 @@ export function HoursGrid({ days, hoursPerDay, caption, className }: HoursGridPr
 
   return (
     <div ref={scope} className={cn("flex w-full max-w-[15rem] flex-col", className)}>
-      {/* Cells stretch to the height the parent gives (tile A: full tile height); min 14rem when stacked. */}
-      <div aria-hidden="true" className="grid min-h-56 flex-1 grid-cols-5 gap-1.5">
+      <div aria-hidden="true" className="grid grid-cols-5 gap-1.5">
         {days.map((d) => (
           <div key={d} className="flex flex-col gap-1.5">
             <span className="text-center font-mono text-micro uppercase text-muted-foreground">{d}</span>
             {Array.from({ length: hoursPerDay }, (_, i) => (
-              <span key={i} data-sq="" className="block min-h-3 flex-1 bg-foreground" />
+              <span key={i} data-sq="" className="block aspect-square bg-foreground" />
             ))}
           </div>
         ))}

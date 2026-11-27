@@ -131,12 +131,13 @@
   font-weight: 500;
 }
 @utility tabular { font-variant-numeric: tabular-nums; }
-/* Bento numbers sized from the bento's width (Bento is the @container): one size for every secondary number
-   (Anton is condensed: "72%" still fits a 3-col tile), one for the lead number; never above the type tokens. */
-@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(5rem, 14cqi, 13rem); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+/* Stat numerals (Anton) sized from their own tile (tiles are @container):
+   stat-fit = narrow tile, "<24" + unit fill the width; giant/hero = wide tiles; fill-num = width / --fit em (equal side gaps). */
+@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: min(calc((100cqi - 3.5rem) / 1.35), 11rem); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
 /* Fills its own @container tile edge to edge ("72%" is 2.045em wide in Anton; 2.07 keeps equal side gaps). */
-@utility fill-num { font-family: var(--font-num); font-weight: 400; font-size: calc(100cqi / 2.07); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
-@utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(7rem, 18cqi, 16rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
+@utility fill-num { font-family: var(--font-num); font-weight: 400; font-size: calc(100cqi / var(--fit, 2.07)); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+@utility hero-num { font-family: var(--font-num); font-weight: 400; font-size: clamp(8rem, 48cqi, 19rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
+@utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(7rem, 40cqi, 16rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
 /* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
 @utility hero-fit {
   font-size: calc(min(100vw - 2 * var(--spacing-margin), 82rem) / 4.56);
