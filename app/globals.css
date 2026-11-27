@@ -133,8 +133,10 @@
 @utility tabular { font-variant-numeric: tabular-nums; }
 /* Bento numbers sized from the bento's width (Bento is the @container): one size for every secondary number
    (Anton is condensed: "72%" still fits a 3-col tile), one for the lead number; never above the type tokens. */
-@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: min(calc(var(--text-stat) * 1.15), max(9cqi, 4.5rem)); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
-@utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: min(var(--text-giant), max(18cqi, 7rem)); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
+@utility stat-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(5rem, 14cqi, 13rem); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+/* Fills its own @container tile edge to edge ("72%" is 2.045em wide in Anton; 2.07 keeps equal side gaps). */
+@utility fill-num { font-family: var(--font-num); font-weight: 400; font-size: calc(100cqi / 2.07); line-height: 0.9; letter-spacing: 0; & > span { display: block; } }
+@utility giant-fit { font-family: var(--font-num); font-weight: 400; font-size: clamp(7rem, 18cqi, 16rem); line-height: 0.85; letter-spacing: 0; & > span { display: block; } }
 /* Home H1 word: sized so "Back office" (4.52 em wide) fills the content width; 4.6 leaves room for a scrollbar. */
 @utility hero-fit {
   font-size: calc(min(100vw - 2 * var(--spacing-margin), 82rem) / 4.56);

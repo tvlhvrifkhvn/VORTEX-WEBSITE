@@ -34,7 +34,7 @@ export function HoursGrid({ days, hoursPerDay, caption, className }: HoursGridPr
       <div aria-hidden="true" className="grid min-h-56 flex-1 grid-cols-5 gap-1.5">
         {days.map((d) => (
           <div key={d} className="flex flex-col gap-1.5">
-            <span className="font-mono text-micro uppercase text-muted-foreground">{d}</span>
+            <span className="text-center font-mono text-micro uppercase text-muted-foreground">{d}</span>
             {Array.from({ length: hoursPerDay }, (_, i) => (
               <span key={i} data-sq="" className="block min-h-3 flex-1 bg-foreground" />
             ))}

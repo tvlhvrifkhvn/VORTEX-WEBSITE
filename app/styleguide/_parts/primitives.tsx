@@ -48,9 +48,9 @@ export function Primitives() {
       <Section aria-labelledby="sg-bento">
         <SectionHeader id="sg-bento" label="06 — BENTO" meta="TILE · STATTILE" title="Bento tiles and stats" />
         <Bento>
-          <StatTile stat={sg.stats[0]} index="A" className="col-span-4 lg:col-span-5 lg:row-span-2" />
-          <StatTile stat={sg.stats[1]} index="B" theme="ink" className="col-span-4 lg:col-span-4" />
-          <StatTile stat={sg.stats[2]} index="C" theme="signal" className="col-span-4 md:col-span-8 lg:col-span-3" />
+          <StatTile stat={sg.stats[0]} className="col-span-4 lg:col-span-5 lg:row-span-2" />
+          <StatTile stat={sg.stats[1]} theme="ink" className="col-span-4 lg:col-span-4" />
+          <StatTile stat={sg.stats[2]} theme="signal" className="col-span-4 md:col-span-8 lg:col-span-3" />
           <Tile marks className="col-span-4 md:col-span-8 lg:col-span-7">
             <p className="label-mono">TILE WITH CORNER MARKS</p>
           </Tile>

@@ -32,17 +32,18 @@ export function Tile({ theme, marks, claim, className, children, ...props }: Til
 }
 
 /** Big number + mono unit + tiny label (+ note). Numbers scramble on enter (§6.2.3). */
-/** `wide`: on desktop the number sits left and the label right, so wide tiles have no empty half. */
-export function StatTile({ stat, index, theme, className, wide }: { stat: Stat; index?: string; theme?: Theme; className?: string; wide?: boolean }) {
+/** No index letter: the number starts at the top padding, its unit sits under it (left-aligned), the label at the bottom.
+    `wide`: on desktop the number group is vertically centred left and the label sits bottom-right.
+    `size`: "stat" (narrow tiles) or "giant" (wide hero tiles) — both scale from the bento width. */
+export function StatTile({ stat, theme, className, wide, size = "stat" }: { stat: Stat; theme?: Theme; className?: string; wide?: boolean; size?: "stat" | "giant" }) {
   return (
-    <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-(--space-block)", className)}>
-      {index && <span className="label-mono tabular text-muted-foreground">{index}</span>}
-      <div className={cn(wide && "lg:flex lg:items-end lg:justify-between lg:gap-10")}>
-        <p className="flex flex-wrap items-baseline gap-x-3">
-          <ScrambleNumber value={stat.value} prefix={stat.prefix} className="stat-fit" />
-          {stat.suffix && <span className="label-mono">{stat.suffix.trim()}</span>}
-        </p>
-        <Text as="p" className={cn("label-mono mt-(--space-tight)", wide && "lg:mt-0 lg:max-w-[22ch] lg:text-right")}>{stat.label}</Text>
+    <Tile theme={theme} claim={stat.claim} className={cn("justify-between gap-(--space-block)", wide && "lg:flex-row lg:items-center", className)}>
+      <div>
+        <ScrambleNumber value={stat.value} prefix={stat.prefix} className={size === "giant" ? "giant-fit" : "stat-fit"} />
+        {stat.suffix && <span className="label-mono mt-(--space-tight) block">{stat.suffix.trim()}</span>}
+      </div>
+      <div className={cn(wide && "lg:max-w-[22ch] lg:self-end lg:text-right")}>
+        <Text as="p" className="label-mono">{stat.label}</Text>
         {stat.note && <Text as="p" className="mt-2 text-small text-muted-foreground">{stat.note}</Text>}
       </div>
     </Tile>

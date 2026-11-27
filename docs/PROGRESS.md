@@ -33,6 +33,7 @@
 | 2026-11-27 | Hero rebuilt: full-width "Back office", one-line deck, 12-col band with photo under the third index column; copy in trade terms 
 | 2026-11-27 | Stats bento: nothing spills, one number size, slower digit scramble, section spacing 3.5–6rem 
 | 2026-11-27 | Stats: Anton numerals, full-height hours grid, label moved under grid 
+| 2026-11-27 | Stats: no index letters, sizes by role, savings gauge in C, E orange 
 
 ## Notes for next session
 - Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
