@@ -178,3 +178,4 @@
 2026-11-28 · rev/panels · Photo no longer shifts on hover (it slid out of its + marks); only the signal block slides 12px
 2026-11-28 · rev/stats · Tile C ring: tick dial replaced by a turning wireframe globe (WireGlobe: outline, equator, 6 parallels, 6 meridians whose widths follow the rotation; ~24s per turn, runs only on screen, still when motion is off); ring unchanged · user request
 2026-11-28 · rev/stats · Tile E cursor mesh (MeshTrail, user request): hairline ink wireframe with dotted nodes forms around the pointer (130px), bulges outward/upward like a 3D surface and fades behind it (decay 0.93/frame); canvas under the text, runs only while active; fine pointers + motion on only; StatTile gains an optional fx background slot
+2026-11-28 · rev/stats · Cursor mesh finer: 10px cells (was 18), 0.5px lines, 1px nodes · user request

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useMotion } from "./motion-provider";
 
-const GAP = 18; // grid spacing (px)
+const GAP = 10; // grid spacing (px) — finer mesh (user request)
 const RADIUS = 130; // reach of the cursor (px)
 const DECAY = 0.93; // per frame: the trail fades behind the cursor
 
@@ -47,7 +47,7 @@ export function MeshTrail() {
         if (heat[n] > 0.02) live = true;
       }
       ctx.strokeStyle = getComputedStyle(host).color;
-      ctx.lineWidth = 0.6;
+      ctx.lineWidth = 0.5;
       for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
         const k = heat[j * cols + i];
         if (k < 0.03) continue;
@@ -60,7 +60,7 @@ export function MeshTrail() {
           ctx.globalAlpha = Math.min(k, k2) * 0.9;
           ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x2, y2); ctx.stroke();
         }
-        ctx.globalAlpha = k; ctx.fillRect(x - 0.6, y - 0.6, 1.2, 1.2); // dotted nodes
+        ctx.globalAlpha = k; ctx.fillRect(x - 0.5, y - 0.5, 1, 1); // dotted nodes
       }
       ctx.globalAlpha = 1;
       raf = live ? requestAnimationFrame(frame) : 0;
