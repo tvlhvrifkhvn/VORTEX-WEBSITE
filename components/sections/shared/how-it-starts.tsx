@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Section, type Theme } from "@/components/ui/section";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader, SectionRule } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { LineDraw } from "@/components/motion/line-draw";
 
@@ -10,18 +10,28 @@ interface HowItStartsProps {
   title: string;
   titleClaim?: boolean;
   steps: { n: string; title: string; text: string }[];
-  cta: { label: string; href: string };
+  /** Omit for no button (home: "Book a call" already appears elsewhere). */
+  cta?: { label: string; href: string };
+  /** Visually hide the H2 (kept for screen readers): label row → numerals directly. */
+  hideTitle?: boolean;
   theme?: Theme;
   id?: string;
 }
 
 /* Three or four steps with giant numerals, connected by a LineDraw (horizontal ≥1024px, vertical below). */
-export function HowItStarts({ label, meta, title, titleClaim, steps, cta, theme, id = "start-title" }: HowItStartsProps) {
+export function HowItStarts({ label, meta, title, titleClaim, steps, cta, theme, hideTitle, id = "start-title" }: HowItStartsProps) {
   return (
     <Section theme={theme} aria-labelledby={id} className="overflow-hidden">
-      <div data-claim={titleClaim ? "" : undefined}>
-        <SectionHeader id={id} label={label} meta={meta} title={title} />
-      </div>
+      {hideTitle ? (
+        <div className="mb-(--space-header)">
+          <SectionRule label={label} meta={meta} />
+          <h2 id={id} className="sr-only">{title}</h2>
+        </div>
+      ) : (
+        <div data-claim={titleClaim ? "" : undefined}>
+          <SectionHeader id={id} label={label} meta={meta} title={title} />
+        </div>
+      )}
       <div className="relative">
         <LineDraw viewBox="0 0 2 1000" d="M1 0 V1000" className="absolute top-0 bottom-0 left-4 w-px lg:hidden" />
         {/* Desktop: one equal 12-col span per step (4/4/4 or 3/3/3/3); subgrid rows keep numerals, titles and text on shared lines.
@@ -39,12 +49,12 @@ export function HowItStarts({ label, meta, title, titleClaim, steps, cta, theme,
                 <span className="sr-only">{s.n}. </span>
                 {s.title}
               </h3>
-              <p className="mt-(--space-tight) max-w-[36ch] text-muted-foreground lg:mx-auto lg:max-w-[28ch]">{s.text}</p>
+              <p className="mt-(--space-tight) max-w-[36ch] text-muted-foreground lg:mx-auto lg:max-w-[24ch] lg:text-balance">{s.text}</p>
             </li>
           ))}
         </ol>
       </div>
-      <Button href={cta.href} size="lg" className="mt-(--space-header)">{cta.label}</Button>
+      {cta && <Button href={cta.href} size="lg" className="mt-(--space-header)">{cta.label}</Button>}
     </Section>
   );
 }

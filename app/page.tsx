@@ -26,7 +26,7 @@ export default function Home() {
       <FilePanels />
       <NightShift />
       <Savings />
-      <HowItStarts {...startSection} />
+      <HowItStarts {...startSection} cta={undefined} hideTitle />
       <Founder />
       <Questions />
       <CtaBand {...ctaBand} label={ctaLabel} />
