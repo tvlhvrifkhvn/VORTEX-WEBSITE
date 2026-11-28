@@ -45,6 +45,7 @@
 | 2026-11-28 | How it starts: Anton numerals, even connectors, line to the edge; section spacing 3–4.5rem 
 | 2026-11-28 | How it starts centred, no trailing line, tracked numerals; tighter section + header spacing site-wide 
 | 2026-11-28 | Home 07: no visible heading or button, balanced text blocks (section ~361px at 1100) 
+| 2026-11-28 | FAQ: one-line heading, questions below, giant Anton "?", no buttons 
 
 ## Notes for next session
 - Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
