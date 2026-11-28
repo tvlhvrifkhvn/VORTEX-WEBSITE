@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ScrambleNumber } from "@/components/motion/scramble-number";
 import { HoursGrid } from "@/components/motion/hours-grid";
 import { SavingsRing } from "@/components/motion/savings-ring";
+import { MeshTrail } from "@/components/motion/mesh-trail";
 
 /* Savings % at calculator defaults (null when VortexOne prices aren't public). */
 const pct = (() => {
@@ -62,7 +63,7 @@ export function StatsBento() {
         )}
 
         <StatTile stat={st.files} className="col-span-4 lg:col-span-3 max-lg:order-1" />
-        <StatTile stat={st.founder} theme="signal" size="hero" wide className="col-span-4 lg:col-span-6 max-lg:order-1" />
+        <StatTile stat={st.founder} theme="signal" size="hero" fx={<MeshTrail />} wide className="col-span-4 lg:col-span-6 max-lg:order-1" />
         <StatTile stat={st.hours} theme="ink" size="giant" wide className="col-span-4 md:col-span-8 lg:col-span-6 max-lg:order-1" />
       </Bento>
     </Section>
