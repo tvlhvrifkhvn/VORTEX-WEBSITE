@@ -20,14 +20,19 @@ export function CtaBand({ label, title, text, primary, secondary, theme = "signa
   return (
     <Section theme={theme} aria-labelledby="cta-band-title" className="overflow-hidden">
       <SectionRule label={label} />
-      <ParallaxText className="mt-(--space-header)">
-        <h2 id="cta-band-title" className="max-w-[14ch] text-display font-semibold">{title}</h2>
-      </ParallaxText>
-      <Text as="p" className="mt-(--space-block) max-w-[52ch] text-lead">{text}</Text>
-      <ActionGroup className="mt-(--space-header)">
-        <VisitorCtaButton href={primary.href} label={primary.label} size="lg" />
-        {secondary && <Button href={secondary.href} size="lg" variant="ghost">{secondary.label}</Button>}
-      </ActionGroup>
+      {/* Headline left, sentence + actions right on the headline's baseline: no empty half. */}
+      <div className="grid-vx mt-(--space-header) items-end gap-y-(--space-block)">
+        <ParallaxText className="col-span-4 md:col-span-8 lg:col-span-7">
+          <h2 id="cta-band-title" className="max-w-[14ch] text-display font-semibold">{title}</h2>
+        </ParallaxText>
+        <div className="col-span-4 md:col-span-8 lg:col-span-5">
+          <Text as="p" className="max-w-[44ch] text-lead">{text}</Text>
+          <ActionGroup className="mt-(--space-block)">
+            <VisitorCtaButton href={primary.href} label={primary.label} size="lg" />
+            {secondary && <Button href={secondary.href} size="lg" variant="ghost">{secondary.label}</Button>}
+          </ActionGroup>
+        </div>
+      </div>
     </Section>
   );
 }

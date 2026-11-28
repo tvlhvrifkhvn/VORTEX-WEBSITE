@@ -288,6 +288,9 @@ html[data-motion="on"] .blur-reveal:not([data-shown]) { filter: blur(14px); opac
 /* Hover/focus movement (panel image shift, block slide): none unless motion is on. */
 html:not([data-motion="on"]) .fx-move { translate: none !important; scale: none !important; transform: none !important; }
 
+/* One closing call to action: when a page ends with the orange CTA band, the footer drops its own "Talk to the desk" row. */
+body:has(#cta-band-title) .footer-cta { display: none; }
+
 /* Visitor mode (features.visitorMode): <html data-viewing="01|02"> is set before paint by the boot script. */
 .vx-cta-01, .vx-cta-02 { visibility: hidden; }
 html[data-viewing="01"] .vx-cta-default, html[data-viewing="02"] .vx-cta-default { visibility: hidden; }

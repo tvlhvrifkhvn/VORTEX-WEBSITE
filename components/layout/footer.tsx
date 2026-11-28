@@ -16,7 +16,8 @@ export function Footer() {
   return (
     <footer data-theme="ink" className="overflow-hidden pt-(--spacing-section)">
       <div className="container-vx">
-        <div className="flex flex-col items-start justify-between gap-8 border-b border-border pb-12 md:flex-row md:items-end">
+        {/* Hidden by CSS on pages that already end with the orange CTA band (same message, same button). */}
+        <div className="footer-cta flex flex-col items-start justify-between gap-8 border-b border-border pb-12 md:flex-row md:items-end">
           <p className="text-h2 font-semibold">{footer.title}</p>
           <Button href={footer.cta.href} size="lg">{footer.cta.label}</Button>
         </div>
