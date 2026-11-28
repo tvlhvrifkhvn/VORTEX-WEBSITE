@@ -37,6 +37,7 @@
 | 2026-11-27 | Stats: square grid, "40" to the grid base, units beside numbers, savings ring 
 | 2026-11-27 | Stats: blur-in numbers, justified <24, larger 2, smaller 1, minimal rounded ring 
 | 2026-11-27 | Laptop widths (100% zoom): no wrapped numbers, clean hero base line, footer email break 
+| 2026-11-28 | File panels: single action, no chip, taller photo, no row-04 gap, bigger Anton numerals, hover fix 
 
 ## Notes for next session
 - Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.
