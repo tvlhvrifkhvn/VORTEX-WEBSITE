@@ -28,7 +28,7 @@ export function FaqSection({ label, title, items, cta, theme, lead = faqBlock.le
           <FaqList items={items} />
           {cta && <ArrowLink href={cta.href} className="mt-(--space-block) flex w-fit">{cta.label}</ArrowLink>}
         </div>
-        <p aria-hidden="true" className="hidden select-none items-center justify-center font-num text-[clamp(12rem,30vw,26rem)] leading-[0.8] lg:col-span-5 lg:flex">?</p>
+        <p aria-hidden="true" className="hidden select-none items-center justify-center self-stretch font-num text-[clamp(12rem,30vw,26rem)] leading-[0.8] lg:col-span-5 lg:-ml-(--spacing-gutter) lg:-translate-y-8 lg:flex">?</p>
       </div>
     </Section>
   );
