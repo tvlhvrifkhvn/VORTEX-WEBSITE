@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useMotion } from "./motion-provider";
 
-const GAP = 10; // grid spacing (px) — finer mesh (user request)
+const GAP = 7; // grid spacing (px) — finer mesh (user request)
 const RADIUS = 130; // reach of the cursor (px)
 const DECAY = 0.93; // per frame: the trail fades behind the cursor
 
