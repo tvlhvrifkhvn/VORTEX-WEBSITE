@@ -40,6 +40,7 @@
 | 2026-11-28 | File panels: single action, no chip, taller photo, no row-04 gap, bigger Anton numerals, hover fix 
 | 2026-11-28 | Stats: turning globe in the 72% ring, cursor mesh trail on the founder tile 
 | 2026-11-28 | Night shift: Anton time edge to edge, title line removed, moving signal wave 
+| 2026-11-28 | Night shift: wave is the scroll progress (taller), time blurs in per step 
 
 ## Notes for next session
 - Pages: `/` (10 sections), `/services`, both file pages, `/pricing`, `/savings-calculator`, `/work`, `/how-we-work`, `/about`, `/resources`, `/styleguide`. All 14 public routes built and audited. Phase 1 complete — revisions only (CLAUDE.md §9) until Phase 2.

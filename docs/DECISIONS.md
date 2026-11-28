@@ -181,3 +181,4 @@
 2026-11-28 · rev/stats · Cursor mesh finer: 10px cells (was 18), 0.5px lines, 1px nodes · user request
 2026-11-28 · rev/stats · Cursor mesh cells 7px · user request
 2026-11-28 · rev/shift · Night-shift clock panel: time in Anton (fill-num) sized per step to span the panel edge to edge (each time measured in Anton via canvas once the font loads; fallback 3.55em); step-title line removed; empty area holds a thick (5) signal sine wave, low amplitude (7/40), medium frequency (4 waves across), running continuously (CSS animate-wave, 2.4s per wavelength, off with motion off) · user request
+2026-11-28 · rev/shift · Progress bar removed: the wave is the progress (faint full-length guide at 20% + signal wave revealed left → right by the sticky-phase scroll, min 1/steps); amplitude 13/40 (was 7); time changes with a blur-in per step (ScrambleNumber reveal="blur", keyed by step) instead of the scramble · user request

@@ -52,6 +52,7 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
   });
   // The bar visibly starts at step 1: minimum fill = 1/steps.
   const fill = useTransform(progress, (v) => Math.max(v, 1 / steps.length));
+  const reveal = useTransform(fill, (v) => `inset(-20% ${((1 - v) * 100).toFixed(2)}% -20% 0)`);
 
   const us = (t: string) => (now ? format12(convertTime(t, PK, US, now)) : "--:-- --");
 
@@ -86,13 +87,16 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
           <div>
             <p className="label-mono text-muted-foreground">{fromLabel}</p>
             <div style={{ "--fit": fits[active] ?? 3.55 } as React.CSSProperties}>
-              <ScrambleNumber value={format12(step.time)} className="fill-num mt-(--space-tight) block" />
+              <ScrambleNumber key={active} value={format12(step.time)} reveal="blur" className="fill-num mt-(--space-tight) block" />
             </div>
             <p className="label-mono tabular mt-(--space-tight) text-signal">{us(step.time)} {toLabel}</p>
           </div>
-          <Wave className="my-auto" />
-          <div className="h-1 bg-ink-2">
-            <motion.div className="h-full origin-left bg-signal" style={{ scaleX: fill }} />
+          {/* The wave is the progress: a faint full-length guide, and the signal wave drawn left → right with the scroll. */}
+          <div className="relative my-auto">
+            <Wave className="opacity-20" />
+            <motion.div className="absolute inset-0" style={{ clipPath: reveal }}>
+              <Wave />
+            </motion.div>
           </div>
         </div>
         <ol className="col-span-6 flex flex-col gap-6">
