@@ -9,7 +9,7 @@ const PinnedStory = dynamic(() => import("@/components/motion/pinned-story").the
 export function NightShift() {
   return (
     <Section aria-labelledby="shift-title">
-      <SectionHeader id="shift-title" label={s.label} meta={s.meta} title={s.title} lead={s.lead} layout="split" />
+      <SectionHeader id="shift-title" label={s.label} meta={s.meta} title={s.title} />
       <PinnedStory steps={s.steps} fromLabel={s.from.toUpperCase()} toLabel={s.to} />
     </Section>
   );

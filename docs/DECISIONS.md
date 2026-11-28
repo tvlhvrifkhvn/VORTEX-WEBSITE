@@ -191,3 +191,4 @@
 2026-11-28 · rev/tokens · --spacing-section → clamp(2.5rem, 4vw, 3.5rem), --space-header → clamp(1.5rem, 2.5vw, 2.5rem): tighter label→H2 and section→section gaps site-wide · user: gaps above/below sections still too large at 100%
 2026-11-28 · rev/start · Home 07: heading visually hidden (kept as sr-only H2 for aria-labelledby/outline) and no CTA ("Book a call" repeats elsewhere on home); step text 24ch + text-wrap balance so the three blocks match; file pages keep their heading and CTA
 2026-11-28 · rev/start · Home 07 (no heading, no button) ends with --space-tight bottom padding: text → Founder rule 52px at 1000 (was ~80)
+2026-11-28 · rev/shift · Home 05 lead ("Your morning in the US is our evening…") removed from the header (stays in content/home.ts); header is label + H2 only
