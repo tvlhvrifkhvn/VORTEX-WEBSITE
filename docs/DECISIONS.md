@@ -194,3 +194,4 @@
 2026-11-28 · rev/shift · Home 05 lead ("Your morning in the US is our evening…") removed from the header (stays in content/home.ts); header is label + H2 only
 2026-11-28 · rev/faq · FAQ block (home, file pages, pricing): label row → one-line H2 (nowrap ≥1024) + lead → accordion cols 1–7 + "All questions", giant decorative Anton "?" (clamp 12–26rem) in cols 8–12; Book a call / Search buttons removed; no sticky column · user request
 2026-11-28 · rev/faq · Giant "?" lifted 32px and its cell widened left by one gutter, so it sits centred in the empty area right of the list
+2026-11-28 · rev/faq · Home FAQ title → "Frequently asked questions."; FAQ block = [H2 + lead + list (cols 1–7) | MeshGlyph (cols 8–12)]: the "?" (Anton shape sampled into a 9px grid) drawn as an ink hairline mesh, no outline, swaying ±0.75rad in 3D with a running ripple; fits its column with equal margins; canvas runs only on screen, still with motion off; hidden below 1024 · user request

@@ -215,7 +215,7 @@ export const securitySection = {
 /* 14 — QUESTIONS */
 export const faqSection = {
   label: "09 — Questions",
-  title: "Questions agents and contractors ask.",
+  title: "Frequently asked questions.",
   cta: { label: "All questions", href: "/faq" },
 };
 
