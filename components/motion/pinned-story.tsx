@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
+import { useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import { convertTime, format12 } from "@/lib/time";
 import { useMotion } from "./motion-provider";
@@ -52,7 +52,6 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
   });
   // The bar visibly starts at step 1: minimum fill = 1/steps.
   const fill = useTransform(progress, (v) => Math.max(v, 1 / steps.length));
-  const reveal = useTransform(fill, (v) => `inset(-20% ${((1 - v) * 100).toFixed(2)}% -20% 0)`);
 
   const us = (t: string) => (now ? format12(convertTime(t, PK, US, now)) : "--:-- --");
 
@@ -91,13 +90,8 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
             </div>
             <p className="label-mono tabular mt-(--space-tight) text-signal">{us(step.time)} {toLabel}</p>
           </div>
-          {/* The wave is the progress: a faint full-length guide, and the signal wave drawn left → right with the scroll. */}
-          <div className="relative my-auto">
-            <Wave className="opacity-20" />
-            <motion.div className="absolute inset-0" style={{ clipPath: reveal }}>
-              <Wave />
-            </motion.div>
-          </div>
+          {/* The wave is the progress: drawn left → right with the scroll, rounded tip, nothing ahead of it. */}
+          <Wave progress={fill} className="min-h-24 flex-1 py-3" />
         </div>
         <ol className="col-span-6 flex flex-col gap-6">
           {steps.map((s, i) => (
