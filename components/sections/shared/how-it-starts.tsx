@@ -21,7 +21,7 @@ interface HowItStartsProps {
 /* Three or four steps with giant numerals, connected by a LineDraw (horizontal ≥1024px, vertical below). */
 export function HowItStarts({ label, meta, title, titleClaim, steps, cta, theme, hideTitle, id = "start-title" }: HowItStartsProps) {
   return (
-    <Section theme={theme} aria-labelledby={id} className="overflow-hidden">
+    <Section theme={theme} aria-labelledby={id} className={cn("overflow-hidden", hideTitle && !cta && "pb-(--space-tight)")}>
       {hideTitle ? (
         <div className="mb-(--space-header)">
           <SectionRule label={label} meta={meta} />
