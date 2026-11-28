@@ -1,0 +1,18 @@
+# VortexOne
+
+> VortexOne is a small, founder-run back-office desk based in Islamabad, Pakistan, working US business hours (Monday to Friday, 9:00 AM–6:00 PM Eastern) for US clients. It runs two specialist service lines ("files"): real estate virtual assistant work for agents, teams and investors, and Xactimate insurance supplementing for roofing and water-damage restoration contractors. Plans and starting prices are on the pricing page. VortexOne prepares estimates and documentation for contractors; it does not negotiate with insurance carriers, represent homeowners or act as a public adjuster.
+
+## File 01 — Real estate VA
+- [Real Estate VA](/real-estate-va/): MLS listing management, transaction coordination, CRM management, lead follow-up and cold calling, social media, fix-and-flip support, web development, SEO, Meta ads, lead generation (on request).
+
+## File 02 — Insurance supplementing
+- [Insurance Supplementing](/insurance-supplementing/): Xactimate estimates, supplement packages, photo and documentation review, claim status tracking.
+
+## Key pages
+- [Pricing](/pricing/): Studio (20 hrs/week), Townhouse (40 hrs/week) and Estate (custom) for File 01; per-supplement and volume plans for File 02. Payment by Wise or Payoneer.
+- [Savings calculator](/savings-calculator/): estimate the monthly cost of an in-house assistant.
+- [How we work](/how-we-work/): onboarding, daily written reports, communication, security.
+- [About](/about/): the founder and why the desk runs two files.
+- [FAQ](/faq/)
+- [Book a call](/book-a-call/)
+- Contact: talharifone@gmail.com

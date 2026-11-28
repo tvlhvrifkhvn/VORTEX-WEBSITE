@@ -148,7 +148,7 @@ Tailwind v4, CSS-first. After `shadcn init`, keep shadcn's `@theme inline { … 
   --color-ink: #0E0E0E;        /* text, dark sections */
   --color-black: #0E0E0E;      /* alias: pasted components using bg-black stay on brand */
   --color-ink-2: #1A1A1A;      /* surfaces inside dark sections */
-  --color-muted: #5A5A58;      /* secondary text on light */
+  --color-muted-light: #5A5A58; /* secondary text on light — renamed from --color-muted (clashes with shadcn semantic --color-muted) */
   --color-muted-dark: #8A8A88; /* secondary text on dark */
   --color-signal: #FF4D1F;     /* the only accent */
   --color-status: #1F9D55;     /* "desk open" dot only, always next to text */
@@ -188,7 +188,7 @@ Tailwind v4, CSS-first. After `shadcn init`, keep shadcn's `@theme inline { … 
   --text-micro--letter-spacing: 0.08em;
 
   /* Layout */
-  --spacing-section: clamp(5rem, 10vw, 10rem);
+  --spacing-section: clamp(2.5rem, 4vw, 3.5rem);
   --spacing-margin: clamp(1.25rem, 4vw, 4rem);
   --spacing-gutter: clamp(1rem, 1.6vw, 1.5rem);
   --spacing-header: 4rem;
@@ -239,12 +239,12 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
   --secondary: var(--color-ink);
   --secondary-foreground: var(--color-white);
   --muted: var(--color-paper-2);
-  --muted-foreground: var(--color-muted);
+  --muted-foreground: var(--color-muted-light);
   --accent: var(--color-paper-2);
   --accent-foreground: var(--color-ink);
   --destructive: var(--color-signal);
   --border: var(--color-line);
-  --input: var(--color-muted);          /* form field borders need ≥3:1 */
+  --input: var(--color-muted-light);    /* form field borders need ≥3:1 */
   --ring: var(--color-ink);
   --radius: 0rem;
 }
@@ -316,7 +316,7 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
 - Numbers: `tabular` wherever they align or animate.
 - Headlines that animate or need a controlled rag take **manual line breaks from content** (`lines: string[]`).
 - Body measure: 60–68ch. Never center body text.
-- Fonts come from npm (Fontsource): `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono` (400, 500). Verify exact package and family names after install. Don't use `next/font/google` (build-time network may be blocked).
+- Fonts come from npm (Fontsource): `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono` (400, 500), `@fontsource/anton` (400, stat numerals only — revision 2026-11-27). Verify exact package and family names after install. Don't use `next/font/google` (build-time network may be blocked).
 
 ### 4.5 Grid, spacing, borders, layers
 - Container: `container-vx` (max 1440px, fluid side margins). Section backgrounds go full-bleed; content stays in the container.
@@ -444,7 +444,7 @@ Every component uses semantic classes (`bg-background`, `text-foreground`, `text
 - Deploy target: any static host (e.g., Cloudflare Pages or Netlify, connected to GitHub), or the same server as the Phase 2 backend. Don't deploy anything yourself; document it in the README.
 
 ### 9.2 Approved dependencies
-`next`, `react`, `react-dom`, `typescript`, `@types/*`, `tailwindcss`, `@tailwindcss/postcss`, `postcss`, `motion`, `clsx`, `tailwind-merge`, `class-variance-authority`, `lucide-react`, `@radix-ui/*` (only those that shadcn adds for components actually used), `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono`, `eslint` + Next's ESLint config, and (dev-only, optional, for audits) `playwright`.
+`next`, `react`, `react-dom`, `typescript`, `@types/*`, `tailwindcss`, `@tailwindcss/postcss`, `postcss`, `motion`, `clsx`, `tailwind-merge`, `class-variance-authority`, `lucide-react`, `@radix-ui/*` (only those that shadcn adds for components actually used), `@fontsource-variable/inter-tight`, `@fontsource/ibm-plex-mono`, `@fontsource/anton`, `eslint` + Next's ESLint config, and (dev-only, optional, for audits) `playwright`.
 Anything else → ask first (e.g., carousels: prefer native CSS scroll-snap over adding `embla-carousel`).
 
 ### 9.3 Scaffold (Segment 0)
@@ -571,7 +571,7 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 - **`app/layout.tsx`:** fonts, default metadata, `lang="en-US"`, skip link ("Skip to content"), Header, `<main id="content">`, Footer, `MotionConfig`, MotionToggle context, ReviewMode, UTM capture, Organization JSON-LD.
 - **Header (≥1024px):** 64px tall, `bg-background` (paper), bottom hairline. Left: Wordmark. Center nav (label-mono, ScrambleText on hover): `FILES ▾` (dropdown: both files with number, name, one-liner) · PRICING · CALCULATOR · WORK · ABOUT. Right: compact LiveClock + DeskStatus, then **[Book a call]** (primary). Active page: an 8px signal square before the label. HeaderAutoHide.
 - **Header (<1024px):** Wordmark, DeskStatus dot, compact **[Book a call]**, and a square `MENU` button (label + plus icon that rotates into ×). MenuOverlay: ink, giant numbered links (`01 REAL ESTATE VA`, `02 INSURANCE SUPPLEMENTING`, `03 PRICING`, `04 CALCULATOR`, `05 WORK`, `06 HOW WE WORK`, `07 ABOUT`, `08 FAQ`), contact line, LiveClock, MotionToggle.
-- **Footer (theme ink):** Row 1: H2 "Hand off the back office." + **[Book a call]**. Row 2 columns: FILES (Real Estate VA, Insurance Supplementing) · COMPANY (How we work, About, Work samples) · TOOLS (Pricing, Savings calculator, Resources, FAQ) · CONTACT (email, WhatsApp ↗, LinkedIn ↗, Book a call). Newsletter mini-form if the flag is on. Row 3: MetaBlock `ISLAMABAD / 33.6844°N 73.0479°E`, desk hours, MotionToggle, Privacy, Terms, `© {year} VortexOne`. Bottom: giant full-bleed `VORTEXONE` wordmark, cropped by the page bottom.
+- **Footer (theme ink):** Row 1: H2 "Talk to the desk." (changed 2026-11-14: CtaBand above already says "Hand off the back office.") + **[Book a call]**. Row 2 columns: FILES (Real Estate VA, Insurance Supplementing) · COMPANY (How we work, About, Work samples) · TOOLS (Pricing, Savings calculator, Resources, FAQ) · CONTACT (email, WhatsApp ↗, LinkedIn ↗, Book a call). Newsletter mini-form if the flag is on. Row 3: MetaBlock `ISLAMABAD / 33.6844°N 73.0479°E`, desk hours, MotionToggle, Privacy, Terms, `© {year} VortexOne`. Bottom: giant full-bleed `VORTEXONE` wordmark, cropped by the page bottom.
 - **CtaBand:** themes signal or ink; label, H2, one sentence, primary + secondary button.
 - **Breadcrumb:** label-mono `VORTEXONE / FILE 01 / REAL ESTATE VA`; BreadcrumbList JSON-LD.
 
@@ -645,7 +645,7 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 - H2 "Your logins. Your data. Your rules." Bento of 4 tiles (all claims until confirmed): NDA before access · You control every login (shared through your password manager, revocable anytime) · Daily written report · No client files on personal devices.
 
 **14 — QUESTIONS (paper)**
-- H2 "Questions agents and contractors ask." Accordion of the FAQ items tagged `home` (6) + **[All questions →]** → `/faq`.
+- Split (revision 2026-11-23): left cols 1–5 sticky — H2 "Questions agents and contractors ask.", short lead, **[Book a call]** + "Search the desk /"; right cols 7–12 — numbered accordion of the FAQ items tagged `home` (4), "+"→"×", answer + "Related: <page> →", one open at a time on desktop, then **[All questions →]** → `/faq`. Same block on file pages and /pricing.
 
 **15 — NEXT STEP (signal)**
 - ParallaxText headline (`text-display`): "Hand off the back office." Sub: "15 minutes. No pitch deck. We look at your workload and tell you honestly if we can help." **[Book a call]** (ink) · **[See pricing]** (secondary).
@@ -673,9 +673,9 @@ Missing **must** items are built by you in S1. Missing **nice** items are built 
 - **CtaBand:** "Got a claim that came back short?" **[Send a claim]**.
 
 ### 11.4 Pricing `/pricing`  (content: `content/pricing.ts`)
-- Label `FLOOR PLANS + RATE SHEET`; H1 "Pricing in plain numbers."; lead.
+- Label `FLOOR PLANS + RATE SHEET`; H1 "Pricing, scoped to your workload." (changed 2026-11-14: no public prices); lead.
 - SegmentedToggle `FILE 01 · REAL ESTATE` / `FILE 02 · SUPPLEMENTING`. Reads `?file=` (default 01) and updates the URL with `replaceState`.
-- File 01 plans: **Studio** (part-time, 20 hrs/week) · **Townhouse** (full-time, 40 hrs/week, `RECOMMENDED`, 8px signal bar) · **Estate** (custom scope: task or project based). File 02: three plan cards with names/models from intake (e.g., per supplement / % of approved amount / monthly volume). Each card: label, name, ScrambleNumber price (null → `$—` + placeholder), unit, ✓ features, CTA.
+- File 01 plans (revision 2026-11-14, SAMPLE prices, claim): **Studio** (20 hrs/wk) $650/mo · **Townhouse** (40 hrs/wk) $1,200/mo, `RECOMMENDED` · **Estate** Custom. File 02: **Per supplement** from $150 · **Volume** (10+ claims/mo) from $1,200/mo · **Custom**. Prices live only in `content/pricing.ts`; every price spot is derived via `lib/pricing.ts` and falls back to "Contact for pricing" when null.
 - "In every plan" SpecStrip: NDA · Daily report · US hours · Monthly billing · `[[NOTICE_PERIOD]]` notice (claims).
 - Plan comparison table (per file). Payment line: "Invoiced monthly. Pay by `[[PAYMENT_METHODS]]`."
 - FAQ tagged `billing`. CtaBand.

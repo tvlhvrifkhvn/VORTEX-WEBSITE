@@ -1,0 +1,5 @@
+import { site } from "@/content/site";
+
+/* Inline <head> script: sets data-motion, data-review and data-viewing (visitor mode) on <html> before first paint,
+   so CSS-driven motion never flashes and review mode works on static pages. */
+export const bootScript = `(function(){var d=document.documentElement;try{var m=localStorage.getItem("vx-motion");var r=window.matchMedia("(prefers-reduced-motion: reduce)").matches;d.dataset.motion=m?m:(r?"off":"on")}catch(e){d.dataset.motion="on"}try{var q=new URLSearchParams(location.search).get("review");if(q==="1")sessionStorage.setItem("vx-review","1");if(q==="0")sessionStorage.removeItem("vx-review");if(sessionStorage.getItem("vx-review")==="1")d.dataset.review=""}catch(e){}${site.features.visitorMode ? 'try{var v=localStorage.getItem("vx-viewing");if(v==="01"||v==="02")d.dataset.viewing=v}catch(e){}' : ""}})();`;
