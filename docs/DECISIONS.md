@@ -180,3 +180,4 @@
 2026-11-28 · rev/stats · Tile E cursor mesh (MeshTrail, user request): hairline ink wireframe with dotted nodes forms around the pointer (130px), bulges outward/upward like a 3D surface and fades behind it (decay 0.93/frame); canvas under the text, runs only while active; fine pointers + motion on only; StatTile gains an optional fx background slot
 2026-11-28 · rev/stats · Cursor mesh finer: 10px cells (was 18), 0.5px lines, 1px nodes · user request
 2026-11-28 · rev/stats · Cursor mesh cells 7px · user request
+2026-11-28 · rev/shift · Night-shift clock panel: time in Anton (fill-num) sized per step to span the panel edge to edge (each time measured in Anton via canvas once the font loads; fallback 3.55em); step-title line removed; empty area holds a thick (5) signal sine wave, low amplitude (7/40), medium frequency (4 waves across), running continuously (CSS animate-wave, 2.4s per wavelength, off with motion off) · user request

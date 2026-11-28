@@ -224,6 +224,8 @@
   --animate-kinetic-in: kinetic-in 900ms var(--ease-out-expo) both;
   --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
   --animate-blink: blink 1s steps(1, end) infinite;
+  --animate-wave: wave 2.4s linear infinite;
+  @keyframes wave { to { transform: translateX(-25%); } } /* 25% of the 400-unit viewBox = one wavelength */
   --animate-content-in: content-in 300ms var(--ease-out-expo) both;
   --animate-content-out: content-out 150ms ease-in both;
   --animate-overlay-in: fade-in 300ms var(--ease-out-expo) both;

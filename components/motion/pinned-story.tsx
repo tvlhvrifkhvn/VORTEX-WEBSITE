@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import { convertTime, format12 } from "@/lib/time";
@@ -8,6 +8,7 @@ import { useMotion } from "./motion-provider";
 import { useMedia } from "./use-media";
 import { useMinute } from "./use-minute";
 import { ScrambleNumber } from "./scramble-number";
+import { Wave } from "./wave";
 
 export interface StoryStep { time: string; title: string; text: string }
 interface PinnedStoryProps { steps: StoryStep[]; fromLabel: string; toLabel: string; className?: string }
@@ -24,6 +25,18 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
   const now = useMinute();
   const pinned = enabled && desktop;
   const inner = useRef<HTMLDivElement>(null);
+  // Width of each step's time in Anton, in em (measured once the font is ready) → font-size = panel / width.
+  const [fits, setFits] = useState<number[]>([]);
+  useEffect(() => {
+    let live = true;
+    document.fonts.load('100px "Anton"').then(() => {
+      const ctx = document.createElement("canvas").getContext("2d");
+      if (!ctx || !live) return;
+      ctx.font = '400 100px "Anton"';
+      setFits(steps.map((s) => (ctx.measureText(format12(s.time)).width / 100) * 1.01));
+    });
+    return () => { live = false; };
+  }, [steps]);
   const [active, setActive] = useState(0);
   // Progress = how far through the sticky phase we are (wrapper minus the sticky block's own height).
   const progress = useMotionValue(0);
@@ -68,13 +81,16 @@ export function PinnedStory({ steps, fromLabel, toLabel, className }: PinnedStor
     <div ref={ref} className={className}>
       {/* Sticky block = clock panel + step list, top-aligned (no centring gap); the spacer below provides the scroll distance. */}
       <div ref={inner} className="grid-vx sticky top-[calc(var(--spacing-header)+var(--space-block))] items-stretch">
-        <div data-theme="ink" className="col-span-6 flex flex-col justify-between gap-(--space-block) p-10">
+        {/* Panel is a @container: each step's Anton time spans the full width (its own measured em width; 3.55 until the font loads). */}
+        <div data-theme="ink" className="@container col-span-6 flex flex-col justify-between gap-(--space-block) p-10">
           <div>
             <p className="label-mono text-muted-foreground">{fromLabel}</p>
-            <ScrambleNumber value={format12(step.time)} className="mt-(--space-tight) block text-display font-semibold" />
+            <div style={{ "--fit": fits[active] ?? 3.55 } as React.CSSProperties}>
+              <ScrambleNumber value={format12(step.time)} className="fill-num mt-(--space-tight) block" />
+            </div>
             <p className="label-mono tabular mt-(--space-tight) text-signal">{us(step.time)} {toLabel}</p>
-            <p aria-hidden="true" className="label-mono mt-(--space-tight) text-muted-foreground">{step.title}</p>
           </div>
+          <Wave className="my-auto" />
           <div className="h-1 bg-ink-2">
             <motion.div className="h-full origin-left bg-signal" style={{ scaleX: fill }} />
           </div>
