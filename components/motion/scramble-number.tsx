@@ -16,7 +16,7 @@ interface ScrambleNumberProps {
   reveal?: "scramble" | "blur";
 }
 
-/* §6.2.3 — digits scramble on enter (1.6s, slowed on request) and on value change (600ms). Symbols never scramble.
+/* §6.2.3 — digits scramble on enter (2s, slowed on request) and on value change (900ms). Symbols never scramble.
    Screen readers get the final value only. Motion OFF → final value. */
 export function ScrambleNumber({ value, prefix = "", suffix = "", format, className, reveal = "scramble" }: ScrambleNumberProps) {
   const text = typeof value === "number" ? new Intl.NumberFormat("en-US", format).format(value) : value;
@@ -29,7 +29,7 @@ export function ScrambleNumber({ value, prefix = "", suffix = "", format, classN
 
   useEffect(() => {
     if (!enabled || !inView || reveal === "blur") return;
-    run(played.current ? 600 : 1600);
+    run(played.current ? 900 : 2000);
     played.current = true;
   }, [enabled, inView, final, run, reveal]);
 

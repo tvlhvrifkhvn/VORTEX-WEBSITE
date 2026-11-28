@@ -15,7 +15,7 @@ export function Savings() {
     <Section theme="paper-2" aria-labelledby="savings-title">
       <SectionRule label={s.label} />
       <div className="grid-vx mt-(--space-header) gap-y-(--space-header)">
-        <div className="col-span-4 md:col-span-8 lg:col-span-7">
+        <div className="col-span-4 md:col-span-8 lg:col-span-6">
           <h2 id="savings-title" className="text-h2 font-semibold">
             {s.titleLines.map((l) => <span key={l} className="block">{l}</span>)}
           </h2>
@@ -27,7 +27,7 @@ export function Savings() {
             <ArrowLink href={s.compare.href}>{s.compare.label}</ArrowLink>
           </ActionGroup>
         </div>
-        <ImageFrame slot="calculator-object" block="right" fill className="col-span-4 md:col-span-4 lg:col-span-4 lg:col-start-9" />
+        <ImageFrame slot="calculator-object" block="right" fill className="col-span-4 md:col-span-4 lg:col-span-5 lg:col-start-8" />
       </div>
     </Section>
   );

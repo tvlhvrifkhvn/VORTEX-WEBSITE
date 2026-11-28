@@ -65,7 +65,7 @@ export function CalculatorCompact() {
 
       <div className="border-t border-border pt-6">
         <p className="label-mono text-muted-foreground">{priced ? labels.savings : labels.inHouse}</p>
-        <ScrambleNumber value={Math.round(priced ? result.savings! : result.inHouse)} format={MONEY} className="mt-(--space-tight) block text-display font-semibold" />
+        <ScrambleNumber value={Math.round(priced ? result.savings! : result.inHouse)} format={MONEY} className="money-num mt-(--space-tight) block" />
         {!priced && <p className="label-mono mt-2">{labels.perMonth}</p>}
       </div>
 

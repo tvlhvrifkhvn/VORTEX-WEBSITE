@@ -78,7 +78,7 @@ export function Calculator() {
         <p className="label-mono text-muted-foreground">{page.outputsLabel}</p>
         <div>
           <p className="label-mono">{priced ? labels.savings : labels.inHouse}</p>
-          <ScrambleNumber value={Math.round(priced ? r.savings! : r.inHouse)} format={{ style: "currency", currency: "USD", maximumFractionDigits: 0 }} className="mt-(--space-tight) block text-display font-semibold" />
+          <ScrambleNumber value={Math.round(priced ? r.savings! : r.inHouse)} format={{ style: "currency", currency: "USD", maximumFractionDigits: 0 }} className="money-num mt-(--space-tight) block" />
         </div>
         <dl className="border-t border-border" data-claim={priced ? "" : undefined}>
           {rows.map(([k, v]) => (
