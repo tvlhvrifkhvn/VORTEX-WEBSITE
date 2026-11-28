@@ -11,7 +11,7 @@ const NEAR = 5; // links per point
 
 /* A glyph (default "?") drawn as a triangulated hairline net, like a wire-mesh icon: fixed outline points trace
    the shape, interior points drift slowly at random (the glyph itself never moves), every node shows as a tiny
-   corner. Links only inside the shape. Fits its box with equal margins. Canvas, decorative; runs only on screen;
+   corner. Links only inside the shape. Sits up in its box with equal side and top margins; the dot is signal orange. Canvas, decorative; runs only on screen;
    motion off → one still frame. */
 export function MeshGlyph({ glyph = "?", className }: { glyph?: string; className?: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -24,6 +24,7 @@ export function MeshGlyph({ glyph = "?", className }: { glyph?: string; classNam
     let raf = 0, visible = false, live = true, w = 0, h = 0;
     let inside: (x: number, y: number) => boolean = () => false;
     let box = { x: 0, y: 0, s: 1 };
+    let dotY = S;
     type P = { bx: number; by: number; x: number; y: number; r: number; f1: number; f2: number; p1: number; p2: number; fixed: boolean };
     let pts: P[] = [];
 
@@ -44,6 +45,13 @@ export function MeshGlyph({ glyph = "?", className }: { glyph?: string; classNam
         if (!inside(x - 1, y) || !inside(x + 1, y) || !inside(x, y - 1) || !inside(x, y + 1)) edge.push([x, y]);
       }
       box = { x: (minX + maxX) / 2, y: (minY + maxY) / 2, s: Math.max(maxX - minX, maxY - minY) };
+      // The "?" dot = everything below the last fully empty row between the hook and the bottom.
+      dotY = S;
+      for (let y = maxY; y > minY; y--) {
+        let any = false;
+        for (let x = minX; x <= maxX && !any; x++) any = inside(x, y);
+        if (!any) { dotY = y; break; }
+      }
       const rnd = () => Math.random();
       pts = [];
       for (let k = 0; k < EDGE; k++) {
@@ -68,12 +76,18 @@ export function MeshGlyph({ glyph = "?", className }: { glyph?: string; classNam
         const x = p.bx + p.r * Math.sin(t * p.f1 + p.p1), y = p.by + p.r * Math.cos(t * p.f2 + p.p2);
         if (inside(x, y)) { p.x = x; p.y = y; }
       }
-      const k = (Math.min(w, h) * 0.9) / box.s, ox = w / 2 - box.x * k, oy = h / 2 - box.y * k;
+      // Fit with equal margins at the sides and the top (the glyph sits up in its column, not centred).
+      const k = (Math.min(w, h) * 0.9) / box.s, gw = box.s * k, margin = Math.max(0, (w - gw) / 2);
+      const ox = w / 2 - box.x * k, oy = Math.min(margin, h - gw) + gw / 2 - box.y * k;
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = ctx.fillStyle = getComputedStyle(cv).color;
+      const ink = getComputedStyle(cv).color;
+      const signal = getComputedStyle(document.documentElement).getPropertyValue("--color-signal").trim() || "#ff4d1f";
       ctx.lineWidth = 0.6;
+      for (const dot of [false, true]) {
+      ctx.strokeStyle = dot ? signal : ink;
       ctx.beginPath();
       for (let i = 0; i < pts.length; i++) {
+        if ((pts[i].y > dotY) !== dot) continue;
         const a = pts[i], near: [number, number][] = [];
         for (let j = 0; j < pts.length; j++) {
           if (j === i) continue;
@@ -88,7 +102,12 @@ export function MeshGlyph({ glyph = "?", className }: { glyph?: string; classNam
         }
       }
       ctx.stroke();
-      for (const p of pts) { const d = p.fixed ? 1.2 : 1.8; ctx.fillRect(ox + p.x * k - d / 2, oy + p.y * k - d / 2, d, d); } // tiny corners
+      }
+      for (const p of pts) { // tiny corners; the dot's in signal orange
+        const d = p.fixed ? 1.2 : 1.8;
+        ctx.fillStyle = p.y > dotY ? signal : ink;
+        ctx.fillRect(ox + p.x * k - d / 2, oy + p.y * k - d / 2, d, d);
+      }
     };
     const tick = (t: number) => { draw(t); raf = visible && enabled ? requestAnimationFrame(tick) : 0; };
 
