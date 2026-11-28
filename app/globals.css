@@ -64,7 +64,7 @@
   --text-micro--letter-spacing: 0.08em;
 
   /* Layout */
-  --spacing-section: clamp(3rem, 5vw, 4.5rem);
+  --spacing-section: clamp(2.5rem, 4vw, 3.5rem);
   --spacing-margin: clamp(1.25rem, 4vw, 4rem);
   --spacing-gutter: clamp(1rem, 1.6vw, 1.5rem);
   --spacing-header: 4rem;
@@ -77,7 +77,7 @@
 /* Rhythm system (polish pass): the only vertical/inline gaps used between blocks. */
 :root {
   --space-section: var(--spacing-section);    /* top/bottom of every section */
-  --space-header: clamp(2rem, 3.5vw, 3.5rem); /* label row → H2, H2 → first content */
+  --space-header: clamp(1.5rem, 2.5vw, 2.5rem); /* label row → H2, H2 → first content */
   --space-block: clamp(1.5rem, 2.5vw, 2.5rem); /* between blocks inside a section */
   --space-inline: 1.5rem;                     /* between actions in a row */
   --space-tight: 0.75rem;                     /* label → value, title → one line */
