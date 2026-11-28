@@ -3,10 +3,11 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { useMotion } from "./motion-provider";
+import { WireGlobe } from "./wire-globe";
 
 /* Tile C: activity-style ring. The arc fills to `pct` on scroll-in and replays on hover/focus of the tile;
-   a minimal inner dial of 20 ticks (1 tick = 5%, the saved share in full ink) turns slowly.
-   Rounded line ends, like an activity ring (user request). Motion off → arc at its value, dial still. Decorative: the % is the text. */
+   inside it a wireframe globe turns slowly (WireGlobe; user request, replaces the tick dial).
+   Rounded line ends, like an activity ring (user request). Motion off → arc at its value, globe still. Decorative: the % is the text. */
 export function SavingsRing({ pct }: { pct: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
@@ -32,21 +33,9 @@ export function SavingsRing({ pct }: { pct: number }) {
           animate={{ pathLength: show ? value : 0 }}
           transition={{ duration: enabled ? 1.6 : 0, ease: [0.16, 1, 0.3, 1] }}
         />
-        <g className="origin-center animate-[spin_60s_linear_infinite]">
-          {Array.from({ length: 20 }, (_, i) => (
-            <line
-              key={i}
-              x1="50"
-              y1="15"
-              x2="50"
-              y2={i % 5 === 0 ? 21 : 18.5}
-              stroke="currentColor"
-              strokeOpacity={i * 5 < pct ? 1 : 0.3}
-              strokeWidth="1"
-              strokeLinecap="round"
-              transform={`rotate(${i * 18} 50 50)`}
-            />
-          ))}
+        {/* Upright inside the rotated ring svg. */}
+        <g transform="rotate(90 50 50)">
+          <WireGlobe />
         </g>
       </svg>
     </div>
