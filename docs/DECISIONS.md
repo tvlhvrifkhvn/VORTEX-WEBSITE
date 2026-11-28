@@ -175,3 +175,4 @@
 2026-11-27 · rev/panels · File-panel photo square again, top on the first row rule (stretched to the action row it became a ~0.47 strip at 1000–1333px); corner numerals 01/02 in Anton (font-num) like the stat numbers
 2026-11-28 · rev/panels · Removed "All File 0N jobs" (Open file → file page lists every job) and the ACTIVE/OPEN chip; no reserved line under row 04 (rows still reveal on hover); photo column 45%, photo runs from the first row rule to the button's bottom edge; Anton corner numerals 15% larger (--num), top padding follows
 2026-11-28 · rev/panels · Hover: the bar/photo slide out only on the hovered panel (500/700ms) and snap back in 200ms when the pointer leaves; keyboard state uses :focus-visible (mouse focus no longer keeps a panel "on") · the slow slide-back of the panel just left read as the wrong panel moving
+2026-11-28 · rev/panels · Photo no longer shifts on hover (it slid out of its + marks); only the signal block slides 12px

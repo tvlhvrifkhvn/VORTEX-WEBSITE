@@ -20,7 +20,7 @@ const short = (id: string) => services.find((s) => s.id === id)?.short ?? "";
 /* 04 — THE FILES: two mirrored panels, one tab stop each (stretched title link; PanelShell forwards other clicks).
    Identical internal grid: label row → title → [rows · meta · actions | image] → audience strip.
    Desktop image: from the first row rule to the bottom of the button (fills the column). Phone: title → square photo → rows → actions → strip.
-   Panel hover/focus: image frame 8px, signal block 12px, numeral scramble (transform only; .fx-move = off without motion).
+   Panel hover/focus: signal block 12px, numeral scramble (the photo stays fixed inside its + marks) (transform only; .fx-move = off without motion).
    Row hover: index becomes a box, the row reveals the service's one line. */
 export function FilePanels() {
   return (
@@ -56,7 +56,7 @@ export function FilePanels() {
               <div className="mt-(--space-header) grid gap-x-(--spacing-gutter) gap-y-(--space-block) lg:grid-cols-[minmax(0,1fr)_45%]">
                 <div className="relative mx-3.5 max-w-sm lg:col-start-2 lg:row-start-1 lg:max-w-none">
                   <CornerMarks className="z-20 text-primary" />
-                  <div className="fx-move relative aspect-square overflow-hidden transition-transform duration-200 ease-out-expo group-hover/panel:translate-x-2 group-hover/panel:duration-500 group-has-[:focus-visible]/panel:translate-x-2 group-data-[live]/panel:translate-x-2 lg:aspect-auto lg:h-full">
+                  <div className="relative aspect-square overflow-hidden lg:aspect-auto lg:h-full">
                     {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-processed halftone */}
                     <img src={img.src} alt="" width={img.width} height={img.height} loading="lazy" decoding="async" className="size-full object-cover grayscale" />
                     <span aria-hidden="true" className="fx-move absolute top-[48%] left-0 h-[22%] w-[45%] bg-signal mix-blend-multiply transition-transform duration-200 ease-out-expo group-hover/panel:translate-x-3 group-hover/panel:duration-700 group-hover/panel:ease-in-out-quart group-has-[:focus-visible]/panel:translate-x-3 group-data-[live]/panel:translate-x-3" />
